@@ -7,4 +7,11 @@
 		<put-attribute name="body" value="/WEB-INF/view/basic/main.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/view/basic/footer.jsp" />
 	</definition>
-</tiles-definitions>
+	
+	<definition name="t:join" template="/WEB-INF/view/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/view/basic/header.jsp" />
+		<put-attribute name="login" value="/WEB-INF/view/basic/login.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/view/join/memOrBand.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/view/basic/footer.jsp" />
+	</definition>
+</tiles-definitions>  

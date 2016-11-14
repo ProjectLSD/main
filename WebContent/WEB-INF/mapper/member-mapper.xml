@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+	<select id="getAll" resultType="member.model.Member">		
+		select * from member
+	</select>
+	<select id="selectId" parameterType="java.lang.String" resultType="member.model.Member">		
+		select * from member where id=#{id}
+	</select>
+	<insert id="inputMember" parameterType="member.model.Member">
+		insert into member values(#{id},#{pass},#{email},#{phonenum1},#{phonenum2},
+								#{phonenum3},#{point},#{likes})
+	</insert>
+</mapper>  
