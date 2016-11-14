@@ -18,7 +18,7 @@ public class MemberController {
 	@Autowired
 	MemberService memberService;
 
-	@RequestMapping("/home.it")
+	@RequestMapping("/")
 	public ModelAndView login(Member m, HttpSession session) {
 		ModelAndView mav = new ModelAndView("t:main");
 		/*

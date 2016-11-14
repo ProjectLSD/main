@@ -7,4 +7,4 @@
 <div align="center">
 	copyright&copy; <b>WEB APP corp.</b>
 	current server IP : <%=addr %>
-</div>
+</div>  
