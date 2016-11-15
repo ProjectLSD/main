@@ -21,10 +21,6 @@
 <br>
 <input type="text" name="album"/>
 <br>
-<b>앨범 이미지</b>
-<br>
-<input type="file" name="image"/>
-<br>
 <b>파일 선택</b>  
 <br>
 <input type="file" name="file"/>

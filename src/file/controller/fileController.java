@@ -23,18 +23,18 @@ public class fileController {
 	}
 	
 	@RequestMapping("file/upload")
-	public  ModelAndView fileUpload(String genre,String album,@RequestParam(name="image") MultipartFile image,
+	public  ModelAndView fileUpload(String genre,String album,
 			@RequestParam(name="file")MultipartFile file,HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		String owner = (String)session.getAttribute("userId");
-		boolean rst = fileSrv.insertFile(genre,album,image,file,owner);
+		boolean rst = fileSrv.insertFile(genre,album,file,owner);
 		System.out.println(rst);
 		if(rst){
 				
-				mav.setViewName("file/list");
+				mav.setViewName("tm:file/list");
 			}else{
 				
-				mav.setViewName("file/error");
+				mav.setViewName("tm:file/error");
 			}
 		return mav;
 	}

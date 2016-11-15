@@ -3,7 +3,7 @@
 <tiles-definitions>
 	<definition name="tm:*/*" template="/WEB-INF/view/template.jsp">
 		<put-attribute name="header" value="/WEB-INF/view/basic/header.jsp" />
-		<put-attribute name="login" value="/WEB-INF/view/basic/login.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/view/basic/menu.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/view/{1}/{2}.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/view/basic/footer.jsp" />
 	</definition>

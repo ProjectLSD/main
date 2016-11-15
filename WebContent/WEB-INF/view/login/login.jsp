@@ -7,9 +7,9 @@
 	<c:when test="${sessionScope.userId == null}">
 		<fieldset style="width: 100">
 		<legend><b> L o g i n </b></legend>
-		<form action="/home.it" method="post">
+		<form action="/home" method="post">
 			<b>&nbspID&nbsp</b>			
-			<input type="text" required="required" placeholder="email형식으로 입력" name="id"/><br/>
+			<input type="text" required="required" name="id"/><br/>
 			<br/>
 			<b>PW</b>
 			<input type="password" required="required" name="pass"/><br/>	
@@ -42,7 +42,7 @@
 			<p><a href="">포인트 충전</a></p>
 			<p><a href="">포인트 충전내역</a></p>
 			<p><a href="/mail/confirm.it">메일 인증</a></p>
-			<p><a href="/member/logout.it">로그아웃</a></p>
+			<p><a href="/logout">로그아웃</a></p>
 		</fieldset>
 	</c:otherwise>
 </c:choose>

@@ -22,13 +22,17 @@ public class rootcontroller {
 	public String join(){
 		return"t:join";
 	}
+	@RequestMapping("/login")
+	public String login(){
+		return"tm:login/login";
+	}
 	
 	@RequestMapping("/index")
 	public String index(){
 		return"t:main";
 	}
 	@RequestMapping("/home")
-	public ModelAndView login(String id, String pass , HttpSession session) {
+	public ModelAndView loginConfirm(String id, String pass , HttpSession session) {
 		ModelAndView mav = new ModelAndView("t:main");
 		System.out.println(id + " / " + pass);
 		if (rs.getAllMember(id, pass) == true) {
