@@ -10,9 +10,14 @@ public class rootcontroller {
 		return"t:join";
 	}
 	
-	@RequestMapping("/index")
+	@RequestMapping("/")
 	public String index(){
 		return"t:main";
+	}
+	
+	@RequestMapping("fileUp")
+	public String fileUp(){
+		return "t:fileUp";
 	}
 	
 }

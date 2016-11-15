@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>S H C</title>
+  <title>LSD Music</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,6 +16,7 @@
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
+       
     }
     .text-left{
      width: 80%;
@@ -26,7 +27,7 @@
     /* Set gray background color and 100% height */
     .sidenav {
       padding-top: 20px;
-      background-color: #f1f1f1;
+      background-color: #212121;
       height: 100%;
       width: 20%;
     }
@@ -34,7 +35,7 @@
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
-      color: white;
+      color: #242424;
       padding: 10px;
     }
     
@@ -43,14 +44,15 @@
       .sidenav {
         height: auto;
         padding: 15px;
+        
       }
       .row.content {height:auto;}
     }
   </style>
 </head>
-<body>
+<body style="background-color: #212121">
 <!-- 
-<audio autoplay="autoplay">
+<audio autoplay="autoplay" controls="controls">
 	<source src="/audio/tt.mp3">
 </audio>
  -->

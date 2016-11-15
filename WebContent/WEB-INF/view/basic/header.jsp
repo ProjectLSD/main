@@ -6,7 +6,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://192.168.219.175/index">SHC</a>
+      <a class="navbar-brand" href=""><img src="C:\Users\admin\Desktop\main\imgres.jpg"/ border="1" width="30" height="30"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
