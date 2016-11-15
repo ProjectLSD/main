@@ -14,7 +14,7 @@ import member.model.MemberService;
 public class MemberController {
 	@Autowired
 	MemberService ms;
-	  
+	
 	@RequestMapping("/joinId")
 	@ResponseBody
 	public String select(String id){
@@ -31,7 +31,7 @@ public class MemberController {
 	public String join(){
 		return "tm:join/memberJoin";
 	}
-	// band join페이지 출력
+	// member join페이지 출력
 	
 		
 	@RequestMapping("/input")
@@ -39,7 +39,7 @@ public class MemberController {
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println(m.getId()+"/"+m.getPass()+"/"+m.getEmail()+"/"+m.getPhonenum1()
-							+"/"+m.getPhonenum2()+"/"+m.getPhonenum3());
+							+"/"+m.getPhonenum2()+"/"+m.getPhonenum3()+"/"+m.getName());
 		
 		int r=0;
 		r+=ms.Input(m);
@@ -51,5 +51,5 @@ public class MemberController {
 		}
 		return mav;
 	}
-	// Band db에 넣기
+	// member db에 넣기
 }

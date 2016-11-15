@@ -9,13 +9,20 @@ public class Member {
 		String phonenum2;
 		String phonenum3;
 		int point=0;
-		int likelikt=0;
+		int likes=0;
+		String name;
 		
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
 		public String getId() {
 			return id;
 		}
 		public void setId(String id) {
-			this.id = id;  
+			this.id = id;
 		}
 		public String getPass() {
 			return pass;
@@ -53,11 +60,11 @@ public class Member {
 		public void setPoint(int point) {
 			this.point = point;
 		}
-		public int getLikelikt() {
-			return likelikt;
+		public int getLikes() {
+			return likes;
 		}
-		public void setLikelikt(int likelikt) {
-			this.likelikt = likelikt;
+		public void setLikes(int likes) {
+			this.likes = likes;
 		}
 	
 	

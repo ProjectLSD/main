@@ -16,7 +16,7 @@ public class BandService {
 		SqlSession sql = fac.openSession();
 		List<Band> li = sql.selectList("band.selectId",id);
 		if(li.size()==1){
-			flag = false;  
+			flag = false;
 		}else{
 			flag = true;
 		}

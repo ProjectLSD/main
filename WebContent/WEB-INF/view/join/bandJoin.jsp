@@ -23,7 +23,7 @@
       <label>Password :</label>
       <input type="password" required="required" class="form-control" name="pass" placeholder=" 패스워드">			
     </div>
-    <br/>  
+    <br/>
    <!--  <div class="form-group" style="padding-bottom: 5px;">
       <label>Confirm :&nbsp;&nbsp;&nbsp;</label>
       <input type="password" class="form-control" name="passcon" placeholder=" 패스워드확인">
@@ -49,12 +49,12 @@
       <option>018</option>
       <option>019</option>
    </select>
-   <input type="text" class="form-control" id="phonenum2" maxlength="4" size="1px;">
-   <input type="text" class="form-control" id="phonenum3" maxlength="4" size="1px;">
+   <input type="text" class="form-control" name="phonenum2" maxlength="4" size="1px;">
+   <input type="text" class="form-control" name="phonenum3" maxlength="4" size="1px;">
    <br/>
    </div>
    <br/>
-    <input type="button" class="btn btn-default btn-success" value="가입하기"onclick="location.href='/band/input'">
+    <input type="submit" class="btn btn-default btn-success" value="가입하기">
     <input type="button" class="btn btn-default btn-info" value="취소"onclick="location.href='/join'">
   </form>
 </div>

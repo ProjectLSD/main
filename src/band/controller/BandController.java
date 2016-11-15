@@ -15,7 +15,7 @@ public class BandController {
 	@Autowired
 	BandService bs;
 	
-	@RequestMapping("/joinId")  
+	@RequestMapping("/joinId")
 	@ResponseBody
 	public String select(String id){
 		boolean flag = bs.selectId(id);
@@ -39,7 +39,7 @@ public class BandController {
 		ModelAndView mav = new ModelAndView();
 		
 		System.out.println(b.getId()+"/"+b.getPass()+"/"+b.getEmail()+"/"+b.getPhonenum1()
-							+"/"+b.getPhonenum2()+"/"+b.getPhonenum3());
+							+"/"+b.getPhonenum2()+"/"+b.getPhonenum3()+"/"+b.getName());
 		
 		int r=0;
 		r+=bs.Input(b);

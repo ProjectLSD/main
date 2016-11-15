@@ -23,7 +23,7 @@ public class MemberService {
 		sql.close();
 		System.out.println(flag);
 		return flag;
-	}  
+	}
 	
 	public int Input(Member m){
 		SqlSession sql = fac.openSession();

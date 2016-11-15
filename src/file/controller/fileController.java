@@ -17,17 +17,18 @@ public class fileController {
 
 	@Autowired
 	fileService fileSrv;
+	@RequestMapping("/file")
+	public String file(){
+		return "t:fileUp";
+	}
 	
 	@RequestMapping("file/upload")
 	public  ModelAndView fileUpload(String genre,String album,@RequestParam(name="image") MultipartFile image,
 			@RequestParam(name="file")MultipartFile file,HttpSession session){
-		System.out.println("c1");
 		ModelAndView mav = new ModelAndView();
-		System.out.println("c2");
 		String owner = (String)session.getAttribute("userId");
-		System.out.println("c3");
 		boolean rst = fileSrv.insertFile(genre,album,image,file,owner);
-		System.out.println("c4");
+		System.out.println(rst);
 		if(rst){
 				
 				mav.setViewName("file/list");

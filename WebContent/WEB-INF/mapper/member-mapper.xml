@@ -9,8 +9,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectId" parameterType="java.lang.String" resultType="member.model.Member">		
 		select * from member where id=#{id}
 	</select>
+	<select id="selectMember" parameterType="java.util.HashMap" resultType="member.model.Member">		
+		select * from member where id=#{id} and pass=#{pass}
+	</select>
+	
 	<insert id="inputMember" parameterType="member.model.Member">
 		insert into member values(#{id},#{pass},#{email},#{phonenum1},#{phonenum2},
-								#{phonenum3},#{point},#{likes})
+								#{phonenum3},#{point},#{likes},#{name})
 	</insert>
-</mapper>  
+</mapper>

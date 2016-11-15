@@ -13,7 +13,14 @@ public class Band {
 	int likes=0;
 	int amountcash=0;
 	int point=0;
-	  
+	String name;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getId() {
 		return id;
 	}

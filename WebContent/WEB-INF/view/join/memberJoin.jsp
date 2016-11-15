@@ -18,7 +18,7 @@
       <input type="text" required="required" class="form-control" name="id" id="cid" placeholder="사용할 아이디">
     </div>
  	<span id="rst"></span>
-    <br/>  
+    <br/>
     <div class="form-group" style="padding-bottom: 5px;">
       <label>Password :</label>
       <input type="password" required="required" class="form-control" name="pass" placeholder=" 패스워드">			
@@ -42,8 +42,8 @@
    <div class="form-group"  style="padding-bottom: 5px;">
       <label>PonNum :&nbsp;&nbsp;</label>
    <select name="phonenum1" class="form-control">
-      <option >010</option>
-      <option >011</option>
+      <option>010</option>
+      <option>011</option>
       <option>016</option>
       <option>017</option>
       <option>018</option>
@@ -54,7 +54,7 @@
    <br/>
    </div>
    <br/>
-    <input type="button" class="btn btn-default btn-success" value="가입하기"onclick="location.href='/member/input'">
+    <input type="submit" class="btn btn-default btn-success" value="가입하기">
     <input type="button" class="btn btn-default btn-info" value="취소"onclick="location.href='/join'">
   </form>
 </div>
