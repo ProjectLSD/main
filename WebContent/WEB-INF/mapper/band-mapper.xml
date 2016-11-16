@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="band">
+	<select id="getAll" resultType="band.model.Band">		
+		select * from band
+	</select>
+	<select id="selectId" parameterType="java.lang.String" resultType="band.model.Band">		
+		select * from band where id=#{id}
+	</select>
+	<select id="selectBand" parameterType="java.util.HashMap" resultType="band.model.Band">		
+		select * from band where id=#{id} and pass=#{pass}
+	</select>
+	<insert id="inputBand" parameterType="band.model.Band">
+		insert into band values(#{id},#{pass},#{email},#{phonenum1},#{phonenum2},
+								#{phonenum3},#{paycheck},#{info},#{downcount},#{likes},#{amountcash},#{point},#{name})
+	</insert>
+</mapper>

@@ -1,36 +1,71 @@
 package member.model;
 
-import java.util.Date;
 
 public class Member {
-	String id;
-	String name;
-	String pass;
-	Date joindate;
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getPass() {
-		return pass;
-	}
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-	public Date getJoindate() {
-		return joindate;
-	}
-	public void setJoindate(Date joindate) {
-		this.joindate = joindate;
-	}
+		String id;
+		String pass;
+		String email;
+		String phonenum1;
+		String phonenum2;
+		String phonenum3;
+		int point=0;
+		int likes=0;
+		String name;
+		
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public String getId() {
+			return id;
+		}
+		public void setId(String id) {
+			this.id = id;
+		}
+		public String getPass() {
+			return pass;
+		}
+		public void setPass(String pass) {
+			this.pass = pass;
+		}
+		public String getEmail() {
+			return email;
+		}
+		public void setEmail(String email) {
+			this.email = email;
+		}
+		public String getPhonenum1() {
+			return phonenum1;
+		}
+		public void setPhonenum1(String phonenum1) {
+			this.phonenum1 = phonenum1;
+		}
+		public String getPhonenum2() {
+			return phonenum2;
+		}
+		public void setPhonenum2(String phonenum2) {
+			this.phonenum2 = phonenum2;
+		}
+		public String getPhonenum3() {
+			return phonenum3;
+		}
+		public void setPhonenum3(String phonenum3) {
+			this.phonenum3 = phonenum3;
+		}
+		public int getPoint() {
+			return point;
+		}
+		public void setPoint(int point) {
+			this.point = point;
+		}
+		public int getLikes() {
+			return likes;
+		}
+		public void setLikes(int likes) {
+			this.likes = likes;
+		}
 	
 	
 }

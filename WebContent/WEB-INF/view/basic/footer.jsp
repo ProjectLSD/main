@@ -5,6 +5,9 @@
 %>
 
 <div align="center">
-	copyright&copy; <b>WEB APP corp.</b>
-	current server IP : <%=addr %>
-</div>  
+<!-- mp4,ogg webm -->
+<video controls="controls" width="100%" height="15">
+<source src="/audio/ttm.mp4">
+</video>
+
+</div>
