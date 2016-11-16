@@ -1,6 +1,9 @@
 package file.controller;
 
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,4 +41,30 @@ public class fileController {
 			}
 		return mav;
 	}
+	
+	@RequestMapping("file/list")
+	public ModelAndView reqResolve(@RequestParam(defaultValue="1")int p) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("tm:file/list");
+		List li = fileSrv.readSomePage(p);
+		mav.addObject("data", li);
+		mav.addObject("last",fileSrv.calcLast());
+		mav.addObject("size",fileSrv.getTotalCount());
+		return mav;
+	}
+	
+	@RequestMapping("/file/down")
+	public ModelAndView downReqResolve(int filenum) {
+
+		HashMap map = fileSrv.readDownTarget(filenum);
+		ModelAndView mav = new ModelAndView();
+		if (map == null) {
+			mav.setViewName("file/fail");
+		} else {
+			mav.setViewName("fileDown");  
+			mav.addObject("target", map);
+		}
+		return mav;
+	}
+
 }

@@ -33,7 +33,6 @@
    padding-top: 20px;
    background-color: #000000;
    height: 100%;
-   
 }
 
 /* Set black background color, white text and some padding */
@@ -68,12 +67,12 @@ footer {
          </div>
          <div class="col-sm-8 text-left">
             
-         <p><tiles:insertAttribute name="body"/></p>
+         <p><tiles:insertAttribute name="body" /></p>
          </div>
          <div class="col-sm-2 sidenav">
          <tiles:insertAttribute name="header"/>
                
-            </div>
+            </div>  
             
                
             </div>

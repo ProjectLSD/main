@@ -2,40 +2,37 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<h3 id="ftop">자료목록</h3>
-총
-<b>${size}</b>
+<h3 id="ftop" style="color: silver;">자료목록</h3>
+<b style="color: silver;">총</b>
+<b style="color: red;">${size}</b>
+<b style="color: silver;">
 개의 자료가 등록되어 있으며, 다운로드 이용에 제약은 없습니다.
-<hr />
-<b style="color: red">최근 인기자료 TOP 3</b>
+</b>
 <br />
-<c:forEach var="obj" items="${top }">
-	${obj.cate }| <a href="#f${obj.num }" style="text-decoration: none">${obj.filename }</a>&nbsp;&nbsp;
-</c:forEach>
 <hr />
 <c:forEach var="obj" items="${data }">
-	<div id="f${obj.num }">	
-		→  제공자 : ${obj.uploader }   /  <a href="javascript:openReview(${obj.num })">리뷰보기</a> <br />
-		→	파일설명 :${obj.comments } <span style="color: green">(다운로드수
-			:${obj.count })</span>
+	<div id="f${obj.FILENUM }">	
+		<b style="color: silver;">→  제공자 : ${obj.OWNER } </b>  /  <a href="javascript:openReview(${obj.FILENUM })">리뷰보기</a> <br />
+		<b style="color: silver;">→	파일명 :${obj.FILENAME } </b><span style="color: green">(다운로드수
+			:${obj.COUNT })</span>
 		<br />
-		→	<a href="/file/down.nhn?num=${obj.num }">${obj.filename }</a>
+		<b style="color: silver;">→</b>	<a href="/file/down?filenum=${obj.FILENUM }">${obj.FILENAME }</a>
 		<c:choose>
-			<c:when test="${obj.filesize gt 1024*1024*1024 }">
-				<fmt:formatNumber value="${obj.filesize / (1024*1024*1024) }" />  GB
+			<c:when test="${obj.FILESIZE gt 1024*1024*1024 }">
+				<b style="color: silver;"><fmt:formatNumber  value="${obj.FILESIZE / (1024*1024*1024) }" />  GB</b>
 				</c:when>
-			<c:when test="${obj.filesize gt 1024*1024 }">
-				<fmt:formatNumber value="${obj.filesize / (1024*1024) }" /> MB
+			<c:when test="${obj.FILESIZE gt 1024*1024 }">
+				<b style="color: silver;"><fmt:formatNumber  value="${obj.FILESIZE / (1024*1024) }"/> MB</b>
 				</c:when>
 			<c:otherwise>
-				<fmt:formatNumber value="${obj.filesize / (1024) }" /> KB
+				<b style="color: silver;"><fmt:formatNumber value="${obj.FILESIZE / (1024) }" /> KB</b>
 				</c:otherwise>
 		</c:choose>
 	</div>
 	<hr style="width: 80%" align="left" />
 </c:forEach>
 <c:forEach var="num" begin="1" end="${last }" step="1">
-	<a href = "/file/list.nhn?p=${num}"> ${num } </a>	
+	<a href = "/file/list?p=${filenum}"> ${FILENUM } </a>	
 </c:forEach>
 <br>
 <!-- 
@@ -49,7 +46,7 @@
 	
 	var aws;
 	window.onload = function() {
-		var target = "ws://192.168.10.2/ws/notice.nhn";
+		var target = "ws://192.168.10.12/ws/notice.nhn";
 		aws = new WebSocket(target);
 		aws.onopen = function(args) {
 			console.log("open!")
