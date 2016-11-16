@@ -30,7 +30,7 @@
         <li><a style="color: white"; href="#section1">메뉴</a></li>
         <li ><a style="color: white"; href="#section2"><span class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
         <li><a style="color: white"; href="/board/list"><span class="glyphicon glyphicon-tags"></span>  자유게시판</a></li>
-        <li><a style="color: white"; href="#section3"><span class="glyphicon glyphicon-book"></span> 유용한자료</a></li>
+        <li><a style="color: white"; href="/file/list"><span class="glyphicon glyphicon-book"></span> 유용한자료</a></li>
       </ul><hr/>
 <div align="center">
   <button type="button" class="btn btn-success" onclick="location.href='/login'">로그인</button>&nbsp;

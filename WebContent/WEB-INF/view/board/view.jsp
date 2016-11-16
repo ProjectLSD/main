@@ -15,7 +15,7 @@
         <td width="50px"><span class="glyphicon glyphicon-eye-open">&nbsp${board.viewcount}</span></td>
       	<td width="50px"><span class="glyphicon glyphicon-thumbs-up">&nbsp${board.likes}</span></td>
       </tr>
-    </table>
+    </table>  
     <div class="panel-body">${board.comments}</div>
    
   </div>
@@ -24,11 +24,30 @@
     <br/>
     <div class="form-group" style="padding-bottom: 5px;">
       <input size="82px" type="text" required="required" class="form-control" name="review" placeholder=" 내용">
-      <input type="submit" class="btn btn-default btn-success" value="submit"> 	
+      <input type="button" class="btn btn-default btn-success" value="submit"> 	
     </div>
     
     <br/>
- <button type="button" class="btn btn-default" onclick="location.href='/login'"><h3><b>1</b></h3><br/>comment
-</div>
+ <button type="button" class="btn btn-default" onclick="location.href='/login'"><h3><b>1</b></h3><br/>comment</button>
 
- </button>
+</div>
+<script>
+   $("#bt").click(function() {
+      var id = $("#id").val();
+      var pass = $("#pass").val();
+      var save = $("#save").prop("checked");
+      $.ajax({
+         "url" : "/member/loginCheck?id=" + id + "&pass=" + pass,
+         "method" : "post",
+         "aSync" : true
+      }).done(function(txt) {
+         console.log(txt);
+         if (txt == "true") {
+            location.replace("/member/loginConfirm?id="+ id+ "&pass="+ pass+ "&save="+ save);
+         } else {
+            $("#result").html("<i style='color:red'>회원 정보가 다릅니다!</i>");
+         }
+      })
+   });
+</script>
+ 
