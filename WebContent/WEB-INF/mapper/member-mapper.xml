@@ -17,4 +17,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into member values(#{id},#{pass},#{email},#{phonenum1},#{phonenum2},
 								#{phonenum3},#{point},#{likes},#{name})
 	</insert>
+	
+	<select id="findEmail" resultType="java.lang.String">
+		select id from member where Email = #{email}
+	</select>
 </mapper>

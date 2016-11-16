@@ -20,17 +20,25 @@
 		</fieldset>
 		
 		<a href="/member/join.it">아직 회원이 아니십니까?</a><br/>
+		<a href="javascript:openfindid()">아이디 찾기</a><br/>
 		<a href="javascript:openfindpass()">비밀번호 찾기</a><br/>
 		<script>
+			function openfindid(){
+				var url = "/findid";
+				window.open(url, "findid", "height=130,width=200");
+				
+			}
+			</script>
+		<script>
 			function openfindpass(){
-				var url = "/findpass.it";
-				window.open(url, "findpass", "height=400,width=300");
+				var url = "/findpass";
+				window.open(url, "findpass", "height=180,width=200");
 			}
 		</script>
 		<a href="javascript:openchat()">채팅방</a>
 		<script>
 			function openchat(){
-				var url = "/chat.it";
+				var url = "/chat";
 				window.open(url, "chat", "height=400,width=300");
 			}
 		</script>

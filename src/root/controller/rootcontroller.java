@@ -49,4 +49,14 @@ public class rootcontroller {
 		session.invalidate();
 		return mav;
 	}
+	
+	@RequestMapping("/findid")
+	public String findId(){
+		return"/login/findid";
+	}
+	
+	@RequestMapping("/findpass")
+	public String findPass(){
+		return"/login/findpass";
+	}
 }
