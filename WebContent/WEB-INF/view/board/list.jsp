@@ -27,10 +27,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="success">
+      <tr style="color: black;" class="success">
         <td>1</td>
         <td>16-11-15</td>
-        <td>뭘 처다보노??</td>
+        <td>뭘 처다보노?? 염탐하지마라</td>
         <td>jjs01</td>
         <td>1</td>
         <td>183</td>

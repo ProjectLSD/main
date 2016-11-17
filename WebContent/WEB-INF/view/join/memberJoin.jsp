@@ -13,14 +13,29 @@
 background-image:url("/main.jpg");
 background-size: cover;
 }
+.modal-header, h4, .close {
+      background-color: #333;
+      color: #fff !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-header, .modal-body {
+      padding: 40px 50px;
+  }
 
 </style>
 <body id="aaa"></body>
-<div class="container"> 
-
-<h2 style="color: white;"> 회원가입</h2><hr/>
-<p>회원 정보를 입력해 주세요.</p>
-<form action="/member/input" method="post" style="font-size: 12pt;" class="form-inline">
+<div class="modal fade in" id="myModal" role="dialog" style="display: block; padding-right: 19px;">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"></button>
+          <h4><span class="glyphicon glyphicon-lock"></span> 일반 회원가입</h4>
+        </div>
+        <div class="modal-body">
+          <form action="/band/input" method="post" style="font-size: 12pt;" class="form-inline">
     <input type="hidden" name="menu" value="input" /> 
     <div class="form-group" style="padding-bottom: 5px;">
       <label>I D :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -33,11 +48,11 @@ background-size: cover;
       <input type="password" required="required" class="form-control" name="pass" placeholder=" 패스워드">         
     </div>
     <br/>
-   <!--  <div class="form-group" style="padding-bottom: 5px;">
+    <div class="form-group" style="padding-bottom: 5px;">
       <label>Confirm :&nbsp;&nbsp;&nbsp;</label>
       <input type="password" class="form-control" name="passcon" placeholder=" 패스워드확인">
     </div>
-    <br/> -->
+    <br/>
     <div class="form-group" style="padding-bottom: 5px;">
       <label>Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
       <input type="text" class="form-control" name="name" placeholder="이름">
@@ -65,16 +80,18 @@ background-size: cover;
       <option>019</option>
    </select>
    <input type="text" class="form-control" name="phonenum2" maxlength="4" size="1px;">
-   <input type="text" class="form-control" name="phonenum3" maxlength="4" size="1px;">
-   <br/>
-   </div>
-   <br/>
-    <input type="submit" class="btn btn-default btn-success" value="가입하기" onclick="join_click()">
-    <input type="button" class="btn btn-default btn-info" value="취소"onclick="location.href='/join'">
-  	<input type="hidden" id="num"/>
-  	<input type="hidden" id="check"/>
-  	
-  </form>
+   <input type="text" class="form-control" name="phonenum3" maxlength="4" size="1px;"><br/>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal" onclick="location.href='/join'">
+            <span class="glyphicon glyphicon-remove"></span>취소
+          </button>
+           <input type="submit" class="btn btn-default btn-success" value="가입하기" onclick="join_click()">
+        </div>
+         </form>
+      </div>
+    </div>
+  </div>
 </div>
 <script>
    document.getElementById("cid").addEventListener("blur", function(){

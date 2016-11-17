@@ -13,6 +13,19 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
+<style>
+.button4 {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+
+.button4:hover {
+    background-color: #555555;
+    color: white;
+}
+
+</style>
 <body>
   <div align="center">
          <img src="/logo.png" height="180"; width="80%" onclick="location.href='/index'"/>
@@ -28,7 +41,7 @@
     <div align="left">
       <h3 align="center">LSD</h3><hr/>
       <ul class="nav nav-pills nav-stacked">
-        <li><a style="color: white"; href="#section1">메뉴</a></li>
+        <li>메뉴</a></li>
         <li ><a style="color: white"; href="#section2"><span class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
         <li><a style="color: white"; href="/board/list"><span class="glyphicon glyphicon-tags"></span>  자유게시판</a></li>
         <li><a style="color: white"; href="/file/list"><span class="glyphicon glyphicon-book"></span> 유용한자료</a></li>
@@ -36,11 +49,11 @@
 <div align="center">
 <c:choose>
 <c:when test="${sessionScope.userId == null}">
-  <button type="button" class="btn btn-success" onclick="location.href='/login'">로그인</button>&nbsp;
-  <button type="button" class="btn btn-info" onclick="location.href='/join'">회원가입</button>
+  <button type="button" class="btn btn-default button button4" onclick="location.href='/login'">로그인</button>&nbsp;
+  <button type="button" class="btn btn-default button button4" onclick="location.href='/join'">회원가입</button>
 </c:when>
 <c:otherwise>
-	<h3>${sessionScope.userId }</h3>
+	<h3><i class="glyphicon glyphicon-user" style="font-size:40px;color:lightblue;">&nbsp;&nbsp;&nbsp;</i>${sessionScope.userId }</h3>
 </c:otherwise>
 </c:choose>
 </div>

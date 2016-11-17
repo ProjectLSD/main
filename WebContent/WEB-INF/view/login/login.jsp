@@ -63,4 +63,3 @@ background-size: cover;
       </div>
     </div>
   </div>
-</div>
