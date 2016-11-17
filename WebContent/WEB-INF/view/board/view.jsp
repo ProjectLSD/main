@@ -26,8 +26,8 @@
 	<div class="panel panel-default" style="width: 700px;">
 		<div class="panel-heading">
 			<input size="4" type="text" required="required" class="form-control"
-				id="comments" name="review" placeholder=" 내용"> <input
-				type="button" class="btn btn-success" id="bt" value="submit">
+				id="comments" name="review" placeholder=" 내용"><br/> <input
+				type="button" class="btn btn-success" id="bt" value="댓글등록">
 		</div>
 	</div>
 	<button type="button" class="btn btn-default" id="rbt" style="padding:5px;">

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import board.model.Board;
@@ -23,10 +24,15 @@ public class BoardController {
 	ReviewService rs;
 	
 	@RequestMapping("/list")
-	public ModelAndView list() {
+	public ModelAndView list(@RequestParam(defaultValue="1")int p) {
 		ModelAndView mav = new ModelAndView();
-		List<Board> bl = bs.getAll();
-		mav.addObject("board", bl);
+		List li = bs.readSomePage(p);
+		mav.addObject("data", li);
+		System.out.println(li);
+		mav.addObject("p",p);
+		System.out.println("p="+p);
+		mav.addObject("last",bs.calcLast());
+		mav.addObject("size",bs.getTotalCount());
 		mav.setViewName("tm:board/list");
 		return mav;
 	}
@@ -40,10 +46,7 @@ public class BoardController {
 	public ModelAndView view(int num) {
 		ModelAndView mav = new ModelAndView();
 		Board b = bs.selectNum(num);
-		System.out.println("1");
 		List<Review> lr = rs.getReview(num);
-		System.out.println("2");
-		System.out.println(lr);
 		mav.addObject("board", b);
 		mav.addObject("review", lr);
 		mav.setViewName("tm:board/view");

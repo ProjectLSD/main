@@ -23,4 +23,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    	<select id="getReview" parameterType="java.lang.Integer" resultType="board.model.Review">		
 		select * from review where boardnum=#{num}
 	</select>
+	<select id="getPart" resultType="java.util.HashMap" parameterType="java.util.HashMap" >
+		<![CDATA[
+		select * from(
+		select rownum idx, t.* from
+		(select * from board order by num desc) t
+		)where idx >=#{start} and idx <=#{end}
+		]]>
+	</select>
+	
+	<select id="getCount" resultType="java.lang.Integer"> 
+		select count(*) from board
+	</select>	
 </mapper>

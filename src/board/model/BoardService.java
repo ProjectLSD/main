@@ -1,5 +1,6 @@
 package board.model;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -26,7 +27,32 @@ public class BoardService {
 		sql.close();
 		return b;
 	}
-
+	public List readSomePage(int p) {
+		int block = 5;
+		SqlSession sql = fac.openSession();
+		HashMap map = new HashMap<>();
+		// 5개씩 끊어온다고 가정.
+		map.put("start", (p - 1) * block + 1);
+		map.put("end", p * block);
+		List list = sql.selectList("board.getPart", map);
+		sql.close();
+		return list;
+	}
+	
+	public int calcLast() {
+		SqlSession sql = fac.openSession();
+//		List list = sql.selectList("files.getCount");
+		int count = sql.selectOne("board.getCount");
+		sql.close();
+		return count%5==0 ? count/5 : count/5+1;
+	}
+	
+	public int getTotalCount() {
+		SqlSession sql = fac.openSession();
+		int count = sql.selectOne("board.getCount");
+		sql.close();
+		return count;
+	}
 	public boolean insert(String writer, Board vb) {
 		try {
 			SqlSession ss = fac.openSession();

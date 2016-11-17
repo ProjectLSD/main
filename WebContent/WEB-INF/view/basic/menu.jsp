@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 </head>
 <style>
 .button4 {
@@ -53,11 +49,14 @@
   <button type="button" class="btn btn-default button button4" onclick="location.href='/join'">회원가입</button>
 </c:when>
 <c:otherwise>
-	<h3><i class="glyphicon glyphicon-user" style="font-size:40px;color:lightblue;">&nbsp;&nbsp;&nbsp;</i>${sessionScope.userId }</h3>
+	<h3><i class="glyphicon glyphicon-user" style="font-size:40px;color:lightblue;">&nbsp;&nbsp;</i>
+	${sessionScope.userId }&nbsp;<span class="glyphicon glyphicon-list"></span></h3>
+	
 </c:otherwise>
 </c:choose>
 </div>
 <hr/>
+
 </div>
  <div align="left">
       <ul class="nav nav-pills nav-stacked">
@@ -79,6 +78,12 @@
       </ul>
 </div>
 <hr/>
+
 </body>
 </html>
+
+   
+
+
+
 

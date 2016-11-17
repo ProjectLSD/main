@@ -35,14 +35,14 @@
         <td>1</td>
         <td>183</td>
       </tr>
-      <c:forEach items="${board}" var="b">
+      <c:forEach items="${data}" var="b">
       	<tr>
-      		<td>${b.num}</td>
-      		<td><fmt:formatDate value="${b.writedate}" pattern="yy-MM-dd"/></td>
-      		<td style="color: white;"><a href="/board/view?num=${b.num}">${b.subject}</td>
-      		<td >${b.writer}</td>
-      		<td>${b.likes}</td>
-      		<td>${b.viewcount}</td>
+      		<td>${b.NUM}</td>
+      		<td><fmt:formatDate value="${b.WRITEDATA}" pattern="yy-MM-dd"/></td>
+      		<td style="color: white;"><a href="/board/view?num=${b.NUM}">${b.SUBJECT}</td>
+      		<td >${b.WRITER}</td>
+      		<td>${b.LIKES}</td>
+      		<td>${b.VIEWCOUNT}</td>
       	</tr>
       </c:forEach>
       
@@ -51,16 +51,13 @@
 </div>
 <div class="container" align="center">
   <ul class="pagination">
-    <li><a href="#">≪</a></li>
-    <li><a href="#">＜</a></li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li class="disabled"><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li class="active"><a href="#">6</a></li>
-    <li><a href="#">＞</a></li>
-    <li><a href="#">≫</a></li>
+   <li><a href="/board/list?p=1">≪</a></li>
+    <li><a href="/board/list?p=${p-1}">＜</a></li>
+  <c:forEach var="num" begin="1" end="${last }" step="1">
+   <li><a href ="/board/list?p=${num}"> ${num } </a></li>   
+</c:forEach>
+       <li><a href="/board/list?p=${p+1}">＞</a></li>
+    <li><a href="/board/list?p=${last}">≫</a></li>
   </ul>
 </div>
 <input type="button" class="btn btn-info btn-sm" value="글작성" onclick="location.href='/board/register'"/>
