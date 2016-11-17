@@ -17,16 +17,10 @@
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 /* Remove the navbar's default margin-bottom and rounded borders */
-a:link {
+a:link,a:hover,a:visited  {
     color: white;
-    background-color: transparent;
-    text-decoration: none;
 }
-a:hover {
-    color: white;
-    background-color: transparent;
-    text-decoration: underline;
-}
+
 label,a,p,tr{
 color: white;
 }

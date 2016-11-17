@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
 <style>
 .button4 {
     background-color: white;
@@ -20,8 +19,20 @@
     background-color: #555555;
     color: white;
 }
+#bu.btn-default {
+		
+		border: 2px solid #000;
+      background: #000;
+      color: #fff;
+   }
+#bu.btn-default:hover {
+      background: #fff;
+      color: #000;
+   }
 
 </style>
+</head>
+
 <body>
   <div align="center">
          <img src="/logo.png" height="180"; width="80%" onclick="location.href='/index'"/>
@@ -49,9 +60,17 @@
   <button type="button" class="btn btn-default button button4" onclick="location.href='/join'">회원가입</button>
 </c:when>
 <c:otherwise>
-	<h3><i class="glyphicon glyphicon-user" style="font-size:40px;color:lightblue;">&nbsp;&nbsp;</i>
-	${sessionScope.userId }&nbsp;<span class="glyphicon glyphicon-list"></span></h3>
 	
+<i class="glyphicon glyphicon-user" style="font-size:48px;color:lightblue; margin-top: 15px; margin-bottom: 0px;"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div  class="btn-group">
+  <button style="margin-top: 0px; margin-bottom: 25px;" id="bu" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><h5 style="font-size:20px;" >${sessionScope.userId }&nbsp;&nbsp;&nbsp;
+   <span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;&nbsp;</h5></button>
+   <ul class="dropdown-menu" role="menu">
+      <li><a href="#">내정보</a></li>
+      <li><a href="#">보유캐시 : 0</a></li><hr/>
+      <li><a href="/index">로그아웃</a></li>
+    </ul>
+</div>
 </c:otherwise>
 </c:choose>
 </div>

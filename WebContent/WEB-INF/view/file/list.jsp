@@ -45,12 +45,32 @@
 <div class="container" align="center">
   <ul class="pagination">
    <li><a href="/file/list?p=1">≪</a></li>
-    <li><a href="/file/list?p=${p-1}">＜</a></li>
+   <c:choose>
+	<c:when test="${p > 1 }">
+	<li><a href="/file/list?p=${p-1}">＜</a></li>
+	</c:when>
+    <c:otherwise>
+    <li><a href="/file/list?p=1">＜</a></li>
+    </c:otherwise>
+    </c:choose>
   <c:forEach var="num" begin="1" end="${last }" step="1">
-   <li><a href ="/file/list?p=${num}"> ${num } </a></li>   
+   <c:choose>
+   <c:when test="${p==num }">
+   <li class="active"><a  href ="/file/list?p=${num}"> ${num } </a></li>
+   </c:when>
+    <c:otherwise>
+     <li><a  href ="/file/list?p=${num}"> ${num } </a></li>   
+    </c:otherwise>
+   </c:choose>
 </c:forEach>
-		<c:if test=""/>
-       <li><a href="/file/list?p=${p+1}">＞</a></li>
+<c:choose>
+	<c:when test="${p < last }">
+	 <li><a href="/file/list?p=${p+1}">＞</a></li>
+	</c:when>
+    <c:otherwise>
+     <li><a href="/file/list?p=${last}">></a></li>
+    </c:otherwise>
+    </c:choose>
     <li><a href="/file/list?p=${last}">≫</a></li>
   </ul>
 </div>

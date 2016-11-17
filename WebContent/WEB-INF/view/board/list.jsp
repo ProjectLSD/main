@@ -10,6 +10,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 <div class="container">
   <h2 style="color: white;">자유게시판</h2>
@@ -52,11 +53,32 @@
 <div class="container" align="center">
   <ul class="pagination">
    <li><a href="/board/list?p=1">≪</a></li>
-    <li><a href="/board/list?p=${p-1}">＜</a></li>
+   <c:choose>
+	<c:when test="${p > 1 }">
+	<li><a href="/board/list?p=${p-1}">＜</a></li>
+	</c:when>
+    <c:otherwise>
+    <li><a href="/board/list?p=1">＜</a></li>
+    </c:otherwise>
+    </c:choose>
   <c:forEach var="num" begin="1" end="${last }" step="1">
-   <li><a href ="/board/list?p=${num}"> ${num } </a></li>   
+   <c:choose>
+   <c:when test="${p==num }">
+   <li class="active"><a  href ="/board/list?p=${num}"> ${num } </a></li>
+   </c:when>
+    <c:otherwise>
+     <li><a  href ="/board/list?p=${num}"> ${num } </a></li>   
+    </c:otherwise>
+   </c:choose>
 </c:forEach>
-       <li><a href="/board/list?p=${p+1}">＞</a></li>
+<c:choose>
+	<c:when test="${p < last }">
+	 <li><a href="/board/list?p=${p+1}">＞</a></li>
+	</c:when>
+    <c:otherwise>
+     <li><a href="/board/list?p=${last}">></a></li>
+    </c:otherwise>
+    </c:choose>
     <li><a href="/board/list?p=${last}">≫</a></li>
   </ul>
 </div>
