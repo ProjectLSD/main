@@ -30,6 +30,7 @@ public class rootcontroller {
 	@RequestMapping("/index")
 	public String index(){
 		System.out.println("바보!");
+		System.out.println("바보!!");
 		return"t:main";
 	}
 	@RequestMapping("/home")
