@@ -11,13 +11,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 import board.model.Board;
 import board.model.BoardService;
+import board.model.Review;
+import board.model.ReviewService;
 
 @Controller
 @RequestMapping("/board")
 public class BoardController {
 	@Autowired
 	BoardService bs;
-
+	@Autowired
+	ReviewService rs;
+	
 	@RequestMapping("/list")
 	public ModelAndView list() {
 		ModelAndView mav = new ModelAndView();
@@ -36,7 +40,12 @@ public class BoardController {
 	public ModelAndView view(int num) {
 		ModelAndView mav = new ModelAndView();
 		Board b = bs.selectNum(num);
+		System.out.println("1");
+		List<Review> lr = rs.getReview(num);
+		System.out.println("2");
+		System.out.println(lr);
 		mav.addObject("board", b);
+		mav.addObject("review", lr);
 		mav.setViewName("tm:board/view");
 		return mav;
 	}

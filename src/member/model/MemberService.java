@@ -1,5 +1,6 @@
 package member.model;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -43,6 +44,15 @@ public class MemberService {
 			r += sql.insert("member.inputMember",m);
 		}
 		return r;
+	}
+	//인증번호 생성
+	public String creatRamdomNum(){
+		String randomNum = "";
+		for(int i=0; i < 8 ; i++){
+			int random = (int)(Math.random()*9);
+			randomNum += random;
+		}
+		return randomNum;
 	}
 	
 }

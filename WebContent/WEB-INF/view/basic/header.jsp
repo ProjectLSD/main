@@ -25,6 +25,6 @@
       	<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </c:otherwise>
       </c:choose>
-      </ul>
+      </ul>  
     </div>
      -->
