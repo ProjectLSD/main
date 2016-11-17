@@ -26,7 +26,7 @@
   <repositories>  
 		<repository>
 			<id>jahia</id>
-			<name>jahia repository</name>
+			<name>jahia repository</name>  
 			<url>http://maven.jahia.org/maven2/</url>
 		</repository>
 	</repositories>

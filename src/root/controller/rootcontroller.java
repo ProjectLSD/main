@@ -29,6 +29,7 @@ public class rootcontroller {
 	
 	@RequestMapping("/index")
 	public String index(){
+		System.out.println("¹Ùº¸!");
 		return"t:main";
 	}
 	@RequestMapping("/home")
