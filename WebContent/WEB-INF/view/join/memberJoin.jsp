@@ -7,6 +7,15 @@
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    #aaa{
+    
+background-image:url("/main.jpg");
+background-size: cover;
+}
+
+</style>
+<body id="aaa"></body>
 <div class="container"> 
 
 <h2 style="color: white;"> 회원가입</h2><hr/>

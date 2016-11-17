@@ -48,6 +48,7 @@ public class fileController {
 		mav.setViewName("tm:file/list");
 		List li = fileSrv.readSomePage(p);
 		mav.addObject("data", li);
+		mav.addObject("p",p);
 		mav.addObject("last",fileSrv.calcLast());
 		mav.addObject("size",fileSrv.getTotalCount());
 		return mav;

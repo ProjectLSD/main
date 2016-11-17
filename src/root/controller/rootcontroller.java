@@ -20,7 +20,7 @@ public class rootcontroller {
 	
 	@RequestMapping("/join")
 	public String join(){
-		return"t:join";
+		return"/join/memOrBand";
 	}
 	@RequestMapping("/login")
 	public String login(){

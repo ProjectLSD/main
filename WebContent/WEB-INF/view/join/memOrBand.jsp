@@ -7,14 +7,22 @@
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    #aaa{
+    
+background-image:url("/main.jpg");
+background-size: cover;
+}
 
+</style>
+<body id="aaa"></body>
    <div class="container">
       <h2 style="color: white;">JSD 회원가입</h2>
       <hr/>
       <p>원하는 회원 유형을 클릭하세요.</p>
       <input type="button" class="btn btn-default btn-success btn-lg" value="일반 회원가입" onclick="location.href='/member/join'"/>
          
-      <input type="button" class="btn btn-info btn-lg"value="BAND 회원가입" onclick="location.href='/band/join'"/>
+      <input type="button" class="btn btn-default btn-info btn-lg"value="BAND 회원가입" onclick="location.href='/band/join'"/>
    </div>
    <div class="container">
       <h4 style="color: white;">회원가입시</h4>

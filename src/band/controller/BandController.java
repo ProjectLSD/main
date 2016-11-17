@@ -36,7 +36,7 @@ public class BandController {
 	
 	@RequestMapping("/join")
 	public String join(){
-		return "tm:join/bandJoin";
+		return "/join/bandJoin";
 	}
 	// band join페이지 출력
 	

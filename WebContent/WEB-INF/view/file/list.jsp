@@ -31,9 +31,18 @@
 	</div>
 	<hr style="width: 80%" align="left" />
 </c:forEach>
-<c:forEach var="num" begin="1" end="${last }" step="1">
-	<a href = "/file/list?p=${filenum}"> ${FILENUM } </a>	
+<div class="container" align="center">
+  <ul class="pagination">
+   <li><a href="/file/list?p=1">≪</a></li>
+    <li><a href="/file/list?p=${p-1}">＜</a></li>
+  <c:forEach var="num" begin="1" end="${last }" step="1">
+   <li><a href ="/file/list?p=${num}"> ${num } </a></li>   
 </c:forEach>
+		<c:if test=""/>
+       <li><a href="/file/list?p=${p+1}">＞</a></li>
+    <li><a href="/file/list?p=${last}">≫</a></li>
+  </ul>
+</div>
 <br>
 <!-- 
 <a href="#ftop">맨위로</a>

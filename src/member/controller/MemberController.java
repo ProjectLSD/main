@@ -38,7 +38,7 @@ public class MemberController {
 	
 	@RequestMapping("/join")
 	public String join(){
-		return "tm:join/memberJoin";
+		return "/join/memberJoin";
 	}
 	// member join페이지 출력
 	
