@@ -21,10 +21,10 @@
           <warSourceDirectory>WebContent</warSourceDirectory>
         </configuration>
       </plugin>
-    </plugins>
-  </build>
-  <repositories>  
-		<repository>
+    </plugins>  
+  </build>  
+  <repositories>           
+		<repository>  
 			<id>jahia</id>
 			<name>jahia repository</name>  
 			<url>http://maven.jahia.org/maven2/</url>

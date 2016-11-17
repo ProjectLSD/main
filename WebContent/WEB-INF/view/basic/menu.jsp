@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,8 +34,15 @@
         <li><a style="color: white"; href="/file/list"><span class="glyphicon glyphicon-book"></span> 유용한자료</a></li>
       </ul><hr/>
 <div align="center">
+<c:choose>
+<c:when test="${sessionScope.userId == null}">
   <button type="button" class="btn btn-success" onclick="location.href='/login'">로그인</button>&nbsp;
   <button type="button" class="btn btn-info" onclick="location.href='/join'">회원가입</button>
+</c:when>
+<c:otherwise>
+	<h3>${sessionScope.userId }</h3>
+</c:otherwise>
+</c:choose>
 </div>
 <hr/>
 </div>

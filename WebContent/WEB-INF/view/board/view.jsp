@@ -42,16 +42,18 @@
 		<c:forEach items="${review }" var="r">
 			<div class="panel panel-default" style="width: 700px;">
 				<div style="color: black;" class="panel-heading">
-					<table >
+					<table style="table-layout:fixed;word-break:break-all;">
 						<tr style="color: black;">
 							<td width="70%">${r.writer}</td>
 							<td align="right" ; width="200px"><span
 								class="glyphicon glyphicon-time" style="text-align: right;"><fmt:formatDate
-										value="${r.writedate}" pattern="yyyy-MM-dd hh:mm:ss" /></span></td>
+										value="${r.writedate}" pattern="yyyy-MM-dd hh:mm:ss" /></span></td>			
+						</tr>
+						<tr style="color: black;">
+							<td>${r.comments}</td>
 						</tr>
 					</table>
 				</div>
-				<div class="panel-body">${r.comments}</div>
 			</div>
 		</c:forEach>
 	</div>
