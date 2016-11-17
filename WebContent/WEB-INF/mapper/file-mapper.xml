@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="file">
 	<insert id="insertMap" parameterType="java.util.HashMap">
-		insert into fileupload values(fileupload_seq.nextval,#{fileuuid},#{filesize},#{album},#{owner},#{genre},0,#{filename},0)
+		insert into fileupload values(fileupload_seq.nextval,#{fileuuid},#{filesize},#{album},#{owner},#{genre},0,#{filename},0,null)
 	</insert>
 
 	<select id="fileList" resultType="java.util.HashMap">
@@ -46,7 +46,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update fileupload set count =
 		count +1 where filenum =#{filenum }
 	</update>
-
+	<select id="Approval" resultType="java.util.HashMap">Select * from fileupload where checks = 'true'</select> 
+  <update id="Approval1" parameterType="java.util.HashMap">update fileupload set checks = 'true' where filenum =#{filenum }</update> 
 	
   
 </mapper>

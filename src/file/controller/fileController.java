@@ -28,13 +28,14 @@ public class fileController {
 	@RequestMapping("file/upload")
 	public  ModelAndView fileUpload(String genre,String album,
 			@RequestParam(name="file")MultipartFile file,HttpSession session){
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView();		
 		String owner = (String)session.getAttribute("userId");
+		System.out.println(genre+"/"+album+"/"+file+"/"+owner);
 		boolean rst = fileSrv.insertFile(genre,album,file,owner);
 		System.out.println(rst);
 		if(rst){
 				
-				mav.setViewName("tm:file/list");
+				mav.setViewName("tm:file/redirect");
 			}else{
 				
 				mav.setViewName("tm:file/error");
@@ -67,5 +68,35 @@ public class fileController {
 		}
 		return mav;
 	}
-
+	/*
+	@RequestMapping("/file/Approval")
+	public ModelAndView ModelApproval(){
+		List<HashMap> map = fileSrv.readApproval();
+		ModelAndView mav = new ModelAndView();
+		System.out.println(map);
+		if (map != null) {
+			mav.addObject("map", map);
+			mav.setViewName("basic/main");
+		} else {
+			mav.setViewName("file/error");  
+			
+		}
+		return mav;
+		
 }
+*/
+	@RequestMapping("/file/Approval1")
+	public ModelAndView ModelApproval1(int filenum){
+		System.out.println(filenum);
+		List<HashMap> map = fileSrv.readApproval1(filenum);
+		ModelAndView mav = new ModelAndView();
+		if (map !=null) {
+			mav.addObject("map", map);
+			mav.setViewName("tm:file/redirect");
+		} else {
+			mav.setViewName("fileDown");
+		}
+		return mav;
+	}
+}
+

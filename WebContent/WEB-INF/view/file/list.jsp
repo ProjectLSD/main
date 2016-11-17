@@ -28,6 +28,17 @@
 				<b style="color: silver;"><fmt:formatNumber value="${obj.FILESIZE / (1024) }" /> KB</b>
 				</c:otherwise>
 		</c:choose>
+		<br />
+		<c:choose>
+			<c:when test="${obj.CHECKS == null }">
+				<button type="button" class="btn btn-success"
+					onclick="location.href='/file/Approval1?filenum=${obj.FILENUM }'">승인</button>
+			</c:when>
+			<c:otherwise>
+				<button type="button" class="btn btn-success"
+					onclick="location.href='/file/Approval1?filenum=${obj.FILENUM }'" disabled='disabled'>등록완료</button>
+			</c:otherwise>
+		</c:choose>
 	</div>
 	<hr style="width: 80%" align="left" />
 </c:forEach>

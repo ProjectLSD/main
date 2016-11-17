@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <table border="1" width="500" height="500" align="center">
-<form action="file/upload" method="post" enctype="multipart/form-data">
+<form action="/file/upload" method="post" enctype="multipart/form-data">
 <tr>
 	<th>
 	<b style="font:large;">¿Â∏£</b>

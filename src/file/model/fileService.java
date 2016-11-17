@@ -41,7 +41,8 @@ public class fileService {
 			map.put("owner", owner);
 			map.put("genre", genre);
 			map.put("filename", fileName);
-			sql.insert("insertMap", map);
+			System.out.println(uid+"/"+file.getSize()+"/"+album+"/"+owner+"/"+genre+"/"+fileName);
+			sql.insert("file.insertMap", map);
 			sql.close();
 			return true;
 		} catch (Exception e) {
@@ -98,6 +99,26 @@ public class fileService {
 		sql.close();
 		return tg;
 	}
+	public List<HashMap> readApproval() {
+		SqlSession sql = fac.openSession();
+		List<HashMap> tg = sql.selectList("file.Approval");
+		System.out.println(tg);
+		if(tg!=null){
+		sql.close();		
+		}
+		return tg;
+		
+	}
+	public List<HashMap> readApproval1(int filenum){
+		SqlSession sql = fac.openSession();
+		List<HashMap> tg = sql.selectList("file.Approval1",filenum);
+		System.out.println(tg);
+		if(tg==null){
+		sql.close();
+		}
+		return tg;
+	}
+
 	
 	
 	
