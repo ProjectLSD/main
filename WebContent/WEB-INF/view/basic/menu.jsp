@@ -70,9 +70,9 @@
    <ul class="dropdown-menu" role="menu">
       <li><a href="#">내정보</a></li>
       <li><a href="#">보유캐시 : 0</a></li><hr/>
-      <li><a href="/index">로그아웃</a></li>
+      <li><a href="/logout">로그아웃</a></li>
     </ul>
-</div>
+</div>  
 </c:otherwise>
 </c:choose>
 </div>
