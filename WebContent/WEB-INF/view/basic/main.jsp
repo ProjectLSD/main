@@ -25,7 +25,13 @@
                <strong style="color: black;">${ob.OWNER }</strong>
             </p>
             <p style="color: black;">${ob.OWNER }</p>
-            <button class="btn" data-toggle="modal" data-target="#myModal">음악듣기</button>
+            <button class="btn" data-toggle="modal" data-target="#myModal">음악듣기</button> 
+            <div>
+               <audio width="200" height="30"
+                  controls="controls">
+                  <source src="/${ob.FILEUUID}">
+               </audio>
+            </div>
          </div>
       </div>
    </c:forEach>
