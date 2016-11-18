@@ -47,7 +47,7 @@ background-size: cover;
             <div class="form-group">
             
               <label for="usrname"><span class="glyphicon glyphicon-lock"></span>password</label>
-              <input type="text" class="form-control" id="usrname" name="pass" placeholder="비밀번호">
+              <input type="password" class="form-control" id="usrname" name="pass" placeholder="비밀번호">
             </div >
             <button type="submit" class="btn btn-block">Login
                 <span class="glyphicon glyphicon-ok"></span>

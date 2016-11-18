@@ -50,7 +50,7 @@
     <div align="left">
       <h3 align="center">LSD</h3><hr/>
       <ul class="nav nav-pills nav-stacked">
-        <li>메뉴</a></li>
+        <li>메뉴</li>
         <li ><a style="color: white"; href="#section2"><span class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
         <li><a style="color: white"; href="/board/list"><span class="glyphicon glyphicon-tags"></span>  자유게시판</a></li>
         <li><a style="color: white"; href="/file/list"><span class="glyphicon glyphicon-book"></span> 유용한자료</a></li>
@@ -63,16 +63,18 @@
 </c:when>
 <c:otherwise>
 	
-<i class="glyphicon glyphicon-user" style="font-size:48px;color:lightblue; margin-top: 15px; margin-bottom: 0px;"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<div  class="btn-group">
-  <button style="margin-top: 0px; margin-bottom: 25px;" id="bu" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><h5 style="font-size:20px;" >${sessionScope.userId }&nbsp;&nbsp;&nbsp;
-   <span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;&nbsp;</h5></button>
-   <ul class="dropdown-menu" role="menu">
-      <li><a href="#">내정보</a></li>
-      <li><a href="#">보유캐시 : 0</a></li><hr/>
-      <li><a href="/logout">로그아웃</a></li>
+
+  <div class="dropdown">
+  <i class="glyphicon glyphicon-user" style="font-size:48px;color:lightblue; margin-top: 15px; margin-bottom: 0px;"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button style="margin-top: 0px; margin-bottom: 25px;" class="btn btn-default dropdown-toggle" type="button" id="bu" data-toggle="dropdown"><h5>${sessionScope.userId }&nbsp;&nbsp;&nbsp;
+     <span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;&nbsp;</h5></button>
+    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="bu">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">내정보</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">캐시 : 0</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">로그아웃</a></li>
     </ul>
-</div>  
+  </div>
 </c:otherwise>
 </c:choose>
 </div>
