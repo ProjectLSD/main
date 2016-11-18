@@ -78,7 +78,7 @@
 						<ul class="dropdown-menu dropdown-menu-right" role="menu"
 							aria-labelledby="bu">
 							<li role="presentation"><a role="menuitem" tabindex="-1"
-								href="#">내정보</a></li>
+								href="/myInfo/info">내정보</a></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1"
 								href="#">캐시 : 0</a></li>
 							<li role="presentation" class="divider"></li>
