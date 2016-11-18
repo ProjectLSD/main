@@ -26,11 +26,12 @@
 	<div class="panel panel-default" style="width: 700px;">
 		<div class="panel-heading">
 			<input size="4" type="text" required="required" class="form-control"
-				id="comments" name="review" placeholder=" 내용"><br/> <input
+				id="comments" name="review" placeholder=" 내용"><br /> <input
 				type="button" class="btn btn-success" id="bt" value="댓글등록">
 		</div>
 	</div>
-	<button type="button" class="btn btn-default" id="rbt" style="padding:5px;">
+	<button type="button" class="btn btn-default" id="rbt"
+		style="padding: 5px;">
 		<h3 style="margin: 2px;">
 			<b>${review.size() }</b>
 		</h3>
@@ -42,12 +43,12 @@
 		<c:forEach items="${review }" var="r">
 			<div class="panel panel-default" style="width: 700px;">
 				<div style="color: black;" class="panel-heading">
-					<table style="table-layout:fixed;word-break:break-all;">
+					<table style="table-layout: fixed; word-break: break-all;">
 						<tr style="color: black;">
 							<td width="70%">${r.writer}</td>
 							<td align="right" ; width="200px"><span
 								class="glyphicon glyphicon-time" style="text-align: right;"><fmt:formatDate
-										value="${r.writedate}" pattern="yyyy-MM-dd hh:mm:ss" /></span></td>			
+										value="${r.writedate}" pattern="yyyy-MM-dd hh:mm:ss" /></span></td>
 						</tr>
 						<tr style="color: black;">
 							<td>${r.comments}</td>
@@ -59,22 +60,26 @@
 	</div>
 </div>
 <script>
-   $("#bt").click(function() {
-	   var comments = $("#comments").val();
-	   var boardnum = ${board.num};
-      //var pass = $("#pass").val();
-      //var save = $("#save").prop("checked");
-      $.ajax({
-         "url" : "/review?comments=" + comments + "&boardnum=" + boardnum,
-         "method" : "post",
-         "aSync" : true
-      }).done(function(txt) {
-         console.log(txt);
-        location.reload();
-   })
-   });
- 
-   $("#rbt").click(function(){
-	   $("#rv").slideToggle();
+	$("#bt").click(function() {
+		var comments = $("#comments").val();
+		var boardnum = $
+		{
+			board.num
+		}
+		;
+		//var pass = $("#pass").val();
+		//var save = $("#save").prop("checked");
+		$.ajax({
+			"url" : "/review?comments=" + comments + "&boardnum=" + boardnum,
+			"method" : "post",
+			"aSync" : true
+		}).done(function(txt) {
+			console.log(txt);
+			location.reload();
+		})
+	});
+
+	$("#rbt").click(function() {
+		$("#rv").slideToggle();
 	});
 </script>
