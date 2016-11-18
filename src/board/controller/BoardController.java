@@ -87,7 +87,8 @@ public class BoardController {
 		System.out.println(b);
 		System.out.println("update: "+b.getComments() + "/" + b.getLikes() + "/" + b.getNum() + "/" + b.getSubject() + "/"
 				+ b.getViewcount() + "/" + b.getWriter());
-		
+		boolean flag = bs.update(b);
+		System.out.println(flag);
 		mav.setViewName("board/success");
 		return mav;
 	}

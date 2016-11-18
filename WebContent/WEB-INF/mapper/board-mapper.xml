@@ -35,6 +35,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getCount" resultType="java.lang.Integer"> 
 		select count(*) from board
 	</select>	
-	
+	<update id="upBoard" parameterType="board.model.Board">
+		update board set comments=#{comments}, subject=#{subject}, writedate=sysdate where num=#{num}
+	</update>
 	
 </mapper>

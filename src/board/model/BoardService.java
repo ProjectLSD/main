@@ -70,8 +70,17 @@ public class BoardService {
 			return false;
 		}
 	}
-	public void update(Board b){
-		
+	public boolean update(Board b){
+		SqlSession sql =fac.openSession();
+		int i = sql.update("board.upBoard", b);
+		boolean flag;
+		if(i==1){
+			flag = true;
+		}else{
+			flag = false;
+		}
+		System.out.println("update»Æ¿Œ :" +i+flag);
+		return flag;
 	}
 
 }
