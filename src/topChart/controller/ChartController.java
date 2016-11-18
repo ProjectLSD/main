@@ -17,7 +17,7 @@ public class ChartController {
 	@RequestMapping("/top/chart")
 	public ModelAndView reqResolve() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("tm:file/list");
+		mav.setViewName("tm:chart/chart");
 		mav.addObject("top", CSrv.readTopChart());
 		return mav;
 	}

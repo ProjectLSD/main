@@ -51,7 +51,7 @@
       <h3 align="center">LSD</h3><hr/>
       <ul class="nav nav-pills nav-stacked">
         <li>메뉴</li>
-        <li ><a style="color: white"; href="#section2"><span class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
+        <li ><a style="color: white"; href="/top/chart"><span class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
         <li><a style="color: white"; href="/board/list"><span class="glyphicon glyphicon-tags"></span>  자유게시판</a></li>
         <li><a style="color: white"; href="/file/list"><span class="glyphicon glyphicon-book"></span> 유용한자료</a></li>
       </ul><hr/>
