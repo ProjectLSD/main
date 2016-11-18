@@ -24,7 +24,7 @@
    <div align="right" style="padding-right: 450px;">
    <c:set var="user" value="${sessionScope.userId}"/>
       <c:if test="${board.writer eq user}">
-      <button type="button" formmethod="post" class="btn btn-default" id="bt1" style="padding:10px;" 
+      <button type="button" class="btn btn-default" id="bt1" style="padding:10px;" 
       onclick=location.href="/board/register?subject=${board.subject}&comments=${board.comments}&num=${board.num}">
       <b>¼öÁ¤</b>
       </button>
@@ -75,11 +75,7 @@
 <script>
    $("#bt").click(function() {
       var comments = $("#comments").val();
-      var boardnum = $
-      {
-         board.num
-      }
-      ;
+      var boardnum = ${board.num};
       //var pass = $("#pass").val();
       //var save = $("#save").prop("checked");
       $.ajax({
@@ -95,4 +91,19 @@
    $("#rbt").click(function() {
       $("#rv").slideToggle();
    });
+   
+   $("#bt2").click(function() {
+	      //var comments = $("#comments").val();
+	      var num = ${board.num};
+	      //var pass = $("#pass").val();
+	      //var save = $("#save").prop("checked");
+	      $.ajax({
+	         "url" : "/delete?num=" + num,
+	         "method" : "post",
+	         "aSync" : true
+	      }).done(function(txt) {  
+	         console.log(txt);
+	         location.reload();
+	      })
+	   });
 </script>

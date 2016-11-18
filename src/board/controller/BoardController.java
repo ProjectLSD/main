@@ -38,13 +38,11 @@ public class BoardController {
 	}
 
 	@RequestMapping("/register")
-	   public ModelAndView register(String subject, String comments, int num) {
-	      System.out.println(subject+" / "+ comments+" / "+num);
+	   public ModelAndView register(Board b) {
+	      System.out.println(b.getSubject()+" / "+ b.getComments()+" / "+b.getNum());
 	      ModelAndView mav = new ModelAndView();
-	      if(subject!=null && comments!=null){
-	    	  mav.addObject("subject", subject);
-		      mav.addObject("comments", comments);
-		      mav.addObject("num",num);
+	      if(b!=null){
+	    	  mav.addObject("board", b);
 	      }
 	      mav.setViewName("tm:board/register");
 	      return mav;
@@ -90,6 +88,13 @@ public class BoardController {
 		boolean flag = bs.update(b);
 		System.out.println(flag);
 		mav.setViewName("board/success");
+		return mav;
+	}
+	// 게시판 수정
+	@RequestMapping("/delete")
+	public ModelAndView deleteBoard(){
+		ModelAndView mav = new ModelAndView();
+		
 		return mav;
 	}
 }

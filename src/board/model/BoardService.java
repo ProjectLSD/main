@@ -80,7 +80,15 @@ public class BoardService {
 			flag = false;
 		}
 		System.out.println("update확인 :" +i+flag);
+		sql.close();
 		return flag;
+	}
+	// 게시판 수정
+	public void delete(){
+		SqlSession sql = fac.openSession();
+		//sql.delete(statement, parameter);
+		
+		sql.close();
 	}
 
 }

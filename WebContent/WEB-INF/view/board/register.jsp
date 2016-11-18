@@ -8,7 +8,7 @@
 </c:when>
 <c:otherwise>
 <form action="/board/update" method="post">
-<input type="hidden" name="num" value="${num }" /> 
+<input type="hidden" name="num" value="${board.num }" /> 
 </c:otherwise>
 </c:choose>
    <div class="panel panel-default" style="width: 700px;">
@@ -26,6 +26,6 @@
    </div>
 </form>
 <script>
-subject.value="${subject}"
-comments.value="${comments}"
+subject.value="${board.subject}"
+comments.value="${board.comments}"
 </script>
