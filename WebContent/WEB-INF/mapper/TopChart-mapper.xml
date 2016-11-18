@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="topchart">
+	<select id="top" resultType="java.util.HashMap">
+	<![CDATA[
+		select rownum, temp.* from
+   		(select * from fileupload order by count desc) temp 
+		where rownum <=10
+	]]>
+	</select>
+</mapper>
+ 
