@@ -24,7 +24,8 @@
    <div align="right" style="padding-right: 450px;">
    <c:set var="user" value="${sessionScope.userId}"/>
       <c:if test="${board.writer eq user}">
-      <button type="button" formmethod="post" class="btn btn-default" id="bt1" style="padding:10px;" onclick=location.href="/board/register?subject=${board.subject}&comments=${board.comments}">
+      <button type="button" formmethod="post" class="btn btn-default" id="bt1" style="padding:10px;" 
+      onclick=location.href="/board/register?subject=${board.subject}&comments=${board.comments}&num=${board.num}">
       <b>¼öÁ¤</b>
       </button>
       <button type="button" class="btn btn-default" id="bt2" style="padding:10px;">

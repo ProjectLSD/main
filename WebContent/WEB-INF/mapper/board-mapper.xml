@@ -35,4 +35,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getCount" resultType="java.lang.Integer"> 
 		select count(*) from board
 	</select>	
+	
+	
 </mapper>

@@ -70,5 +70,8 @@ public class BoardService {
 			return false;
 		}
 	}
+	public void update(Board b){
+		
+	}
 
 }

@@ -38,11 +38,14 @@ public class BoardController {
 	}
 
 	@RequestMapping("/register")
-	   public ModelAndView register(String subject, String comments) {
-	      System.out.println(subject+" / "+ comments);
+	   public ModelAndView register(String subject, String comments, int num) {
+	      System.out.println(subject+" / "+ comments+" / "+num);
 	      ModelAndView mav = new ModelAndView();
-	      mav.addObject("subject", subject);
-	      mav.addObject("comments", comments);
+	      if(subject!=null && comments!=null){
+	    	  mav.addObject("subject", subject);
+		      mav.addObject("comments", comments);
+		      mav.addObject("num",num);
+	      }
 	      mav.setViewName("tm:board/register");
 	      return mav;
 	   }
@@ -73,6 +76,19 @@ public class BoardController {
 			mav.setViewName("err");
 			System.out.println("½ÇÆÐ");
 		}
+		return mav;
+	}
+	
+	@RequestMapping("/update")
+	public ModelAndView updateBoard(Board b, HttpSession session){
+		ModelAndView mav = new ModelAndView();
+		String writer = (String) session.getAttribute("userId");
+		b.setWriter(writer);
+		System.out.println(b);
+		System.out.println("update: "+b.getComments() + "/" + b.getLikes() + "/" + b.getNum() + "/" + b.getSubject() + "/"
+				+ b.getViewcount() + "/" + b.getWriter());
+		
+		mav.setViewName("board/success");
 		return mav;
 	}
 }
