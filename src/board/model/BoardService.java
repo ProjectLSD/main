@@ -84,11 +84,21 @@ public class BoardService {
 		return flag;
 	}
 	// 게시판 수정
-	public void delete(){
+	public boolean delete(int num){
 		SqlSession sql = fac.openSession();
-		//sql.delete(statement, parameter);
-		
+		int i = 0;
+		boolean flag;
+		i += sql.delete("board.delBoard",num );
+		i += sql.delete("board.delReview",num );
+		System.out.println("delcount : "+i);
+		if(i==0){
+			flag = false;
+		}else{
+			flag = true;
+		}
 		sql.close();
+		
+		return flag;
 	}
 
 }

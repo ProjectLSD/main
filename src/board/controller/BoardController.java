@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import board.model.Board;
@@ -92,9 +93,15 @@ public class BoardController {
 	}
 	// 게시판 수정
 	@RequestMapping("/delete")
-	public ModelAndView deleteBoard(){
-		ModelAndView mav = new ModelAndView();
+	@ResponseBody
+	public String deleteBoard(int num){
+		boolean flag = bs.delete(num);
+		System.out.println(flag);
+		if(flag){
+			return "TRUE";
+		}else{
+			return "FALSE";
+		}
 		
-		return mav;
 	}
 }

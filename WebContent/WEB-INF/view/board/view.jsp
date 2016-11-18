@@ -98,12 +98,12 @@
 	      //var pass = $("#pass").val();
 	      //var save = $("#save").prop("checked");
 	      $.ajax({
-	         "url" : "/delete?num=" + num,
+	         "url" : "/board/delete?num=" + num,
 	         "method" : "post",
 	         "aSync" : true
 	      }).done(function(txt) {  
 	         console.log(txt);
-	         location.reload();
+	         location.href='http://127.0.0.1/board/list';
 	      })
 	   });
 </script>
