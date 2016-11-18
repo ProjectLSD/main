@@ -85,7 +85,7 @@
          "url" : "/review?comments=" + comments + "&boardnum=" + boardnum,
          "method" : "post",
          "aSync" : true
-      }).done(function(txt) {
+      }).done(function(txt) {  
          console.log(txt);
          location.reload();
       })
