@@ -1,5 +1,7 @@
 package myInfo.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +21,13 @@ public class myInfoController {
 	public ModelAndView info(HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		String id = (String) session.getAttribute("userId");
+		List li = mySrv.info(id);
 		
-		mav.setViewName("info/info");
+		mav.addObject("data",li);
+		mav.setViewName("tm:info/info");
 		return mav;
 		
 	}
 	
 }
+  
