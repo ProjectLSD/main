@@ -20,6 +20,7 @@ public class myInfoController {
 		ModelAndView mav = new ModelAndView();
 		String id = (String) session.getAttribute("userId");
 		
+		mav.setViewName("info/info");
 		return mav;
 		
 	}
