@@ -45,6 +45,8 @@
 	</div>
 	<hr style="width: 80%" align="left" />
 </c:forEach>
+	<button type="button" class="btn btn-info"
+					onclick="location.href='/file'">파일업로드</button>
 <div class="container" align="center">
 	<ul class="pagination">
 		<li><a href="/file/list?p=1">≪</a></li>
