@@ -21,7 +21,7 @@ a:link,a:hover,a:visited  {
     color: white;
 }
 
-label,a,p,tr{
+label,a,p,tr{  
 color: white;
 }
  .btn-default {

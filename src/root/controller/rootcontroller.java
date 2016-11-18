@@ -32,7 +32,7 @@ public class rootcontroller {
 		return"login/login";
 	}
 	
-	@RequestMapping("/index")
+	@RequestMapping({"/index","/"})
 	public ModelAndView index(){
 		List<HashMap> map = fileSrv.readApproval();
 		ModelAndView mav = new ModelAndView();

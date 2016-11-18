@@ -37,14 +37,16 @@
   <div align="center">
          <img src="/logo.png" height="180"; width="80%" onclick="location.href='/index'"/>
          </div>
+         <form action="/file/search">
          <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search Blog..">
+        <input type="text" class="form-control" placeholder="Search Blog.." name="q">
         <span class="input-group-btn">
-          <button class="btn btn-default" type="button">
+          <input class="btn btn-default" type="submit">
             <span class="glyphicon glyphicon-search"></span>
-          </button>
+            </input>
         </span>
       </div>
+         </form>
     <div align="left">
       <h3 align="center">LSD</h3><hr/>
       <ul class="nav nav-pills nav-stacked">
