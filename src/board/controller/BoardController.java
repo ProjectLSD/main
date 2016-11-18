@@ -38,9 +38,14 @@ public class BoardController {
 	}
 
 	@RequestMapping("/register")
-	public String register() {
-		return "tm:board/register";
-	}
+	   public ModelAndView register(String subject, String comments) {
+	      System.out.println(subject+" / "+ comments);
+	      ModelAndView mav = new ModelAndView();
+	      mav.addObject("subject", subject);
+	      mav.addObject("comments", comments);
+	      mav.setViewName("tm:board/register");
+	      return mav;
+	   }
 
 	@RequestMapping("/view")
 	public ModelAndView view(int num) {
@@ -70,15 +75,4 @@ public class BoardController {
 		}
 		return mav;
 	}
-	
-	@RequestMapping("/register")
-	   public ModelAndView register(String subject, String comments) {
-	      System.out.println(subject+" / "+ comments);
-	      ModelAndView mav = new ModelAndView();
-	      mav.addObject("subject", subject);
-	      mav.addObject("comments", comments);
-	      mav.setViewName("tm:board/register");
-	      return mav;
-	   }
-
 }
