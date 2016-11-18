@@ -39,7 +39,7 @@
       <c:forEach items="${data}" var="b">
       	<tr>
       		<td>${b.NUM}</td>
-      		<td><fmt:formatDate value="${b.WRITEDATA}" pattern="yy-MM-dd"/></td>
+      		<td><fmt:formatDate value="${b.WRITEDATE}" pattern="yy-MM-dd"/></td>
       		<td style="color: white;"><a href="/board/view?num=${b.NUM}">${b.SUBJECT}</td>
       		<td >${b.WRITER}</td>
       		<td>${b.LIKES}</td>

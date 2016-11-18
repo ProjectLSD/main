@@ -9,6 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
+
 .button4 {
     background-color: white;
     color: black;
@@ -66,8 +67,8 @@
 
   <div class="dropdown">
   <i class="glyphicon glyphicon-user" style="font-size:48px;color:lightblue; margin-top: 15px; margin-bottom: 0px;"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button style="margin-top: 0px; margin-bottom: 25px;" class="btn btn-default dropdown-toggle" type="button" id="bu" data-toggle="dropdown"><h5>${sessionScope.userId }&nbsp;&nbsp;&nbsp;
-     <span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;&nbsp;</h5></button>
+    <button style="margin-top: 0px; margin-bottom: 25px;" class="btn btn-default dropdown-toggle" type="button" id="bu" data-toggle="dropdown"><h4>${sessionScope.userId }&nbsp;
+     <span class="glyphicon glyphicon-list"></span></h4></button>
     <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="bu">
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">내정보</a></li>
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">캐시 : 0</a></li>
@@ -83,21 +84,21 @@
 </div>
  <div align="left">
       <ul class="nav nav-pills nav-stacked">
-        <li><a style="color: white; href="#section1">영화</a></li>
-        <li ><a style="color: white; href="#section2">공포</a></li>
-        <li><a style="color: white; href="#section3">액션</a></li>
-        <li><a style="color: white; href="#section3">로맨스</a></li>
-        <li><a style="color: white; href="#section3">코미디</a></li>
+        <li><a href="#section1">영화</a></li>
+        <li><a href="#section2">공포</a></li>
+        <li><a href="#section3">액션</a></li>
+        <li><a href="#section3">로맨스</a></li>
+        <li><a href="#section3">코미디</a></li>
       </ul>
 </div>
 <hr/>
  <div align="left">
       <ul class="nav nav-pills nav-stacked">
-        <li><a style="color: white; href="#section1">포토</a></li>
-        <li ><a style="color: white; href="#section2">여행</a></li>
-        <li><a style="color: white; href="#section3">추억</a></li>
-        <li><a style="color: white; href="#section3">사물</a></li>
-        <li><a style="color: white; href="#section3">맥심</a></li>
+        <li><a href="#section1">포토</a></li>
+        <li><a href="#section2">여행</a></li>
+        <li><a href="#section3">추억</a></li>
+        <li><a href="#section3">사물</a></li>
+        <li><a href="#section3">맥심</a></li>
       </ul>
 </div>
 <hr/>
