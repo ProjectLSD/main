@@ -2,6 +2,26 @@
    pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script>
+var i = 0;
+function Map() {
+	 this.elements = {};
+	 this.length = 0;
+	}
+
+	Map.prototype.put = function(key,value) {
+	 this.length++;
+	 this.elements[key] = value;
+	}
+
+
+	Map.prototype.get = function(key) {
+	 return this.elements[key];
+	}
+
+	var map = new Map();
+	map.put("name","이상훈");
+</script>
 <div class="container">
    <h2 style="color: white;">FREE-TALK</h2>
    <br />
@@ -21,16 +41,20 @@
       </table>
       <div class="panel-body">${board.comments}</div>
    </div>
-   <div align="right" style="padding-right: 450px;">
    <c:set var="user" value="${sessionScope.userId}"/>
+   <div align="right" style="padding-right: 450px;">
       <c:if test="${board.writer eq user}">
-      <button type="button" class="btn btn-default" id="bt1" style="padding:10px;" 
-      onclick=location.href="/board/register?subject=${board.subject}&comments=${board.comments}&num=${board.num}">
+      <form action="/board/register" method="post">
+      <input type="hidden" name="subject" value="${board.subject}">
+      <input type="hidden" name="comments" value="${board.comments}">
+      <input type="hidden" name="num" value="${board.num}">
+      <button type="submit" class="btn btn-default" id="bt1" style="padding:10px;"> 
       <b>수정</b>
       </button>
       <button type="button" class="btn btn-default" id="bt2" style="padding:10px;">
       <b>삭제</b>
       </button>
+      </form>
       </c:if>
    </div>
    <!-- 리뷰 입력 -->
@@ -69,6 +93,21 @@
                </table>
             </div>
          </div>
+      		<c:if test="${r.writer eq user}">
+      		<div class="but" align="right" style="padding-right: 450px;">
+      		<button type="button" class="btt" id="bu" value="${r.uuid}" style="padding:10px;">      		
+      		<b>삭제</b>
+      		</button>
+      		<script>
+			$("#bu").attr("id",function(){
+				i=i+1;
+				console.log("button"+i);
+				return "button"+i;
+			});
+      		</script>
+	   		</div>
+	   		<br/>
+      		</c:if>
       </c:forEach>
    </div>
 </div>
@@ -104,6 +143,20 @@
 	      }).done(function(txt) {  
 	         console.log(txt);
 	         location.href='http://127.0.0.1/board/list';
+	      })
+	});
+   $(".btt").click(function() {
+	      var uuid = $(this).attr("value");
+	      console.log(uuid);
+	      //var pass = $("#pass").val();
+	      //var save = $("#save").prop("checked");
+	      $.ajax({
+	         "url" : "/review/delete?uuid="+uuid,
+	         "method" : "post",
+	         "aSync" : true
+	      }).done(function(txt) {  
+	         console.log(txt);
+	         location.reload();
 	      })
 	   });
 </script>

@@ -14,11 +14,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	<insert id="insert" parameterType="board.model.Board">
    		insert into board values(board_seq.nextval,
-                           #{comments},#{writer},#{subject},sysdate,#{viewcount},#{likes})
+                           #{comments},#{writer},#{subject},sysdate,#{viewcount},#{likes},#{type})
    	</insert>
    	<!-- review -->
    	<insert id="inReview" parameterType="board.model.Review">
-   		insert into review values(#{boardnum},#{writer},sysdate,#{comments})
+   		insert into review values(#{boardnum},#{writer},sysdate,#{comments},#{uuid})
    	</insert>
    	<select id="getReview" parameterType="java.lang.Integer" resultType="board.model.Review">		
 		select * from review where boardnum=#{num}
@@ -45,6 +45,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<delete id="delReview" parameterType="java.lang.Integer">
 		delete from review where boardnum=#{num}
+	</delete>
+	
+	<delete id="delReview2" parameterType="board.model.Review">
+		delete from review where uuid=#{uuid}
 	</delete>
 	
 	

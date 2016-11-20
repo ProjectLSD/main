@@ -58,14 +58,15 @@ public class BoardService {
 			SqlSession ss = fac.openSession();
 			vb.setWriter(writer);
 			ss.insert("board.insert", vb);
-			System.out.println(vb.comments + "/" + vb.likes + "/" + vb.num + "/" + vb.subject + "/" + vb.writer);
+			System.out.println(vb.getComments() + "/" + vb.getLikes() + "/" + vb.getNum() + "/" + vb.getSubject() + "/"
+					+ vb.getViewcount() + "/" + vb.getWriter()+ "/" + vb.getType());
 			ss.close();
-
 			System.out.println("성공4");
 			return true;
 		} catch (Exception e) {
 			System.out.println("실패");
-			System.out.println(vb.comments + "/" + vb.likes + "/" + vb.num + "/" + vb.subject + "/" + vb.writer);
+			System.out.println(vb.getComments() + "/" + vb.getLikes() + "/" + vb.getNum() + "/" + vb.getSubject() + "/"
+					+ vb.getViewcount() + "/" + vb.getWriter()+ "/" + vb.getType());
 			e.printStackTrace();
 			return false;
 		}
@@ -100,5 +101,5 @@ public class BoardService {
 		
 		return flag;
 	}
-
+	// 게시판 삭제
 }

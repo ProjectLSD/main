@@ -10,7 +10,14 @@ public class Board {
 	Date writedate;
 	int viewcount;
 	int likes;
+	String type = "¿œπ›";
 	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public int getNum() {
 		return num;
 	}

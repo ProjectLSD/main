@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<h2 style="color: white;">글작성</h2>
 <c:choose>
-<c:when test="${subject==null}">
+<c:when test="${board.subject==null}">
+<h2 style="color: white;">글작성</h2>
 <form action="/board/insertin">
 </c:when>
 <c:otherwise>
+<h2 style="color: white;">글수정</h2>
 <form action="/board/update" method="post">
 <input type="hidden" name="num" value="${board.num }" /> 
 </c:otherwise>

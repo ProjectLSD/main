@@ -66,7 +66,7 @@ public class BoardController {
 		String id = (String) session.getAttribute("userId");
 
 		System.out.println(vb.getComments() + "/" + vb.getLikes() + "/" + vb.getNum() + "/" + vb.getSubject() + "/"
-				+ vb.getViewcount() + "/" + vb.getWriter());
+				+ vb.getViewcount() + "/" + vb.getWriter()+ "/" + vb.getType());
 		boolean flag = bs.insert(id, vb);
 		if (flag) {
 			mav.setViewName("board/success");

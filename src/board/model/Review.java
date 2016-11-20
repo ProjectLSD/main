@@ -7,7 +7,7 @@ public class Review {
 	String writer;
 	Date writedate;
 	String comments;
-	
+	String uuid;
 	public int getBoardnum() {
 		return boardnum;
 	}
@@ -16,6 +16,12 @@ public class Review {
 	}
 	public String getWriter() {
 		return writer;
+	}
+	public String getUuid() {
+		return uuid;
+	}
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 	public void setWriter(String writer) {
 		this.writer = writer;

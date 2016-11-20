@@ -11,30 +11,30 @@
    <table class="table">
       <thead>
          <tr>
-            <th><p class="glyphicon glyphicon-search"></p></th>
             <th><p class="glyphicon glyphicon-time"></p></th>
+            <th><p class="glyphicon glyphicon-thumbs-up"></p></th>
+            <th><p class="glyphicon glyphicon-search"></p></th>
             <th><p class="glyphicon glyphicon-pencil"></p></th>
             <th><p class="glyphicon glyphicon-user"></p></th>
-            <th><p class="glyphicon glyphicon-thumbs-up"></p></th>
             <th><p class="glyphicon glyphicon-eye-open"></p></th>
          </tr>
       </thead>
       <tbody>
          <tr style="color: black;" class="success">
-            <td>1</td>
             <td>16-11-15</td>
+            <td>1</td>
+            <td><button type="button" class="btn btn-default" style="padding:5px; font-size: 11px;"><b>공지</b></button></td>
             <td>뭘 처다보노?? 염탐하지마라</td>
             <td>jjs01</td>
-            <td>1</td>
             <td>183</td>
          </tr>
          <c:forEach items="${data}" var="b">
             <tr>
-               <td>${b.NUM}</td>
-               <td><fmt:formatDate value="${b.WRITEDATE}" pattern="yy-MM-dd" /></td>
+               <td style="width: 80px;"><fmt:formatDate value="${b.WRITEDATE}" pattern="yy-MM-dd" /></td>
+               <td style="width: 50px;">${b.LIKES}</td>
+               <td style="width: 60px;"><button type="button" class="btn btn-default" style="padding:5px; font-size: 11px;"><b>${b.TYPE}</b></button></td>
                <td style="color: white;"><a href="/board/view?num=${b.NUM}">${b.SUBJECT}</a></td>
                <td>${b.WRITER}</td>
-               <td>${b.LIKES}</td>
                <td>${b.VIEWCOUNT}</td>
             </tr>
          </c:forEach>
