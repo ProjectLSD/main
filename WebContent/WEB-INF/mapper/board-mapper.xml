@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    		insert into review values(#{boardnum},#{writer},sysdate,#{comments},#{uuid})
    	</insert>
    	<select id="getReview" parameterType="java.lang.Integer" resultType="board.model.Review">		
-		select * from review where boardnum=#{num}
+		select * from review where boardnum=#{num} order by writedate
 	</select>
 	<select id="getPart" resultType="java.util.HashMap" parameterType="java.util.HashMap" >
 		<![CDATA[

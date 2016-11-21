@@ -85,7 +85,7 @@ function Map() {
                      <td width="70%">${r.writer}</td>
                      <td align="right" ; width="200px"><span
                         class="glyphicon glyphicon-time" style="text-align: right;"><fmt:formatDate
-                              value="${r.writedate}" pattern="yyyy-MM-dd hh:mm:ss" /></span></td>
+                              value="${r.writedate}" pattern="yyyy-MM-dd HH:mm:ss" /></span></td>
                   </tr>
                   <tr style="color: black;">
                      <td>${r.comments}</td>
