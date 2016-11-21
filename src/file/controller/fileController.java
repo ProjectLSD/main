@@ -94,7 +94,7 @@ public class fileController {
 		System.out.println("넘어왔다~!!");
 		if (mp != null) {
 			mav.addObject("album", mp);
-			mav.setViewName("file/album");
+			mav.setViewName("tm:file/album");
 		} else {
 			mav.setViewName("file/error");
 
