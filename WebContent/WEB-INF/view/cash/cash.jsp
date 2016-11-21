@@ -5,4 +5,4 @@
 <br/>
 
 <b style="color: silver;">포인트 : ${point}</b> <br>
-<a href="#">충전하기</a>
+<a href="/cash/charge">충전하기</a>

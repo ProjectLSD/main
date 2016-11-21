@@ -27,5 +27,23 @@ public class cashController {
 		
 		return mav;
 	}
+	
+	@RequestMapping("cash/charge")
+	public String charge(){
+		return "tm:cash/charge";
+	}
+	
+	@RequestMapping("cash/chargePoint")
+	public ModelAndView chargePoint(int point,HttpSession session){
+		ModelAndView mav = new ModelAndView();
+		String id = (String) session.getAttribute("userId");
+		String result = cashSrv.chargeResult(point, id);
+		if(result=="true"){
+			mav.setViewName("/cash/success");
+		}else{
+			mav.setViewName("cash/fail");
+		}
+		return mav;
+	}
 }
   
