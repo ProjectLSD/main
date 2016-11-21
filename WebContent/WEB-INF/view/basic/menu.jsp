@@ -80,7 +80,7 @@
 							<li role="presentation"><a role="menuitem" tabindex="-1"
 								href="/myInfo/info">내정보</a></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1"
-								href="#">캐시 : 0</a></li>
+								href="/cash/controller">캐시 : 0</a></li>
 							<li role="presentation" class="divider"></li>
 							<li role="presentation"><a role="menuitem" tabindex="-1"
 								href="/logout">로그아웃</a></li>

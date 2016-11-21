@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
-@Component  
+@Component
 public class fileService {
 
 	@Autowired
@@ -21,7 +21,7 @@ public class fileService {
 
 	@Autowired
 	ServletContext application;
-  
+
 	public boolean insertFile(String genre, String album, MultipartFile file, String owner) {
 		if (file.isEmpty()) {
 			return false;
@@ -41,7 +41,7 @@ public class fileService {
 			map.put("owner", owner);
 			map.put("genre", genre);
 			map.put("filename", fileName);
-			System.out.println(uid+"/"+file.getSize()+"/"+album+"/"+owner+"/"+genre+"/"+fileName);
+			System.out.println(uid + "/" + file.getSize() + "/" + album + "/" + owner + "/" + genre + "/" + fileName);
 			sql.insert("file.insertMap", map);
 			sql.close();
 			return true;
@@ -59,7 +59,7 @@ public class fileService {
 		return list;
 
 	}
-	
+
 	public List readSomePage(int p) {
 		int block = 5;
 		SqlSession sql = fac.openSession();
@@ -71,22 +71,22 @@ public class fileService {
 		sql.close();
 		return list;
 	}
-	
+
 	public int calcLast() {
 		SqlSession sql = fac.openSession();
-//		List list = sql.selectList("files.getCount");
+		// List list = sql.selectList("files.getCount");
 		int count = sql.selectOne("file.getCount");
 		sql.close();
-		return count%5==0 ? count/5 : count/5+1;
+		return count % 5 == 0 ? count / 5 : count / 5 + 1;
 	}
-	
+
 	public int getTotalCount() {
 		SqlSession sql = fac.openSession();
 		int count = sql.selectOne("file.getCount");
 		sql.close();
 		return count;
 	}
-	
+
 	public HashMap readDownTarget(int filenum) {
 		SqlSession sql = fac.openSession();
 		// FileData tg = sql.selectOne("files.readOnePojo");
@@ -99,27 +99,35 @@ public class fileService {
 		sql.close();
 		return tg;
 	}
+
 	public List<HashMap> readApproval() {
 		SqlSession sql = fac.openSession();
 		List<HashMap> tg = sql.selectList("file.Approval");
 		System.out.println(tg);
-		if(tg!=null){
-		sql.close();		
+		if (tg != null) {
+			sql.close();
 		}
 		return tg;
-		
+
 	}
-	public List<HashMap> readApproval1(int filenum){
+
+	public List<HashMap> readApproval1(int filenum) {
 		SqlSession sql = fac.openSession();
-		List<HashMap> tg = sql.selectList("file.Approval1",filenum);
+		List<HashMap> tg = sql.selectList("file.Approval1", filenum);
 		System.out.println(tg);
-		if(tg==null){
-		sql.close();
+		if (tg == null) {
+			sql.close();
 		}
 		return tg;
 	}
 
-	
-	
-	
+	public List<HashMap> readAlbum(String owner) {
+		SqlSession sql = fac.openSession();
+		List<HashMap> tg = sql.selectList("file.album", owner);
+		System.out.println(tg);
+		sql.close();
+		return tg;
+
+	}
+
 }

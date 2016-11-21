@@ -4,27 +4,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="file">
 	<insert id="insertMap" parameterType="java.util.HashMap">
-		insert into fileupload values(fileupload_seq.nextval,#{fileuuid},#{filesize},#{album},#{owner},#{genre},0,#{filename},0,null)
+		insert into fileupload
+		values(fileupload_seq.nextval,#{fileuuid},#{filesize},#{album},#{owner},#{genre},0,#{filename},0,null)
 	</insert>
 
 	<select id="fileList" resultType="java.util.HashMap">
 		select * from fileupload
 	</select>
-	
+
 	<select id="likeDesc" resultType="java.util.HashMap">
-		select * from fileupload order by likes desc
-	</select> 
+		select * from fileupload order
+		by likes desc
+	</select>
 
 	<select id="countDesc" resultType="java.util.HashMap">
-		select * from fileupload order by count desc
-	</select> 
-	
+		select * from fileupload order
+		by count desc
+	</select>
+
 	<select id="searchSome" resultType="java.util.HashMap"
 		parameterType="java.lang.String">
 		select * from fileupload where filename like #{q}
 	</select>
-	
-	<select id="getPart" resultType="java.util.HashMap" parameterType="java.util.HashMap" >
+
+	<select id="getPart" resultType="java.util.HashMap"
+		parameterType="java.util.HashMap">
 		<![CDATA[
 		select * from(
 		select rownum idx, t.* from
@@ -32,22 +36,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)where idx >=#{start} and idx <=#{end}
 		]]>
 	</select>
-	
-	<select id="getCount" resultType="java.lang.Integer"> 
+
+	<select id="getCount" resultType="java.lang.Integer">
 		select count(*) from fileupload
-	</select>	
-	
+	</select>
+
 	<select id="readOneMap" resultType="java.util.HashMap"
 		parameterType="java.lang.Integer">
 		select * from fileupload where filenum=#{filenum}
 	</select>
-	
+
 	<update id="updateCount" parameterType="java.lang.Integer">
-		update fileupload set count =
+		update fileupload set
+		count =
 		count +1 where filenum =#{filenum }
 	</update>
-	<select id="Approval" resultType="java.util.HashMap">Select * from fileupload where checks = 'true'</select> 
-  <update id="Approval1" parameterType="java.util.HashMap">update fileupload set checks = 'true' where filenum =#{filenum }</update> 
-	
-  
+	<select id="Approval" resultType="java.util.HashMap">Select * from fileupload where
+		checks = 'true'</select>
+	<update id="Approval1" parameterType="java.util.HashMap">update fileupload set
+		checks = 'true' where filenum =#{filenum }</update>
+
+	<select id="album" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		select * from fileupload where owner=#{owner} and checks='true'
+	</select>
+
 </mapper>
