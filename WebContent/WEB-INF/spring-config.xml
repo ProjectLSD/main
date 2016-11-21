@@ -16,7 +16,8 @@
 	<context:component-scan base-package="email" />
 	<context:component-scan base-package="search"/>
 	<context:component-scan base-package="topChart"/>
-	<context:component-scan base-package="myInfo"/>
+	<context:component-scan base-package="myInfo"/>  
+  	<context:component-scan base-package="cash"/>
   
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -55,6 +56,7 @@
 				<value>/WEB-INF/mapper/search-mapper.xml</value>
 				<value>/WEB-INF/mapper/TopChart-mapper.xml</value>
 				<value>/WEB-INF/mapper/myInfo-mapper.xml</value>
+				<value>/WEB-INF/mapper/point-mapper.xml</value>
 			</list>
 		</property>
 	</bean>
