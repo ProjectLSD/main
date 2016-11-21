@@ -104,9 +104,9 @@ public class fileService {
 		SqlSession sql = fac.openSession();
 		List<HashMap> tg = sql.selectList("file.Approval");
 		System.out.println(tg);
-		if (tg != null) {
-			sql.close();
-		}
+		
+		sql.close();
+		
 		return tg;
 
 	}
@@ -121,9 +121,12 @@ public class fileService {
 		return tg;
 	}
 
-	public List<HashMap> readAlbum(String owner) {
+	public List<HashMap> readAlbum(String owner, String album) {
 		SqlSession sql = fac.openSession();
-		List<HashMap> tg = sql.selectList("file.album", owner);
+		HashMap map = new HashMap();
+		map.put("owner", owner);
+		map.put("album",album);
+		List<HashMap> tg = sql.selectList("file.album", map);
 		System.out.println(tg);
 		sql.close();
 		return tg;

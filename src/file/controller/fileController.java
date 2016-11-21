@@ -86,9 +86,10 @@ public class fileController {
 
 	// 음원 정보창 으로 데이터 이동
 	@RequestMapping("/file/Album1")
-	public ModelAndView ModelAlbum(String owner) {
+	public ModelAndView ModelAlbum(String owner, String album) {
 		System.out.println(owner);
-		List<HashMap> mp = fileSrv.readAlbum(owner);
+		System.out.println(album);
+		List<HashMap> mp = fileSrv.readAlbum(owner, album);
 		ModelAndView mav = new ModelAndView();
 		System.out.println(mp);
 		System.out.println("넘어왔다~!!");

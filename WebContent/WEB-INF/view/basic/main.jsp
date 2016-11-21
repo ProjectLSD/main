@@ -19,7 +19,7 @@
 		<div class="col-sm-3">
 			<div class="thumbnail">
 
-				<a href="/file/Album1?owner=${ob.OWNER }"><img src="paris.jpg"
+				<a href="/file/Album1?owner=${ob.OWNER }&album=${ob.ALBUM }"><img src="paris.jpg"
 					alt="Paris" width="400" height="300" />
 					<p>
 						<strong style="color: black;">${ob.OWNER }</strong>
