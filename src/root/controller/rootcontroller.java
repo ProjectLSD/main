@@ -31,7 +31,14 @@ public class rootcontroller {
 	public String login(){
 		return"login/login";
 	}
-	
+	@RequestMapping("/idsearch")
+	public String idsearch(){
+		return"join/idsearch";
+	}
+	@RequestMapping("/pwsearch")
+	public String pwsearch(){
+		return"join/pwsearch";
+	}
 	@RequestMapping({"/index","/"})
 	public ModelAndView index(){
 		List<HashMap> map = fileSrv.readApproval();

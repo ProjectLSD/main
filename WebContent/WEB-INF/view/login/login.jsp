@@ -60,25 +60,21 @@
 					<div class="checkbox">
 						<label><input type="checkbox" id="idSaveCheck">아이디 저장</label>
 					</div>
+					
 					<button type="submit" class="btn btn-block">
 						Login <span class="glyphicon glyphicon-ok"></span>
 					</button>
+					<div id="result"></div>
 				</form>
-				<div id="result"></div>
 			</div>
 			<div class="modal-footer">
 				<button type="submit" class="btn btn-danger btn-default pull-left"
 					data-dismiss="modal" onclick="location.href='/index'">
 					<span class="glyphicon glyphicon-remove"></span> Cancel
 				</button>
-				<a  href="/join">ID/PW찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				
+				<a href="/idsearch">아이디</a>/
+				<a href="/pwsearch">비밀번호 찾기</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="/join">회원가입</a>
 			</div>
 		</div>
@@ -91,13 +87,13 @@ $("#bt").click(function() {
 	var save = $("#save").prop("checked");
 	
 	$.ajax({
-		"url" : "/member/loginCheck?id=" + id + "&pass=" + pass,
+		"url" : "/login/home?id=" + id + "&pass=" + pass,
 		"method" : "post",
 		"aSync" : true
 	}).done(function(txt) {
 		console.log(txt);
 		if (txt == "true") {
-			location.replace("/member/loginConfirm?id="+ id+ "&pass="+ pass+ "&save="+ save);
+			location.replace("/login?id="+ id+ "&pass="+ pass+ "&save="+ save);
 		} else {
 			$("#result").html("<i style='color:red'>회원 정보가 다릅니다!</i>");
 		}

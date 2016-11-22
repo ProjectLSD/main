@@ -38,25 +38,27 @@
 				</h4>
 			</div>
 			<div class="modal-body">
-				<form action="/band/input" method="post" style="font-size: 12pt;"
-					class="form-inline">
+				<form name="joinform" action="/member/input" method="post"
+					style="font-size: 12pt;" class="form-inline">
 					<input type="hidden" name="menu" value="input" />
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>I D
 							:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-						<input type="text" required="required" class="form-control"
+						<input type="text" required="required" class="form-control" maxlength="20"
 							name="id" id="cid" placeholder="사용할 아이디">
 					</div>
-					<span id="rst"></span> <br />
+					<span id="rst" style="color: red;"><i>아이디를 입력하세요</i></span> <br />
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>Password :</label> <input type="password"
-							required="required" class="form-control" name="pass"
-							placeholder=" 패스워드">
+							required="required" class="form-control" name="pass" id="pass1"
+							placeholder="패스워드" >
 					</div>
 					<br />
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>Confirm :&nbsp;&nbsp;&nbsp;</label> <input type="password"
-							class="form-control" name="passcon" placeholder=" 패스워드확인">
+							required="required"  class="form-control" name="pass2" id="pass2"
+							 placeholder=" 패스워드확인"><span
+							id="cpass"></span>
 					</div>
 					<br />
 					<div class="form-group" style="padding-bottom: 5px;">
@@ -76,7 +78,7 @@
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>인증번호 :&nbsp;&nbsp;</label> <input type="text"
 							required="required" class="form-control" name="emailequal"
-							placeholder="8자리입력" id="conf" />&nbsp;
+							placeholder="8자리입력" id="conf"/>&nbsp;
 						<button type="button" class="btn btn-default"
 							onclick="conf_click()">확인</button>
 					</div>
@@ -99,36 +101,94 @@
 							data-dismiss="modal" onclick="location.href='/join'">
 							<span class="glyphicon glyphicon-remove"></span>취소
 						</button>
-						<input type="submit" class="btn btn-default btn-success"
-							value="가입하기" onclick="join_click()">
+						<input type="submit" class="btn btn-default btn-success" name="join"
+							value="가입하기" onclick="join_click()"/>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
+<input type="hidden" id="num"/>
+<input type="hidden" id="check"/>
 <script>
-	document.getElementById("cid").addEventListener("blur", function() {
-		var v = document.getElementById("cid").value;
 
-		var xhr = new XMLHttpRequest();
-		xhr.open("get", "/member/joinId?id=" + v, true);
-		xhr.onreadystatechange = function() {
-			if (xhr.status == 200 & xhr.readyState == 4) {
-				var t = xhr.responseText;
-				var html;
-				if (t == "TRUE") {
-					html = "<i style='color:green;'>멋진 아이디입니다</i>";
+//아이디가 없을때 리턴
+$("#pass1").keyup(function () {
+	var pass1 = $("#pass1").val();
+	var pass2 = $("#pass2").val();
+	if(pass1!=pass2){
+		 $("#cpass").html("<i style='color:red'>비밀번호가 다릅니다</i>");
+	}else{
+		 $("#cpass").html("<i style='color:green'>비밀번호가 일치합니다</i>");
+	}
+	
+});
+$("#pass2").keyup(function () {
+	var pass1 = $("#pass1").val();
+	var pass2 = $("#pass2").val();
+	if(pass1!=pass2){
+		 $("#cpass").html("<i style='color:red'>비밀번호가 다릅니다</i>");
+	}else{
+		 $("#cpass").html("<i style='color:green'>비밀번호가 일치합니다</i>");
+	}
+	
+});
+	
 
-				} else {
-					html = "<i style='color:red;'>사용중인 아이디입니다</i>";
-				}
-				document.getElementById("rst").innerHTML = html;
-			}
+$("#pass1").keyup(function(){
+  var pass1 = $("#pass1").val();
+  var chk_num = pass1.search(/[0-9]/g);
+  var chk_eng = pass1.search(/[a-z]/ig);       
+  
+      if(pass1.length < 8){
+         $("#cpass").html("<i style='color:red'> 8~20자리로 설정해주세요.</i>");
+      }else {
+         if(chk_num<0 || chk_eng<0){
+            $("#cpass").html("<i style='color:red'>영문,숫자로 설정해주세요</i>");
+         }else{          
+         }
+     }  	
+});
+$("#pass2").keyup(function(){
+  var pass1 = $("#pass1").val();
+  var chk_num = pass1.search(/[0-9]/g);
+  var chk_eng = pass1.search(/[a-z]/ig);       
+  
+      if(pass1.length < 8){
+         $("#cpass").html("<i style='color:red'> 8~20자리로 설정해주세요.</i>");
+         s3 = false;
+      }else {
+         if(chk_num<0 || chk_eng<0){
+            $("#cpass").html("<i style='color:red'>영문,숫자로 설정해주세요</i>");
+         }else{          
+         }
+     }  	
+});
 
-		};
-		xhr.send();
-	});
+ document.getElementById("cid").addEventListener("keyup", function(){
+    var v =document.getElementById("cid").value;
+	
+    var xhr = new XMLHttpRequest();
+    xhr.open("get", "/band/joinId?id="+v,true);
+    xhr.onreadystatechange=function(){
+           if(xhr.status==200&xhr.readyState==4){
+          var t =xhr.responseText;
+          var html;
+          if($("#cid").val().length==0){
+   		   html = "<i style='color:red;'>아이디를 입력하세요</i>";  
+   	   }else if(t=="TRUE") {
+             html = "<i style='color:green;'>사용가능한 아이디입니다</i>";  
+             
+          }else if(t=="FALSE"){
+             html = "<i style='color:red;'>사용중인 아이디입니다</i>";
+          }
+          document.getElementById("rst").innerHTML = html;
+       }
+       
+    };
+    xhr.send();
+ });
 
 	function button_click() {
 		var email = document.getElementById("email").value

@@ -47,10 +47,10 @@
 						<input type="text" required="required" class="form-control" maxlength="20"
 							name="id" id="cid" placeholder="사용할 아이디">
 					</div>
-					<span id="rst" style="color: red;">아이디를 입력하세요</span> <br />
+					<span id="rst" style="color: red;"><i>아이디를 입력하세요</i></span> <br />
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>Password :</label> <input type="password"
-							required="required" class="form-control" name="pass1" id="pass1"
+							required="required" class="form-control" name="pass" id="pass1"
 							placeholder="패스워드" >
 					</div>
 					<br />
@@ -102,7 +102,7 @@
 							<span class="glyphicon glyphicon-remove"></span>취소
 						</button>
 						<input type="submit" class="btn btn-default btn-success" name="join"
-							value="가입하기" onclick="join_click()">
+							value="가입하기" onclick="join_click()"/>
 					</div>
 				</form>
 			</div>
@@ -143,10 +143,10 @@ $("#pass1").keyup(function(){
     var chk_eng = pass1.search(/[a-z]/ig);       
     
         if(pass1.length < 8){
-           $("#cpass").html("<i style='color:red'>8~20자리로 설정해주세요.</i>");
+           $("#cpass").html("<i style='color:red'> 8~20자리로 설정해주세요.</i>");
         }else {
            if(chk_num<0 || chk_eng<0){
-              $("#cpass").html("<i style='color:red'>영문,숫자 조합으로 설정해주세요.</i>");
+              $("#cpass").html("<i style='color:red'>영문,숫자로 설정해주세요</i>");
            }else{          
            }
        }  	
@@ -157,11 +157,11 @@ $("#pass2").keyup(function(){
     var chk_eng = pass1.search(/[a-z]/ig);       
     
         if(pass1.length < 8){
-           $("#cpass").html("<i style='color:red'>8~20자리로 설정해주세요.</i>");
+           $("#cpass").html("<i style='color:red'> 8~20자리로 설정해주세요.</i>");
            s3 = false;
         }else {
            if(chk_num<0 || chk_eng<0){
-              $("#cpass").html("<i style='color:red'>영문, 숫자를 사용하세요</i>");
+              $("#cpass").html("<i style='color:red'>영문,숫자로 설정해주세요</i>");
            }else{          
            }
        }  	
@@ -169,20 +169,19 @@ $("#pass2").keyup(function(){
 
    document.getElementById("cid").addEventListener("keyup", function(){
       var v =document.getElementById("cid").value;
-      
+	
       var xhr = new XMLHttpRequest();
       xhr.open("get", "/band/joinId?id="+v,true);
       xhr.onreadystatechange=function(){
-         if(xhr.status==200&xhr.readyState==4){
+             if(xhr.status==200&xhr.readyState==4){
             var t =xhr.responseText;
             var html;
-            if(t==null){
-            	html = "<i style='color:green;'>아이디를 입력하세요</i>";  
-            }
-            else if(t=="TRUE") {
+            if($("#cid").val().length==0){
+     		   html = "<i style='color:red;'>아이디를 입력하세요</i>";  
+     	   }else if(t=="TRUE") {
                html = "<i style='color:green;'>사용가능한 아이디입니다</i>";  
                
-            }else if(t=="FALSE") {
+            }else if(t=="FALSE"){
                html = "<i style='color:red;'>사용중인 아이디입니다</i>";
             }
             document.getElementById("rst").innerHTML = html;
