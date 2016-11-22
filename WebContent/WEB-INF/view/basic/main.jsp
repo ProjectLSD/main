@@ -3,8 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<h3 style="color: white;">Test</h3>
-<p>헤헤</p>
+<h3 style="color: white;">New Disc</h3>
 <hr />
 <div class="row text-center">
 	<c:forEach var="ob" items="${map }">
