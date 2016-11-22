@@ -31,10 +31,11 @@
 				<tr id="${status.count}" class="trevent"
 					style="color: #a3c2ca; background-color: #1e1e26">
 					<td align="center"><span style="font-size: 20px;" id="data${status.count}">${status.count}</span></td>
-					<td align="center" width="100px"><span id="sp${status.count}" class="glyphicon glyphicon-plus"></span></td>
-					<td id="fn${status.count}">${ob.FILENAME}</td>
+					<td align="center" width="100px"><span id="${status.count}" class="glyphicon glyphicon-plus"></span></td>
+					<td>${ob.FILENAME}</td>
 					<td>${ob.LIKES}</td>
 					<td>${ob.COUNT}</td>
+					<td id="hd${status.count}" hidden="${ob.FILENUM}">${ob.FILENUM}</td>
 				</tr>
 			</c:forEach>
 		</table>
@@ -46,20 +47,7 @@
       	// console.log($("#data"+id).text());
       	$("#data"+id).attr("class", "glyphicon glyphicon-play");
       	$("#data"+id).text("");
-      	$("#sp"+id).click(function(){
-      		var filename = $("#fn"+id).text();
-      		var album = "${alb}";
-      		console.log(filename);
-      		console.log(album);
-      		 $.ajax({
-      	         "url" : "/file/one?filename=" + filename + "&album=" + album,
-      	         "method" : "post",
-      	         "aSync" : true
-      	      }).done(function(txt) {  
-      	         console.log(txt);
-      	         location.reload();
-      	      })
-      	});
+      	
    });
       	$(".trevent").mouseleave(function(){
             var id = $(this).attr("id");
@@ -67,4 +55,18 @@
             	$("#data"+id).attr("class", "");
             	$("#data"+id).text(id);
          });
+     $(".glyphicon-plus").click(function(){
+    	 var id = $(this).attr("id");
+    	 console.log(id);
+    	 var filenum = $("#hd"+id).text();
+  		 $.ajax({
+  	         "url" : "/file/one?filenum=" + filenum,
+  	         "method" : "post",
+  	         "aSync" : true
+  	      }).done(function(txt) {  
+  	         console.log(txt);
+  	         location.reload();
+  	      })
+     }); 	
+      	
   </script>

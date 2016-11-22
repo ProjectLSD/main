@@ -106,8 +106,6 @@ public class fileService {
 	public List<HashMap> readApproval() {
 		SqlSession sql = fac.openSession();
 		List<HashMap> tg = sql.selectList("file.Approval");
-		System.out.println(tg);
-		
 		sql.close();
 		
 		return tg;
@@ -117,7 +115,6 @@ public class fileService {
 	public List<HashMap> readApproval1(int filenum) {
 		SqlSession sql = fac.openSession();
 		List<HashMap> tg = sql.selectList("file.Approval1", filenum);
-		System.out.println(tg);
 		if (tg == null) {
 			sql.close();
 		}
@@ -131,44 +128,31 @@ public class fileService {
 		map.put("owner", owner);
 		map.put("album",album);
 		List<HashMap> tg = sql.selectList("file.album", map);
-		System.out.println(tg);
 		sql.close();
 		return tg;
 
 	}
 	
-	public void findMusic(String album, String filename, HttpSession hs){
+	public boolean findMusic(int filenum, HttpSession hs){
 		SqlSession sql = fac.openSession();
-		HashMap map = new HashMap();
-		map.put("album", album);
-		map.put("filename",filename);
-		HashMap hm = sql.selectOne("file.album1", map);
+		HashMap hm = sql.selectOne("file.readOneMap", filenum);
 		System.out.println("db music :"+hm);
+		boolean flag;
+		if(hm != null){
 		List<HashMap> li = new ArrayList<>();
-		if(hs.getAttribute("PlayList")!=null){
-			li = (List<HashMap>) hs.getAttribute("PlayList");
-			int size = li.size();
-			System.out.println(size);
-			for(int i=0; i<size; i++){
-				System.out.println(i);
-				HashMap hmap = li.get(i);
-				System.out.println(hmap);
-				String fn = (String) hmap.get("FILENAME");
-				System.out.println(fn);
-				if(filename.equals(fn)){
-					//hs.setAttribute("PlayList", li );
-					System.out.println("같은 음원");
-				}else{
-					System.out.println("다른 음원");
-					li.add(hm);
-				}
+			if(hs.getAttribute("PlayList")!=null){
+				System.out.println("PlayList 있음");
+				li = (List<HashMap>) hs.getAttribute("PlayList");
 			}
-		}else{
-			li.add(hm);
-			hs.setAttribute("PlayList", li );
-			System.out.println("playlist 넘김.");
-		}
+				li.add(hm);
+				hs.setAttribute("PlayList", li );
+				System.out.println("playlist 넘김.");
+				flag = true;
+			}else{
+				flag = false;
+			}
 		sql.close();
+		return flag;
 	}
 }
 		

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -108,14 +109,17 @@ public class fileController {
 	}
 	//플레이 리스트 세션 에 데이터 넣어서 출력
 	@RequestMapping("/file/one")
-	public ModelAndView deleteBoard1(String filename, String album,HttpSession session ){
-		System.out.println("album: "+album+"/"+"filename: "+filename);
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("tmm:basic/header");
-		fileSrv.findMusic(album, filename, session);
+	@ResponseBody
+	public String deleteBoard1(int filenum, HttpSession session ){
+		System.out.println("filenum: " + filenum);
+		boolean flag;
+		flag = fileSrv.findMusic(filenum, session);
 		System.out.println("session 넘어가라~!!");
-		mav.addObject("map", fileSrv.readApproval());
-		return mav; 
+		if(flag){
+			return "TRUE";
+		}else{
+			return "FALSE";
+		}
 		}
 		
 	}
