@@ -36,21 +36,21 @@ label, a, p, tr {
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
-	background-color: #000000;
+	background-color: #1e1e26;
 	height: auto;
 }
 
 /* Set gray background color and 100% height  rgba(42, 42, 53, 1);*/
 .sidenav {
 	padding-top: 20px;
-	background-color: #000000;
+	background-color: #23232c;
 	height: 100%;
 	color: white;
 }
 
 /* Set black background color, white text and some padding */
 footer {
-	background-color: #000000;
+	background-color: #23232c;
 	color: white;
 	padding: 10px;
 }

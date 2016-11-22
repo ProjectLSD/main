@@ -18,6 +18,8 @@
 	포인트 : ${obj.POINT }<br>
 	팔로우 수 :${obj.LIKES }<br>
 </b>
-
+<br>
+<br>
+<a href="/myInfo/inputPass">정보수정</a>
 <hr />
 </c:forEach>
