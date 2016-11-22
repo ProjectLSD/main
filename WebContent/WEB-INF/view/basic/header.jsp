@@ -4,8 +4,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div align="center">
 <h2>Play list</h2>
-<c:if test="${sessionScope.logID ne null }">	
-	<b style="color: pink;">앨범 : ${sessionScope.logID.album } <br/> 파일이름 : ${sessionScope.logID.filename } <br/> 파일고유번호: ${sessionScope.logID.fileuuid }</b>
+<c:if test="${sessionScope.PlayList ne null }">
+<c:forEach items="${sessionScope.PlayList }" var="li">
+	<b style="color: pink;">앨범 : ${li.ALBUM } <br/> 파일이름 : ${li.FILENAME } <br/> 파일고유번호: ${li.FILEUUID }</b>
+</c:forEach>	
 </c:if>
 </div>
 

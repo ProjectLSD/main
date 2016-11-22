@@ -11,10 +11,10 @@
 		</div>
 		<div
 			style="font-size: 50px; color: #a3c2ca; width: 500px; margin-left: 350px;">
-			album :</div>
+			album : ${alb }</div>
 		<div
 			style="font-size: 30px; color: #a3c2ca; width: 500px; margin-left: 350px;">
-			owner :</div>
+			owner : ${own }</div>
 	</div>
 	<div class="panel panel-default" style="width: 1028px;">
 		<table class="table" style="font-size: 18px; border: 0px;">
@@ -30,10 +30,9 @@
 				varStatus="status" items="${album }">
 				<tr id="${status.count}" class="trevent"
 					style="color: #a3c2ca; background-color: #1e1e26">
-					<td align="center"><span id="data${status.count}">${status.count}</span></td>
-					<td align="center" width="100px"><span
-						class="glyphicon glyphicon-plus"></span></td>
-					<td>${ob.FILENAME}</td>
+					<td align="center"><span style="font-size: 20px;" id="data${status.count}">${status.count}</span></td>
+					<td align="center" width="100px"><span id="sp${status.count}" class="glyphicon glyphicon-plus"></span></td>
+					<td id="fn${status.count}">${ob.FILENAME}</td>
 					<td>${ob.LIKES}</td>
 					<td>${ob.COUNT}</td>
 				</tr>
@@ -45,8 +44,22 @@
    $(".trevent").mouseenter(function(){
       var id = $(this).attr("id");
       	// console.log($("#data"+id).text());
-      	$("#data"+id).attr("class", "glyphicon glyphicon-play-circle");
+      	$("#data"+id).attr("class", "glyphicon glyphicon-play");
       	$("#data"+id).text("");
+      	$("#sp"+id).click(function(){
+      		var filename = $("#fn"+id).text();
+      		var album = "${alb}";
+      		console.log(filename);
+      		console.log(album);
+      		 $.ajax({
+      	         "url" : "/file/one?filename=" + filename + "&album=" + album,
+      	         "method" : "post",
+      	         "aSync" : true
+      	      }).done(function(txt) {  
+      	         console.log(txt);
+      	         location.reload();
+      	      })
+      	});
    });
       	$(".trevent").mouseleave(function(){
             var id = $(this).attr("id");
@@ -54,4 +67,4 @@
             	$("#data"+id).attr("class", "");
             	$("#data"+id).text(id);
          });
-   </script>
+  </script>

@@ -1,5 +1,6 @@
 package file.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -92,9 +93,10 @@ public class fileController {
 		System.out.println(album);
 		List<HashMap> mp = fileSrv.readAlbum(owner, album);
 		ModelAndView mav = new ModelAndView();
-		System.out.println(mp);
 		System.out.println("넘어왔다~!!");
 		if (mp != null) {
+			mav.addObject("own",owner);
+			mav.addObject("alb",album);
 			mav.addObject("album", mp);
 			mav.setViewName("tm:file/album");
 		} else {
@@ -106,20 +108,14 @@ public class fileController {
 	}
 	//플레이 리스트 세션 에 데이터 넣어서 출력
 	@RequestMapping("/file/one")
-	public ModelAndView deleteBoard1(String album,String filename ,String fileuuid,HttpSession session ){
-		
+	public ModelAndView deleteBoard1(String filename, String album,HttpSession session ){
+		System.out.println("album: "+album+"/"+"filename: "+filename);
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("tmm:basic/header");
-		HashMap map = new HashMap<>();
-		map.put("album", album);
-		map.put("filename", filename);
-		map.put("fileuuid",fileuuid);
-		session.setAttribute("logID",map );
-		System.out.println(map.toString());
-		System.out.println("session 넘어와라~!!");
+		fileSrv.findMusic(album, filename, session);
+		System.out.println("session 넘어가라~!!");
 		mav.addObject("map", fileSrv.readApproval());
 		return mav; 
-
 		}
 		
 	}

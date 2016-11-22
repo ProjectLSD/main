@@ -1,6 +1,7 @@
 package file.model;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -120,6 +121,7 @@ public class fileService {
 		if (tg == null) {
 			sql.close();
 		}
+		sql.close();
 		return tg;
 	}
 
@@ -135,5 +137,38 @@ public class fileService {
 
 	}
 	
+	public void findMusic(String album, String filename, HttpSession hs){
+		SqlSession sql = fac.openSession();
+		HashMap map = new HashMap();
+		map.put("album", album);
+		map.put("filename",filename);
+		HashMap hm = sql.selectOne("file.album1", map);
+		System.out.println("db music :"+hm);
+		List<HashMap> li = new ArrayList<>();
+		if(hs.getAttribute("PlayList")!=null){
+			li = (List<HashMap>) hs.getAttribute("PlayList");
+			int size = li.size();
+			System.out.println(size);
+			for(int i=0; i<size; i++){
+				System.out.println(i);
+				HashMap hmap = li.get(i);
+				System.out.println(hmap);
+				String fn = (String) hmap.get("FILENAME");
+				System.out.println(fn);
+				if(filename.equals(fn)){
+					//hs.setAttribute("PlayList", li );
+					System.out.println("같은 음원");
+				}else{
+					System.out.println("다른 음원");
+					li.add(hm);
+				}
+			}
+		}else{
+			li.add(hm);
+			hs.setAttribute("PlayList", li );
+			System.out.println("playlist 넘김.");
+		}
+		sql.close();
+	}
 }
 		
