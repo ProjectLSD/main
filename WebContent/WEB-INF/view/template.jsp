@@ -44,7 +44,7 @@ label, a, p, tr {
 .sidenav {
 	padding-top: 20px;
 	background-color: #23232c;
-	height: 100%;
+	height: 1200px;
 	color: white;
 }
 
@@ -71,7 +71,6 @@ footer {
 	<div class="container-fluid text-center">
 		<div class="row content">
 			<div class="col-sm-2 sidenav">
-
 				<p>
 					<tiles:insertAttribute name="menu" />
 				</p>
@@ -82,12 +81,13 @@ footer {
 					<tiles:insertAttribute name="body" />
 				</p>
 			</div>
-			<p>
+			<div class="col-sm-2 sidenav">
+				<p>
 					<tiles:insertAttribute name="header" />
+				</p>
+			</div>
 		</div>
 	</div>
-	<div class="col-sm-2 sidenav"></div>
-
 	<footer class="container-fluid text-center">
 		<p>
 			<tiles:insertAttribute name="footer" />

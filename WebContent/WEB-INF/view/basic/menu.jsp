@@ -3,24 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <style>
-.button4 {
-	background-color: white;
-	color: black;
-	border: 2px solid #23232c;
-}
 
-.button4:hover {
-	background-color: #555555;
-	color: white;
-}
-
-#bu.btn-default {
-	border: 2px solid #000;
-	background: #000;
+.btn-default {
+	border: 2px;
+	background: #23232c;
 	color: #fff;
 }
 
-#bu.btn-default:hover {
+.btn-default:hover {
 	background: #fff;
 	color: #000;
 }
@@ -30,14 +20,14 @@
 		<img src="/logo.png" height="180" ; width="80%"
 			onclick="location.href='/index'" />
 	</div>
-	<form action="/file/search">
-		<div class="input-group">
-			<input type="text" class="form-control" placeholder="Search Blog.."
-				name="q"> <span class="input-group-btn">
-				<button class="btn btn-default" type="submit">
+	<form action="/file/search" style="width: 180px;padding-left: 20px;">
+		<div class="input-group" align="center">
+			<span class="input-group-btn">
+			<input type="text" class="form-control" placeholder="Search Blog.."name="q"> 
+				<button class="btn btn-default" type="submit" style="padding-bottom: 7px;padding-top: 7px;">
 					<span class="glyphicon glyphicon-search"></span>
 				</button>
-			</span>
+				</span>
 		</div>
 	</form>
 	<div align="left">
@@ -56,10 +46,10 @@
 		<div align="center">
 			<c:choose>
 				<c:when test="${sessionScope.userId == null}">
-					<button type="button" class="btn btn-default button button4"
-						onclick="location.href='/login'">로그인</button>&nbsp;
+					<button type="button" class="btn btn-default"
+						onclick="location.href='/login'">LOG IN</button>&nbsp;
   <button type="button" class="btn btn-default button button4"
-						onclick="location.href='/join'">회원가입</button>
+						onclick="location.href='/join'">Sign Up</button>
 				</c:when>
 				<c:otherwise>
 
