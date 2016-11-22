@@ -18,7 +18,7 @@ public class emailController {
 	@Autowired
 	JavaMailSender sender;
 	
-	@RequestMapping("email/findpass.nhn")
+	@RequestMapping("email/findpass")
 	public ModelAndView findPass(String regid,String regname,String sendemail){
 		ModelAndView mav = new ModelAndView();
 		List list = email.findpass(regid, regname);

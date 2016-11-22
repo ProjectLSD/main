@@ -44,17 +44,17 @@
 				</h4>
 			</div>
 			<div class="modal-body">
-				<form role="form" action="/home">
+				<form id="bt" role="form" action="/home">
 					<div class="form-group">
 						<label for="psw"><span class="glyphicon glyphicon-user"></span>I
-							D</label> <input type="text" class="form-control"  name="id"
+							D</label> <input type="text" class="form-control"  name="id" id="id"
 							placeholder="아이디">
 					</div>
 					<div class="form-group">
 
 						<label for="usrname"><span
 							class="glyphicon glyphicon-lock"></span>password</label> <input
-							type="password" class="form-control" id="usrname" name="pass"
+							type="password" class="form-control" id="pass" name="pass" 
 							placeholder="비밀번호">
 					</div>
 					<div class="checkbox">
@@ -64,18 +64,46 @@
 						Login <span class="glyphicon glyphicon-ok"></span>
 					</button>
 				</form>
+				<div id="result"></div>
 			</div>
 			<div class="modal-footer">
 				<button type="submit" class="btn btn-danger btn-default pull-left"
 					data-dismiss="modal" onclick="location.href='/index'">
 					<span class="glyphicon glyphicon-remove"></span> Cancel
 				</button>
+				<a  href="/join">ID/PW찾기</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				
 				<a href="/join">회원가입</a>
 			</div>
 		</div>
 	</div>
 </div>
 <script>
+$("#bt").click(function() {
+	var id = $("#id").val();
+	var pass = $("#pass").val();
+	var save = $("#save").prop("checked");
+	
+	$.ajax({
+		"url" : "/member/loginCheck?id=" + id + "&pass=" + pass,
+		"method" : "post",
+		"aSync" : true
+	}).done(function(txt) {
+		console.log(txt);
+		if (txt == "true") {
+			location.replace("/member/loginConfirm?id="+ id+ "&pass="+ pass+ "&save="+ save);
+		} else {
+			$("#result").html("<i style='color:red'>회원 정보가 다릅니다!</i>");
+		}
+	})
+});
+
 
 $(document).ready(function(){
 

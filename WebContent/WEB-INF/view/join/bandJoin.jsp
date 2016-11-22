@@ -44,21 +44,21 @@
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>I D
 							:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-						<input type="text" required="required" class="form-control"
+						<input type="text" required="required" class="form-control" maxlength="20"
 							name="id" id="cid" placeholder="사용할 아이디">
 					</div>
 					<span id="rst" style="color: red;">아이디를 입력하세요</span> <br />
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>Password :</label> <input type="password"
 							required="required" class="form-control" name="pass1" id="pass1"
-							placeholder="패스워드">
+							placeholder="패스워드" >
 					</div>
 					<br />
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>Confirm :&nbsp;&nbsp;&nbsp;</label> <input type="password"
-							required="required" class="form-control" name="pass2" id="pass2"
-							readonly="readonly" placeholder=" 패스워드확인" rea><span
-							id="cpass" style="color: red;"> 비밀번호를 입력하세요</span>
+							required="required"  class="form-control" name="pass2" id="pass2"
+							 placeholder=" 패스워드확인"><span
+							id="cpass"></span>
 					</div>
 					<br />
 					<div class="form-group" style="padding-bottom: 5px;">
@@ -78,7 +78,7 @@
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>인증번호 :&nbsp;&nbsp;</label> <input type="text"
 							required="required" class="form-control" name="emailequal"
-							placeholder="8자리입력" id="conf" />&nbsp;
+							placeholder="8자리입력" id="conf"/>&nbsp;
 						<button type="button" class="btn btn-default"
 							onclick="conf_click()">확인</button>
 					</div>
@@ -101,7 +101,7 @@
 							data-dismiss="modal" onclick="location.href='/join'">
 							<span class="glyphicon glyphicon-remove"></span>취소
 						</button>
-						<input type="submit" class="btn btn-default btn-success"
+						<input type="submit" class="btn btn-default btn-success" name="join"
 							value="가입하기" onclick="join_click()">
 					</div>
 				</form>
@@ -109,40 +109,65 @@
 		</div>
 	</div>
 </div>
-
+<input type="hidden" id="num"/>
+<input type="hidden" id="check"/>
 <script>
 
 
-$(function(){
-	 $("#pass1").onkeyup(function () {
-	if($("#pass1")==true){
-		joinform.pass2.readonly=true;
+//아이디가 없을때 리턴
+$("#pass1").keyup(function () {
+	var pass1 = $("#pass1").val();
+	var pass2 = $("#pass2").val();
+	if(pass1!=pass2){
+		 $("#cpass").html("<i style='color:red'>비밀번호가 다릅니다</i>");
 	}else{
-		
+		 $("#cpass").html("<i style='color:green'>비밀번호가 일치합니다</i>");
 	}
-		 
-	 });
+	
+});
+$("#pass2").keyup(function () {
+	var pass1 = $("#pass1").val();
+	var pass2 = $("#pass2").val();
+	if(pass1!=pass2){
+		 $("#cpass").html("<i style='color:red'>비밀번호가 다릅니다</i>");
+	}else{
+		 $("#cpass").html("<i style='color:green'>비밀번호가 일치합니다</i>");
+	}
+	
+});
+	
+
+$("#pass1").keyup(function(){
+    var pass1 = $("#pass1").val();
+    var chk_num = pass1.search(/[0-9]/g);
+    var chk_eng = pass1.search(/[a-z]/ig);       
+    
+        if(pass1.length < 8){
+           $("#cpass").html("<i style='color:red'>8~20자리로 설정해주세요.</i>");
+        }else {
+           if(chk_num<0 || chk_eng<0){
+              $("#cpass").html("<i style='color:red'>영문,숫자 조합으로 설정해주세요.</i>");
+           }else{          
+           }
+       }  	
+ });
+$("#pass2").keyup(function(){
+    var pass1 = $("#pass1").val();
+    var chk_num = pass1.search(/[0-9]/g);
+    var chk_eng = pass1.search(/[a-z]/ig);       
+    
+        if(pass1.length < 8){
+           $("#cpass").html("<i style='color:red'>8~20자리로 설정해주세요.</i>");
+           s3 = false;
+        }else {
+           if(chk_num<0 || chk_eng<0){
+              $("#cpass").html("<i style='color:red'>영문, 숫자를 사용하세요</i>");
+           }else{          
+           }
+       }  	
  });
 
-$(function () {
-$("#pass2").blur(function () {
-      var t1 = $("#pass1").val();
-      var t2 = $("#pass2").val();
-
-     if (t1 == t2) {
-   	  $("#cpass").html("<b style='color:green;'>비밀번호가 일치합니다</b>");
-     }
-      else {
-         $("#cpass").html("<b style='color:red;'>비밀번호가 다릅니다</b>");
-            return true;
-          }
-     });
-  });
-
-
-
-
-   document.getElementById("cid").addEventListener("blur", function(){
+   document.getElementById("cid").addEventListener("keyup", function(){
       var v =document.getElementById("cid").value;
       
       var xhr = new XMLHttpRequest();
@@ -151,18 +176,22 @@ $("#pass2").blur(function () {
          if(xhr.status==200&xhr.readyState==4){
             var t =xhr.responseText;
             var html;
-            if(t=="TRUE") {
-               html = "<b style='color:green;'>사용가능한 아이디입니다</b>";  
+            if(t==null){
+            	html = "<i style='color:green;'>아이디를 입력하세요</i>";  
+            }
+            else if(t=="TRUE") {
+               html = "<i style='color:green;'>사용가능한 아이디입니다</i>";  
                
-            } else {
-               html = "<b style='color:red;'>사용중인 아이디입니다</b>";
+            }else if(t=="FALSE") {
+               html = "<i style='color:red;'>사용중인 아이디입니다</i>";
             }
             document.getElementById("rst").innerHTML = html;
          }
-            
+         
       };
       xhr.send();
    });
+ 
    
    function button_click() {
 		var email = document.getElementById("email").value;
@@ -177,17 +206,18 @@ $("#pass2").blur(function () {
 	         if(xhr.status==200&xhr.readyState==4){
 	            var t =xhr.responseText;
 	            if(t!=null) {  
-	               
 	            } else {
 	            	alert("메일 발송중 오료가 발생하였습니다.");
+	       
 	            }
 	            document.getElementById("num").value = t;  
+	        
 	         }
 	            
 	      };  
 	      xhr.send();
 	}
-
+	
    function conf_click(){
 	   var conf = document.getElementById("conf").value;
 	   var num = document.getElementById("num").value;
@@ -197,16 +227,15 @@ $("#pass2").blur(function () {
 		   document.getElementById("check").value = true;
 	   }else{
 		   alert("인증 번호가 틀립니다.");
-		   document.getElementById("check").value = false;
+		   document.getElementById("check").value = false;	
 	   }
    }
    
    function join_click(){
-		var check =  document.getElementById("check").value;
+		var check = document.getElementById("check").value;
 		if(check==true){
 			 alert("가입이 완료되었습니다");
 		}else{
-			alert("가입에 실패했습니다")
 		}
    }
 </script>
