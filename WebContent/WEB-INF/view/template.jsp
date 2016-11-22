@@ -3,6 +3,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <head>
 <title>음악에 미치다</title>
 <link rel="main.jpg" href="/main.jpg" />
@@ -81,6 +82,8 @@ footer {
 					<tiles:insertAttribute name="body" />
 				</p>
 			</div>
+			<p>
+					<tiles:insertAttribute name="header" />
 		</div>
 	</div>
 	<div class="col-sm-2 sidenav"></div>

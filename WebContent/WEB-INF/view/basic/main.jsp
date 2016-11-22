@@ -13,23 +13,26 @@
 <h3 style="color: white;">Test</h3>
 <p>헤헤</p>
 <hr />
-
 <div class="row text-center">
 	<c:forEach var="ob" items="${map }">
 		<div class="col-sm-3">
-			<div class="thumbnail">
-
-				<a href="/file/Album1?owner=${ob.OWNER }&album=${ob.ALBUM }"><img src="paris.jpg"
-					alt="Paris" width="400" height="300" />
+			<div class="thumbnail">	
+				<form action="/file/one">
+				<input type="hidden" name="album" value="${ob.ALBUM }"/>
+				<input type="hidden" name="filename" value="${ob.FILENAME }"/>
+				<input type="hidden" name="filename" value="${ob.FILEUUID }"/>
+				<a href="/file/Album1?owner=${ob.OWNER }&album=${ob.ALBUM }">
+				<img src="/paris.jpg" alt="Paris" width="400" height="300" /></a>
 					<p>
 						<strong style="color: black;">${ob.OWNER }</strong>
 					</p>
 					<p style="color: black;">${ob.ALBUM }</p>
-					<hr /> <a />
- 
-
-
-					<div></div>
+					<hr /> 
+					
+	<input type="submit" class="btn btn-success" id="on" value="Play"/>
+	</form>
+					<div>
+					</div>
 			</div>
 		</div>
 	</c:forEach>

@@ -3,7 +3,6 @@ package file.controller;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +17,8 @@ import file.model.fileService;
 @Controller
 public class fileController {
 
+	private static final int HashMap = 0;
+	private static final int List = 0;
 	@Autowired
 	fileService fileSrv;
 
@@ -103,5 +104,24 @@ public class fileController {
 		return mav;
 
 	}
+	//플레이 리스트 세션 에 데이터 넣어서 출력
+	@RequestMapping("/file/one")
+	public ModelAndView deleteBoard1(String album,String filename ,String fileuuid,HttpSession session ){
+		
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("tmm:basic/header");
+		HashMap map = new HashMap<>();
+		map.put("album", album);
+		map.put("filename", filename);
+		map.put("fileuuid",fileuuid);
+		session.setAttribute("logID",map );
+		System.out.println(map.toString());
+		System.out.println("session 넘어와라~!!");
+		mav.addObject("map", fileSrv.readApproval());
+		return mav; 
 
-}
+		}
+		
+	}
+
+

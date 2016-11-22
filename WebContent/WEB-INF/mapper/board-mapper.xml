@@ -3,27 +3,31 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
-	<select id="getAll" resultType="board.model.Board">		
+	<select id="getAll" resultType="board.model.Board">
 		select * from board
 	</select>
-	<select id="selectNum" parameterType="java.lang.Integer" resultType="board.model.Board">		
+	<select id="selectNum" parameterType="java.lang.Integer"
+		resultType="board.model.Board">
 		select * from board where num=#{num}
 	</select>
 	<update id="plusCount" parameterType="java.lang.Integer">
-		update board set viewcount = viewcount+1 where num=#{num}
+		update board set viewcount
+		= viewcount+1 where num=#{num}
 	</update>
 	<insert id="insert" parameterType="board.model.Board">
-   		insert into board values(board_seq.nextval,
-                           #{comments},#{writer},#{subject},sysdate,#{viewcount},#{likes},#{type})
-   	</insert>
-   	<!-- review -->
-   	<insert id="inReview" parameterType="board.model.Review">
-   		insert into review values(#{boardnum},#{writer},sysdate,#{comments},#{uuid})
-   	</insert>
-   	<select id="getReview" parameterType="java.lang.Integer" resultType="board.model.Review">		
+		insert into board values(board_seq.nextval,
+		#{comments},#{writer},#{subject},sysdate,#{viewcount},#{likes},#{type})
+	</insert>
+	<!-- review -->
+	<insert id="inReview" parameterType="board.model.Review">
+		insert into review values(#{boardnum},#{writer},sysdate,#{comments},#{uuid})
+	</insert>
+	<select id="getReview" parameterType="java.lang.Integer"
+		resultType="board.model.Review">
 		select * from review where boardnum=#{num} order by writedate
 	</select>
-	<select id="getPart" resultType="java.util.HashMap" parameterType="java.util.HashMap" >
+	<select id="getPart" resultType="java.util.HashMap"
+		parameterType="java.util.HashMap">
 		<![CDATA[
 		select * from(
 		select rownum idx, t.* from
@@ -31,25 +35,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		)where idx >=#{start} and idx <=#{end}
 		]]>
 	</select>
-	
-	<select id="getCount" resultType="java.lang.Integer"> 
+
+	<select id="getCount" resultType="java.lang.Integer">
 		select count(*) from board
-	</select>	
+	</select>
 	<update id="upBoard" parameterType="board.model.Board">
-		update board set comments=#{comments}, subject=#{subject}, writedate=sysdate where num=#{num}
+		update board set
+		comments=#{comments}, subject=#{subject}, writedate=sysdate where
+		num=#{num}
 	</update>
-	
+
 	<delete id="delBoard" parameterType="java.lang.Integer">
-		delete from board where num=#{num}
+		delete from board where
+		num=#{num}
 	</delete>
-	
+
 	<delete id="delReview" parameterType="java.lang.Integer">
-		delete from review where boardnum=#{num}
+		delete from review where
+		boardnum=#{num}
 	</delete>
-	
+
 	<delete id="delReview2" parameterType="board.model.Review">
-		delete from review where uuid=#{uuid}
+		delete from review where
+		uuid=#{uuid}
 	</delete>
-	
-	
+
+
 </mapper>
