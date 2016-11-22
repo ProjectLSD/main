@@ -6,7 +6,7 @@
 .button4 {
 	background-color: white;
 	color: black;
-	border: 2px solid #555555;
+	border: 2px solid #23232c;
 }
 
 .button4:hover {
