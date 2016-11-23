@@ -81,33 +81,3 @@
 	</ul>
 </div>
 <br>
-<!-- 
-<a href="#ftop">맨위로</a>
- -->
-<script>
-	function openReview(num) {
-		var url = "/file/review.nhn?target=" + num;
-		window.open(url, "", "width=400,height=300"); // window.open 자바스크립트 함수
-	}
-
-	var aws;
-	window.onload = function() {
-		var target = "ws://192.168.10.12/ws/notice.nhn";
-		aws = new WebSocket(target);
-		aws.onopen = function(args) {
-			console.log("open!")
-		}
-		aws.onmessage = function(args) {
-			new Audio("/audio/alert.wav").play();
-			window.alert("자료 등록중");
-		}
-	};
-</script>
-
-
-
-
-
-
-
-

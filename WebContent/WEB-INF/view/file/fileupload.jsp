@@ -14,7 +14,8 @@
 						<option value="country">Country</option>
 						<option value="electronic">Electronic</option>
 				</select> <br> <b>앨범명</b> <br> <input  style="color: black;" type="text" name="album" />
-					<br> <b>파일 선택</b> <br> <input type="file" name="file" />
+					<br> <b>파일 선택</b> <br> <input type="file" name="file" accept="audio/*"/><br>
+					<br> <b>이미지 선택</b> <br> <input type="file" name="image" accept="image/*"/><br>
 					<input  style="color: black;"  type="submit" value="올리기"></th>
 			</tr>
 

@@ -22,29 +22,35 @@ public class fileService {
 	@Autowired
 	SqlSessionFactory fac;
 
-	@Autowired    
+	@Autowired
 	ServletContext application;
 
-	public boolean insertFile(String genre, String album, MultipartFile file, String owner) {
+	public boolean insertFile(String genre, String album, MultipartFile file, String owner, MultipartFile image) {
 		if (file.isEmpty()) {
 			return false;
 		}
 		try {
 			SqlSession sql = fac.openSession();
 			String cont = file.getContentType();
-			String uid = UUID.randomUUID().toString().substring(0, 20);
+			String fileuuid = UUID.randomUUID().toString().substring(0, 20);
+			String imguuid = fileuuid + 1;
 			String fileName = file.getOriginalFilename();
+			String imgName = image.getOriginalFilename();
 			String dir = application.getRealPath("/");
-			File music = new File(dir, uid);
+			File music = new File(dir, fileuuid);
+			File pic = new File(dir, imguuid);
 			file.transferTo(music);
+			image.transferTo(pic);
 			HashMap map = new HashMap();
-			map.put("fileuuid", uid);
+			map.put("fileuuid", fileuuid);
 			map.put("filesize", file.getSize());
 			map.put("album", album);
 			map.put("owner", owner);
 			map.put("genre", genre);
 			map.put("filename", fileName);
-			System.out.println(uid + "/" + file.getSize() + "/" + album + "/" + owner + "/" + genre + "/" + fileName);
+			map.put("imguuid", imguuid);
+			map.put("imgsize", image.getSize());
+			map.put("imgname", imgName);
 			sql.insert("file.insertMap", map);
 			sql.close();
 			return true;
@@ -107,7 +113,7 @@ public class fileService {
 		SqlSession sql = fac.openSession();
 		List<HashMap> tg = sql.selectList("file.Approval");
 		sql.close();
-		
+
 		return tg;
 
 	}
@@ -126,33 +132,32 @@ public class fileService {
 		SqlSession sql = fac.openSession();
 		HashMap map = new HashMap();
 		map.put("owner", owner);
-		map.put("album",album);
+		map.put("album", album);
 		List<HashMap> tg = sql.selectList("file.album", map);
 		sql.close();
 		return tg;
 
 	}
-	
-	public boolean findMusic(int filenum, HttpSession hs){
+
+	public boolean findMusic(int filenum, HttpSession hs) {
 		SqlSession sql = fac.openSession();
 		HashMap hm = sql.selectOne("file.readOneMap", filenum);
-		System.out.println("db music :"+hm);
+		System.out.println("db music :" + hm);
 		boolean flag;
-		if(hm != null){
-		List<HashMap> li = new ArrayList<>();
-			if(hs.getAttribute("PlayList")!=null){
+		if (hm != null) {
+			List<HashMap> li = new ArrayList<>();
+			if (hs.getAttribute("PlayList") != null) {
 				System.out.println("PlayList ¿÷¿Ω");
 				li = (List<HashMap>) hs.getAttribute("PlayList");
 			}
-				li.add(hm);
-				hs.setAttribute("PlayList", li );
-				System.out.println("playlist ≥—±Ë.");
-				flag = true;
-			}else{
-				flag = false;
-			}
+			li.add(hm);
+			hs.setAttribute("PlayList", li);
+			System.out.println("playlist ≥—±Ë.");
+			flag = true;
+		} else {
+			flag = false;
+		}
 		sql.close();
 		return flag;
 	}
 }
-		

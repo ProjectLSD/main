@@ -47,9 +47,6 @@ public class MemberController {
 	public ModelAndView input(Member m){
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println(m.getId()+"/"+m.getPass()+"/"+m.getEmail()+"/"+m.getPhonenum1()
-							+"/"+m.getPhonenum2()+"/"+m.getPhonenum3()+"/"+m.getName());
-		
 		int r=0;
 		r+=ms.Input(m);
 		
@@ -65,7 +62,6 @@ public class MemberController {
 	@RequestMapping("/emailCheck")
 	@ResponseBody
 	public String emailCheck(String email){
-		System.out.println("controller");
 		if(email!=null){
 		SimpleMailMessage mail = new SimpleMailMessage();
 		String Num = ms.creatRamdomNum();

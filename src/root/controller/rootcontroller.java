@@ -43,8 +43,6 @@ public class rootcontroller {
 	public ModelAndView index(){
 		List<HashMap> map = fileSrv.readApproval();
 		ModelAndView mav = new ModelAndView();
-		System.out.println(map);
-		System.out.println("³Ñ¾î¿È");
 		if (map != null) {
 			mav.addObject("map", map);
 			mav.setViewName("t:main");
@@ -57,19 +55,16 @@ public class rootcontroller {
 	@RequestMapping("/home")
 	public ModelAndView loginConfirm(String id, String pass , HttpSession session) {
 		ModelAndView mav = new ModelAndView("tm:login/success");
-		System.out.println(id + " / " + pass);
 		if (rs.getAllMember(id, pass) == true) {
-			System.out.println("¼º°ø");
 			session.setAttribute("userId", id);	
 			session.setAttribute("login", "true");
 		}
 
-		return mav;
+		return mav; 
 	}
 	@RequestMapping("/logout")
-	public ModelAndView logout(HttpSession session){
-		ModelAndView mav = new ModelAndView("t:main");
+	public String logout(HttpSession session){
 		session.invalidate();
-		return mav;
+		return "t:main";
 	}
 }

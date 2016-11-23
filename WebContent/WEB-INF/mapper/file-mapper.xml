@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="file">
 	<insert id="insertMap" parameterType="java.util.HashMap">
 		insert into fileupload
-		values(fileupload_seq.nextval,#{fileuuid},#{filesize},#{album},#{owner},#{genre},0,#{filename},0,null)
+		values(fileupload_seq.nextval,#{fileuuid},#{filesize},#{album},#{owner},#{genre},0,#{filename},0,null,#{imguuid},#{imgsize},#{imgname})
 	</insert>
 
 	<select id="fileList" resultType="java.util.HashMap">

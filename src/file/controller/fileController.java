@@ -30,12 +30,11 @@ public class fileController {
 	}
 
 	@RequestMapping("file/upload")
-	public ModelAndView fileUpload(String genre, String album, @RequestParam(name = "file") MultipartFile file,
+	public ModelAndView fileUpload(String genre, String album, @RequestParam(name = "file") MultipartFile file,@RequestParam(name="image") MultipartFile image,
 			HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		String owner = (String) session.getAttribute("userId");
-		System.out.println(genre + "/" + album + "/" + file + "/" + owner);
-		boolean rst = fileSrv.insertFile(genre, album, file, owner);
+		boolean rst = fileSrv.insertFile(genre, album, file, owner ,image);
 		System.out.println(rst);
 		if (rst) {
 
@@ -87,14 +86,13 @@ public class fileController {
 		return mav;
 	}
 
-	// 음원 정보창 으로 데이터 이동
+	// 음원 정보창 으로 데이터 이동 
 	@RequestMapping("/file/Album1")
 	public ModelAndView ModelAlbum(String owner, String album) {
 		System.out.println(owner);
 		System.out.println(album);
 		List<HashMap> mp = fileSrv.readAlbum(owner, album);
 		ModelAndView mav = new ModelAndView();
-		System.out.println("넘어왔다~!!");
 		if (mp != null) {
 			mav.addObject("own",owner);
 			mav.addObject("alb",album);
