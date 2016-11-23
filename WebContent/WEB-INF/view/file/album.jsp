@@ -6,7 +6,7 @@
 <div style="background-color: #1e1e26">
 	<div class="thumbnail" style="height: 320px; background-color: #1e1e26">
 		<div style="float: left;">
-			<img src="/paris.jpg" alt="Paris" width="300" height="300"
+			<img src="/戚耕走びびびびびびびびびびびびびびび" alt="Paris" width="300" height="300"
 				style="margin-left: 0px;" />
 		</div>
 		<div
