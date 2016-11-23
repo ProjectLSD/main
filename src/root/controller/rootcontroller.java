@@ -31,13 +31,9 @@ public class rootcontroller {
 	public String login(){
 		return"login/login";
 	}
-	@RequestMapping("/idsearch")
-	public String idsearch(){
-		return"join/idsearch";
-	}
-	@RequestMapping("/pwsearch")
+	@RequestMapping("/datasearch")
 	public String pwsearch(){
-		return"join/pwsearch";
+		return"join/datasearch";
 	}
 	@RequestMapping({"/index","/"})
 	public ModelAndView index(){

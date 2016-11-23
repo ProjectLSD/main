@@ -72,8 +72,7 @@
 					data-dismiss="modal" onclick="location.href='/index'">
 					<span class="glyphicon glyphicon-remove"></span> Cancel
 				</button>
-				<a href="/idsearch">아이디</a>/
-				<a href="/pwsearch">비밀번호 찾기</a>
+				<a href=/datasearch>아이디/비밀번호 찾기</a>
 				&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="/join">회원가입</a>
 			</div>
