@@ -121,7 +121,18 @@ public class fileController {
 			return "FALSE";
 		}
 		}
-		
-	}
+	@RequestMapping("/file/remove")
+	@ResponseBody
+	public String Sessionremove(HttpSession session ){
+	      session.removeAttribute("PlayList");
+	      if(session.getAttribute("PlayList")==null){
+	    	  System.out.println("세션 지움");
+	    	  return "TRUE";
+	      }else{
+	    	  System.out.println("세션 안지움");
+	    	  return "FALSE";
+	      }
+	}		
+}
 
 
