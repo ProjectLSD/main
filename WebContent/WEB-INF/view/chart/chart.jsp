@@ -1,15 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<b style="color: red">´Ù¿î·Îµå ¼ø TOP 10</b>
+<b style="color: red">ë‹¤ìš´ë¡œë“œ ìˆœ TOP 10</b>
 <br />
 <br />
 <br />
 <hr />
 <c:forEach var="obj" items="${top }">
-	${obj.GENRE }| <a href="#f${obj.FILENUM }"
+
+	<img src="/${obj.IMGUUID}" alt="${obj.IMGNAME}" width="100" height="100" />  ${obj.GENRE }| <a href="#f${obj.FILENUM }"
 		style="text-decoration: none">${obj.FILENAME }</a>&nbsp;&nbsp;
 <hr />
 </c:forEach>
