@@ -32,7 +32,7 @@
 					style="color: #a3c2ca; background-color: #1e1e26">
 					<td align="center"><span style="font-size: 20px;" id="data${status.count}">${status.count}</span></td>
 					<td align="center" width="100px"><span id="${status.count}" class="glyphicon glyphicon-plus"></span></td>
-					<td>${ob.FILENAME} &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-circle-arrow-up" id="like" title="${ob.FILENUM}">&nbsp;</span></td>
+					<td>${ob.FILENAME} &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-heart-empty" id="like" title="${ob.FILENUM}">&nbsp;</span></td>
 					<td>${ob.LIKES}</td>
 					<td>${ob.COUNT}</td>
 					<td id="hd${status.count}" hidden="${ob.FILENUM}">${ob.FILENUM}</td>
@@ -70,7 +70,7 @@
   	      })
      }); 	
      
- 	$(".glyphicon-circle-arrow-up").click(function(){
+ 	$(".glyphicon-heart-empty").click(function(){
 		alert("추천되었습니다.");
 		console.log($(this).attr("title"));
 		$.ajax({
