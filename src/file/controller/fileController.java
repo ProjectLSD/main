@@ -165,4 +165,6 @@ public class fileController {
 		fileSrv.likeUp(filenum);
 		return filenum;
 	}
+	
+	
 }

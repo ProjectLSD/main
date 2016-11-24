@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
    String addr = request.getLocalAddr();
 %>
-<c:if test="${sessionScope.PlayList ne null }">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="/script/jquery.cookie.js"></script>
 <audio preload="metadata" controls="controls" src="/${sessionScope.music }" 
-   style="width: 100%; height: 10px; azimuth-color: #090808 " >
+   style="width: 100%; height: 10px; azimuth-color: #090808 " ><br/>
 </audio>
-   <br>
+<c:if test="${sessionScope.PlayList ne null }">
 <script>
 function setCookie(c_name,value,exdays)
 {
@@ -18,7 +17,7 @@ function setCookie(c_name,value,exdays)
         path: '/'
     }); 
 }
-  
+
 function getCookie(c_name)
 {
     var i,x,y,ARRcookies=document.cookie.split(";");
@@ -47,15 +46,14 @@ function update()
            song.currentTime = tillPlayed;
            song.play();
            played = true;
-           }
-           else {
+           }else {
                 song.play();
                 played = true;
            }
          }else{
           setCookie('timePlayed', song.currentTime);
        }
-   }else{  
+   }else{
       song.pause();
    }
 }

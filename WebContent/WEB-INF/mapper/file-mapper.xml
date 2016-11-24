@@ -72,6 +72,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<select id="getfileName" resultType="java.util.HashMap">
-		select filename from fileupload where album = #{album}
+		select * from fileupload where album = #{album}
 	</select>
 </mapper>
