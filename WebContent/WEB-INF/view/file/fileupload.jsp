@@ -35,6 +35,8 @@ $("#album").keyup(function(){
 	      }).done(function(txt) {  
 		         if(txt=="TRUE"){
 		        	  $("#imgPick").hide(2000);
+		         }else{
+		        	 $("#imgPick").show(2000);
 		         }
 		    	  
 		      })
