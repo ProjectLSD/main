@@ -70,18 +70,18 @@ footer {
 <body>
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<div class="col-sm-2 sidenav">
+			<div class="col-sm-2 sidenav" style="height:600px; overflow: auto; overflow-x:hidden; padding: 5px; border:3; scrollbar-face-color: #060606">
 				<p>
 					<tiles:insertAttribute name="menu" />
 				</p>
 			</div>
-			<div class="col-sm-8 text-left">
+			<div class="col-sm-8 text-left" style="height:600px; overflow: auto; overflow-x:hidden; padding: 5px; border:3; scrollbar-face-color: #060606">
 
 				<p>
 					<tiles:insertAttribute name="body" />
 				</p>
 			</div>
-			<div class="col-sm-2 sidenav">
+			<div class="col-sm-2 sidenav" style="height:600px; overflow: auto; overflow-x:hidden; padding: 5px; border:3; scrollbar-face-color: #060606">
 				<p>
 					<tiles:insertAttribute name="header" />
 				</p>

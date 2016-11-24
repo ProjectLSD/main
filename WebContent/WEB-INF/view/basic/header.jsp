@@ -4,28 +4,65 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div align="center">
 <h2>Play list</h2>
+<hr/>
 <c:if test="${sessionScope.PlayList ne null }">
 <c:forEach items="${sessionScope.PlayList }" var="li">
-   <b style="color: pink;">앨범 : ${li.ALBUM } <br/> 파일이름 : ${li.FILENAME } <br/> 파일고유번호: ${li.FILEUUID }</b>
-   <audio id="myAudio">
- <source src="/${li.FILEUUID}"
-         type='audio/mp3'>
+   <b style="color: pink;">앨범 : ${li.ALBUM }</b><hr/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="/script/jquery.cookie.js"></script>
+<audio preload="metadata" controls="controls" src="/${li.FILEUUID }" 
+   style="width: 100%; height: 10px; azimuth-color: #090808 " ><br>
 </audio>
-<button type="button" onclick="aud_play_pause()">Play</button>
-<hr/>
 <script>
-function aud_play_pause() {
-  var myAudio = document.getElementById("myAudio");
-  if (myAudio.paused) {
-    myAudio.play();
-  } else {
-    myAudio.pause();
-  }
+function setCookie(c_name,value,exdays)
+{
+    $.cookie(c_name, escape(value), {
+        path: '/'
+    }); 
 }
+
+function getCookie(c_name)
+{
+    var i,x,y,ARRcookies=document.cookie.split(";");
+    for (i=0;i<ARRcookies.length;i++)
+    {
+       console.log(ARRcookies[i]);
+         x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+         y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+         x=x.replace(/^\s+|\s+$/g,"");
+         if (x==c_name)
+        {
+        return unescape(y);
+        }
+      }
+}
+
+var song = document.getElementsByTagName('audio')[0];
+var played = false;
+var tillPlayed = getCookie('timePlayed');
+function update()
+{
+    if(!played){
+        if(tillPlayed){
+        song.currentTime = tillPlayed;
+        song.play();
+        played = true;
+        }
+        else {
+                song.play();
+                played = true;
+        }
+    }
+    else {
+    setCookie('timePlayed', song.currentTime);
+    }
+}
+setInterval(update,1000);
 </script>
 </c:forEach>   
 </c:if>
-</div> 
+</div>
+<hr/> 
 <button id="btt" type="button">remove</button>
 
 <script>
@@ -41,8 +78,4 @@ $("#btt").click(function() {
     })
 	
 });
-
-
-
-
 </script>
