@@ -8,6 +8,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -98,6 +99,7 @@ public class fileController {
 		System.out.println(owner);
 		System.out.println(album);
 		List<HashMap> mp = fileSrv.readAlbum(owner, album);
+		List<HashMap> li = fileSrv.getfileName(album);
 		String imgid = fileSrv.readImguuid(album);
 		ModelAndView mav = new ModelAndView();
 		if (mp != null) {
@@ -105,6 +107,7 @@ public class fileController {
 			mav.addObject("alb", album);
 			mav.addObject("album", mp);
 			mav.addObject("imgid", imgid);
+			mav.addObject("kind",li);
 			mav.setViewName("tm:file/album");
 		} else {
 			mav.setViewName("file/error");
@@ -166,5 +169,13 @@ public class fileController {
 		return filenum;
 	}
 	
-	
+	@RequestMapping("/file/checkAlbum")
+	@ResponseBody
+	public int checkAlbum(String album){
+		List li= fileSrv.getfileName(album);
+		
+		int rst = li.size();
+		System.out.println(rst);
+		return rst;
+	}
 }
