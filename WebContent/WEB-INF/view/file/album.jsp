@@ -10,15 +10,15 @@
 				style="margin-left: 0px;" />
 		</div>
 		<div
-			style="font-size: 50px; color: #a3c2ca; width: 500px; margin-left: 350px;">
+			style="font-size: 40px; color: #c2c2ca; width: 500px; margin-left: 350px;">
 			album : ${alb }</div>
 		<div
-			style="font-size: 30px; color: #a3c2ca; width: 500px; margin-left: 350px;">
+			style="font-size: 30px; color: #c2c2ca; width: 500px; margin-left: 350px;">
 			owner : ${own }</div>
 	</div>
 	<div class="panel panel-default" style="width: 1028px;">
 		<table class="table" style="font-size: 18px; border: 0px;">
-			<tr style="color: #a3c2ca; background-color: #282832">
+			<tr style="color: #c2c2ca; background-color: #282832">
 				<td align="center" width="40px"><span
 					class="glyphicon glyphicon-sort-by-attributes"></span></td>
 				<td align="center" width="100px"></td>
@@ -29,7 +29,7 @@
 			<c:forEach var="ob" begin="0" end="${album.size() }"
 				varStatus="status" items="${album }">
 				<tr id="${status.count}" class="trevent"
-					style="color: #a3c2ca; background-color: #1e1e26">
+					style="color: #c2c2ca; background-color: #1e1e26">
 					<td align="center"><span style="font-size: 20px;" id="data${status.count}">${status.count}</span></td>
 					<td align="center" width="100px"><span id="${status.count}" class="glyphicon glyphicon-plus"></span></td>
 					<td>${ob.FILENAME} &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-heart-empty" id="like" title="${ob.FILENUM}">&nbsp;</span></td>
@@ -45,6 +45,7 @@
 <script>
    $(".trevent").mouseenter(function(){
       var id = $(this).attr("id");
+      $(this).attr("style","background-color:#23232c; color: #c2c2ca");
       	// console.log($("#data"+id).text());
       	$("#data"+id).attr("class", "glyphicon glyphicon-play");
       	$("#data"+id).text("");
@@ -52,6 +53,8 @@
    });
       	$(".trevent").mouseleave(function(){
             var id = $(this).attr("id");
+            $(this).attr("style","background-color:#1e1e26; color: #c2c2ca");
+            
             	// console.log($("#data"+id).text());
             	$("#data"+id).attr("class", "");
             	$("#data"+id).text(id);
