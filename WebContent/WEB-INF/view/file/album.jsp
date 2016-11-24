@@ -6,7 +6,7 @@
 <div style="background-color: #1e1e26">
 	<div class="thumbnail" style="height: 320px; background-color: #1e1e26">
 		<div style="float: left;">
-			<img src="/戚耕走びびびびびびびびびびびびびびび" alt="Paris" width="300" height="300"
+			<img src="/${imgid }" alt="Paris" width="300" height="300"
 				style="margin-left: 0px;" />
 		</div>
 		<div
@@ -32,10 +32,11 @@
 					style="color: #a3c2ca; background-color: #1e1e26">
 					<td align="center"><span style="font-size: 20px;" id="data${status.count}">${status.count}</span></td>
 					<td align="center" width="100px"><span id="${status.count}" class="glyphicon glyphicon-plus"></span></td>
-					<td>${ob.FILENAME}</td>
+					<td>${ob.FILENAME} &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-circle-arrow-up" id="like" title="${ob.FILENUM}">&nbsp;</span></td>
 					<td>${ob.LIKES}</td>
 					<td>${ob.COUNT}</td>
 					<td id="hd${status.count}" hidden="${ob.FILENUM}">${ob.FILENUM}</td>
+					
 				</tr>
 			</c:forEach>
 		</table>
@@ -61,12 +62,24 @@
     	 var filenum = $("#hd"+id).text();
   		 $.ajax({
   	         "url" : "/file/one?filenum=" + filenum,
-  	         "method" : "post",
+  	         "method" : "get",
   	         "aSync" : true
   	      }).done(function(txt) {  
   	         console.log(txt);
   	         location.reload();
   	      })
      }); 	
+     
+ 	$(".glyphicon-circle-arrow-up").click(function(){
+		alert("蓄探鞠醸柔艦陥.");
+		console.log($(this).attr("title"));
+		$.ajax({
+			"url" : "/file/like?filenum="+$(this).attr("title"),
+			"method" : "get",
+			"aSync" : true
+		}).done(function(txt){  
+			location.reload();
+		})  
+	});
       	
   </script>

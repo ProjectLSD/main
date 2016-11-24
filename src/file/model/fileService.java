@@ -160,4 +160,24 @@ public class fileService {
 		sql.close();
 		return flag;
 	}
+	
+	public String readImguuid(String album){
+		SqlSession sql = fac.openSession();
+		String imgid = sql.selectOne("file.imguuid",album);
+		sql.close();
+		
+		return imgid;
+	}
+	
+	public int likeUp(String filenum){
+		System.out.println("s1");
+		SqlSession sql = fac.openSession();
+		System.out.println("s2");
+		System.out.println(filenum);
+		int rst = sql.update("file.likeUp",filenum);
+		System.out.println("s3");
+		sql.close();
+		System.out.println("s4");
+		return rst; 
+	}
 }

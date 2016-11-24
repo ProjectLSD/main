@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sun.mail.iap.Response;
+
 import file.model.fileService;
 
 @Controller
@@ -28,6 +30,7 @@ public class fileController {
 	public String file() {
 		return "t:fileUp";
 	}
+	
 
 	@RequestMapping("file/upload")
 	public ModelAndView fileUpload(String genre, String album, @RequestParam(name = "file") MultipartFile file,@RequestParam(name="image") MultipartFile image,
@@ -92,11 +95,13 @@ public class fileController {
 		System.out.println(owner);
 		System.out.println(album);
 		List<HashMap> mp = fileSrv.readAlbum(owner, album);
+		String imgid = fileSrv.readImguuid(album); 
 		ModelAndView mav = new ModelAndView();
 		if (mp != null) {
 			mav.addObject("own",owner);
 			mav.addObject("alb",album);
 			mav.addObject("album", mp);
+			mav.addObject("imgid",imgid);
 			mav.setViewName("tm:file/album");
 		} else {
 			mav.setViewName("file/error");
@@ -130,7 +135,16 @@ public class fileController {
 	    	  System.out.println("세션 안지움");
 	    	  return "FALSE";
 	      }
-	}		
+	}
+	
+	@RequestMapping("/file/like")
+	@ResponseBody
+	public String likeUp(String filenum){
+		System.out.println("c1");
+		fileSrv.likeUp(filenum);
+		System.out.println("c2");
+		return filenum;
+	}
 }
 
 

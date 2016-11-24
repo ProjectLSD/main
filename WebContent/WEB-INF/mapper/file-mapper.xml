@@ -63,4 +63,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from fileupload where album=#{album} and filename=#{filename} and checks='true'
 	</select>
 
+	<select id="imguuid" resultType="java.lang.String" parameterType="java.lang.String">
+		select imguuid from fileupload where album=#{album}
+	</select>
+	
+	<update id="likeUp" parameterType="java.lang.String">
+		update fileupload set likes = likes +1 where filenum =#{filenum }
+	</update>
 </mapper>
