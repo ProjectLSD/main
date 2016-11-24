@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 
-import member.model.Member;
+import band.model.Band;
 
 @Component
 public class IdPassSearchService {
@@ -21,10 +21,12 @@ public class IdPassSearchService {
    @Autowired
    JavaMailSender sender;
    
-   public List<Member> searchId(Member dto){
-      SqlSession ss = fac.openSession();      
+   public List<Band> searchId(Band dto){
+      System.out.println(dto);
+	   SqlSession ss = fac.openSession();      
       
-         List<Member> li = ss.selectList("member.selectMember",dto);
+         List<Band> li = ss.selectList("idpass.bandid",dto);
+         
          ss.close();
             return li;
          
@@ -34,7 +36,7 @@ public class IdPassSearchService {
       MimeMessage mail = sender.createMimeMessage();   
       SqlSession ss = fac.openSession();
       try{
-         String pass = ss.selectOne("member.selectPass",id);
+         String pass = ss.selectOne("idpass.bandpass",id);
          if(pass==null){
             return false;
          }

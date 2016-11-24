@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="idpass">
+<select id="bandid"  resultType="band.model.Band">		
+		select t.id from band t where email=#{email} and (t.phonenum1=#{phone1} and t.phonenum2=#{phone2} and t.phonenum3=#{phone3})
+	</select>
+<select id="memberid" parameterType="java.lang.String" resultType="search.model.IdSearch">		
+		select * from member where email=#{email} and phonenum1=#{phonenum1} and phonenum2=#{phonenum2} and phonenum3=#{phonenum3}
+	</select>
+<select id="bandpass" parameterType="java.lang.String" resultType="java.lang.String">		
+		select t.pass from band t where id=#{id}
+	</select>
+<select id="memeberpass" parameterType="java.lang.String" resultType="java.lang.String">		
+		select * from member where id=#{id} and name=#{name}
+	</select>
+</mapper>
