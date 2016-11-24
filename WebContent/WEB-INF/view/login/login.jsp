@@ -83,7 +83,6 @@
 $("#bt").click(function() {
 	var id = $("#id").val();
 	var pass = $("#pass").val();
-	var save = $("#save").prop("checked");
 	
 	$.ajax({
 		"url" : "/login/home?id=" + id + "&pass=" + pass,
@@ -92,11 +91,11 @@ $("#bt").click(function() {
 	}).done(function(txt) {
 		console.log(txt);
 		if (txt == "true") {
-			location.replace("/login?id="+ id+ "&pass="+ pass+ "&save="+ save);
+			location.replace("/login?id="+ id+ "&pass="+ pass);
 		} else {
 			$("#result").html("<i style='color:red'>회원 정보가 다릅니다!</i>");
 		}
-	})
+	});
 });
 
 
