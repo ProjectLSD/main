@@ -7,10 +7,10 @@
 <hr />
 <div class="row text-center">
 	<c:forEach var="ob" items="${map }">
-		<div class="col-sm-3">
-			<div class="thumbnail" style="padding-right: 0px;padding-top: 0px;padding-left: 0px;padding-bottom: 0px;background-color: #23232c;">	
+		<div class="col-sm-3" style="position:relative; height:3em; padding-bottom:30%">
+			<div class="thumbnail" style="background-color: #23232c; position:absolute; width:95%; height:100%; left:0; top:0">	
 				<a href="/file/Album1?owner=${ob.OWNER }&album=${ob.ALBUM }">
-				<img src="${ob.IMGUUID}" alt="${ob.IMGNAME}" width="400" height="300" /></a>
+				<img style="position:relative; width:auto; height:85%; left:0; top:0" src="${ob.IMGUUID}" alt="${ob.IMGNAME}"/></a>
 					<p>
 						<strong style="color:white;">${ob.OWNER }</strong>
 					</p>
