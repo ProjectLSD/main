@@ -171,10 +171,15 @@ public class fileController {
 	
 	@RequestMapping("/file/checkAlbum")
 	@ResponseBody
-	public int checkAlbum(String album){
+	public String checkAlbum(String album){
 		List li= fileSrv.getfileName(album);
+		String rst="";
+		if(li.size()==0){
+			rst="FALSE";
+		}else{
+			rst="TRUE";
+		}
 		
-		int rst = li.size();
 		System.out.println(rst);
 		return rst;
 	}

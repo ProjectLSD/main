@@ -15,7 +15,9 @@
 						<option value="electronic">Electronic</option>
 				</select> <br> <b>앨범명</b> <br> <input id="album" style="color: black;" type="text" name="album" />
 					<br> <b>파일 선택</b> <br> <input type="file" name="file" accept="audio/*"/><br>
+					<div id="imgPick">
 					<br> <b>이미지 선택</b> <br> <input type="file" id="image" name="image" accept="image/*"/><br>
+					</div>
 					<input  style="color: black;"  type="submit" value="올리기"></th>
 			</tr>
 
@@ -25,18 +27,16 @@
 <script>
 $("#album").keyup(function(){
 	 var id = $(this).attr("id");
-	 console.log(id);
 	 var album =  $("input[name='album']").val();
-	 console.log(album);
 		 $.ajax({
 	         "url" : "/file/checkAlbum?album=" + album,
 	         "method" : "get",
 	         "aSync" : true
 	      }).done(function(txt) {  
-	         if(txt!=0){
-	        	 $("#image").attr("disabled","disabled");
-	         }
-	    	  
-	      })
+		         if(txt=="TRUE"){
+		        	  $("#imgPick").hide(2000);
+		         }
+		    	  
+		      })
 }); 	 
 </script>
