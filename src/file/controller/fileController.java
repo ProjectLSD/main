@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,19 +27,20 @@ public class fileController {
 	private static final int List = 0;
 	@Autowired
 	fileService fileSrv;
+	@Autowired
+	HttpServletResponse response;
 
 	@RequestMapping("/file")
 	public String file() {
 		return "t:fileUp";
 	}
-	
 
 	@RequestMapping("file/upload")
-	public ModelAndView fileUpload(String genre, String album, @RequestParam(name = "file") MultipartFile file,@RequestParam(name="image") MultipartFile image,
-			HttpSession session) {
+	public ModelAndView fileUpload(String genre, String album, @RequestParam(name = "file") MultipartFile file,
+			@RequestParam(name = "image") MultipartFile image, HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		String owner = (String) session.getAttribute("userId");
-		boolean rst = fileSrv.insertFile(genre, album, file, owner ,image);
+		boolean rst = fileSrv.insertFile(genre, album, file, owner, image);
 		System.out.println(rst);
 		if (rst) {
 
@@ -89,19 +92,19 @@ public class fileController {
 		return mav;
 	}
 
-	// 음원 정보창 으로 데이터 이동 
+	// 음원 정보창 으로 데이터 이동
 	@RequestMapping("/file/Album1")
 	public ModelAndView ModelAlbum(String owner, String album) {
 		System.out.println(owner);
 		System.out.println(album);
 		List<HashMap> mp = fileSrv.readAlbum(owner, album);
-		String imgid = fileSrv.readImguuid(album); 
+		String imgid = fileSrv.readImguuid(album);
 		ModelAndView mav = new ModelAndView();
 		if (mp != null) {
-			mav.addObject("own",owner);
-			mav.addObject("alb",album);
+			mav.addObject("own", owner);
+			mav.addObject("alb", album);
 			mav.addObject("album", mp);
-			mav.addObject("imgid",imgid);
+			mav.addObject("imgid", imgid);
 			mav.setViewName("tm:file/album");
 		} else {
 			mav.setViewName("file/error");
@@ -110,41 +113,56 @@ public class fileController {
 		return mav;
 
 	}
-	//플레이 리스트 세션 에 데이터 넣어서 출력
+
+	// 플레이 리스트 세션 에 데이터 넣어서 출력
 	@RequestMapping("/file/one")
 	@ResponseBody
-	public String deleteBoard1(int filenum, HttpSession session ){
+	public String deleteBoard1(int filenum, HttpSession session) {
 		System.out.println("filenum: " + filenum);
 		boolean flag;
 		flag = fileSrv.findMusic(filenum, session);
 		System.out.println("session 넘어가라~!!");
-		if(flag){
+		if (flag) {
 			return "TRUE";
-		}else{
+		} else {
 			return "FALSE";
 		}
+	}
+
+	@RequestMapping("/file/play")
+	@ResponseBody
+	public String musicPlay(String music, HttpSession session) {
+		session.setAttribute("music", music);
+		Cookie ck = new Cookie("timePlayed", "0");
+		ck.setPath("/");
+		ck.setMaxAge(0);
+		response.addCookie(ck);
+		if (session.getAttribute("music") == null) {
+			System.out.println("등록안됨");
+			return "FALSE";
+		} else {
+			System.out.println("등록됨");
+			return "TRUE";
 		}
+	}
+
 	@RequestMapping("/file/remove")
 	@ResponseBody
-	public String Sessionremove(HttpSession session ){
-	      session.removeAttribute("PlayList");
-	      if(session.getAttribute("PlayList")==null){
-	    	  System.out.println("세션 지움");
-	    	  return "TRUE";
-	      }else{
-	    	  System.out.println("세션 안지움");
-	    	  return "FALSE";
-	      }
+	public String Sessionremove(HttpSession session) {
+		session.removeAttribute("PlayList");
+		if (session.getAttribute("PlayList") == null) {
+			System.out.println("세션 지움");
+			return "TRUE";
+		} else {
+			System.out.println("세션 안지움");
+			return "FALSE";
+		}
 	}
-	
+
 	@RequestMapping("/file/like")
 	@ResponseBody
-	public String likeUp(String filenum){
-		System.out.println("c1");
+	public String likeUp(String filenum) {
 		fileSrv.likeUp(filenum);
-		System.out.println("c2");
 		return filenum;
 	}
 }
-
-

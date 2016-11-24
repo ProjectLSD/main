@@ -70,4 +70,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="likeUp" parameterType="java.lang.String">
 		update fileupload set likes = likes +1 where filenum =#{filenum }
 	</update>
+	
+	<select id="getfileName" resultType="java.util.HashMap">
+		select filename from fileupload where album = #{album}
+	</select>
 </mapper>

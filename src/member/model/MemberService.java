@@ -55,4 +55,5 @@ public class MemberService {
 		return randomNum;
 	}
 	
+	
 }

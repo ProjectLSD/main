@@ -170,14 +170,19 @@ public class fileService {
 	}
 	
 	public int likeUp(String filenum){
-		System.out.println("s1");
 		SqlSession sql = fac.openSession();
-		System.out.println("s2");
 		System.out.println(filenum);
 		int rst = sql.update("file.likeUp",filenum);
-		System.out.println("s3");
 		sql.close();
-		System.out.println("s4");
 		return rst; 
+	}
+	
+	
+	public List<HashMap> getfileName(String album){
+		SqlSession sql = fac.openSession();
+		List<HashMap> tg = sql.selectList("file.getfileName", album);
+		sql.close();
+
+		return tg;
 	}
 }
