@@ -74,8 +74,8 @@ footer {
 	<link rel="stylesheet" href="/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css">	
 </head>
 <body>
-	<div class="container-fluid text-center">
-		<div class="row content">
+	<div id="container" style="min-height: 100%; position: relative;">
+		<div class="row content" style="padding-bottom: 27px;">
 		
 			<div class="col-sm-2 sidenav" id="content-1" class="content mCustomScrollbar" style="height: 540px;"  >
 				<p>
@@ -94,12 +94,13 @@ footer {
 				</p>
 			</div>
 		</div>
+		<div
+         style="height: 27px; position: fixed;; bottom: 0; width: 100%;" align="center">
+         <tiles:insertAttribute name="footer" />
+      </div>
 	</div>
-	<footer class="container-fluid text-center">
-		<p>
-			<tiles:insertAttribute name="footer" />
-		</p>
-	</footer>
+	
+	
 	<!-- Google CDN jQuery with fallback to local -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="../js/minified/jquery-1.11.0.min.js"><\/script>')</script>
