@@ -6,9 +6,16 @@
 %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="/script/jquery.cookie.js"></script>
-<audio preload="metadata" controls="controls" src="/${sessionScope.music }" 
-   style="width: 100%; height: 10px; azimuth-color: #090808 " ><br/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="/johndyer-mediaelement-dd102f1/build/jquery.js"></script>	
+<script src="/johndyer-mediaelement-dd102f1/build/mediaelement-and-player.min.js"></script>
+<script src="/testforfiles.js"></script>	
+<link rel="stylesheet" href="/johndyer-mediaelement-dd102f1/build/mediaelementplayer.min.css" />
+<audio id="player2" src="/${sessionScope.music }" type="audio/mp3" controls="controls" height="30px" width= "1340px" >		
 </audio>
+<script>
+$('audio,video').mediaelementplayer();
+</script>
 <c:if test="${sessionScope.PlayList ne null }">
 <script>
 function setCookie(c_name,value,exdays)
