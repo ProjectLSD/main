@@ -14,7 +14,7 @@
 			album : ${alb }</div>
 		<div
 			style="font-size: 30px; color: #c2c2ca; width: 500px; margin-left: 350px;">
-			owner : ${own }</div>
+			°¡¼ö : ${own }</div>
 	</div>
 	<div class="panel panel-default" style="width: 1028px;">
 		<table class="table" style="font-size: 18px; border: 0px;">

@@ -10,7 +10,6 @@
 	<c:forEach var="ob" items="${map }">
 		<c:choose>
 			<c:when test="${ob.IMGSIZE==0 }">
-				console.log("!!!!");
 			</c:when>
 			<c:otherwise>
 		<div class="col-sm-3" style="position:relative; height:3em; padding-bottom:35%">
