@@ -56,7 +56,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	update fileupload set checks = 'true' where filenum =#{filenum }
 	</update>
 	<select id="album" resultType="java.util.HashMap" parameterType="java.util.HashMap">
-		select * from fileupload where owner=#{owner} and checks='true'
+		select * from fileupload where album=#{album} and checks='true' and owner = #{owner}
 	</select>
 	
 	<select id="album1" resultType="java.util.HashMap" parameterType="java.util.HashMap">

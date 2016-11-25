@@ -101,8 +101,6 @@ public class fileController {
 		System.out.println(owner);
 		System.out.println(album);
 		List<HashMap> mp = fileSrv.readAlbum(owner, album);
-		List li = fileSrv.getfileName(album);
-		int rst = li.size();
 		ModelAndView mav = new ModelAndView();
 		if (mp != null) {
 			List imgid = fileSrv.Imguuid(album);
