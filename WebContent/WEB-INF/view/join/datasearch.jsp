@@ -50,7 +50,7 @@
 					<div class="tab-content">
 						<div id="home" class="tab-pane fade in active">
 							<br />
-							<form name="joinform" action="/searchIdResult" method="post"
+							<form name="joinform" action="/bandsearchIdResult" method="post"
 								style="font-size: 12pt;" class="form-inline">
 								<div class="form-group" style="padding-bottom: 5px;">
 									<label>Email
@@ -74,25 +74,26 @@
 										class="form-control" name="phone3" id="ph3" maxlength="4"
 										size="1px;">
 								</div>
+								<span id="result1"></span>
 								<div class="modal-footer">
 									<button type="button"
 										class="btn btn-danger btn-default pull-left"
 										data-dismiss="modal" onclick="location.href='/login'">
 										<span class="glyphicon glyphicon-remove"></span>취소
 									</button>
-									<input type="submit" class="btn btn-default btn-success"
+									<input type="button" class="btn btn-default btn-success"
 										name="join" id="bt1" value="찾기">
 							</form>
 						</div>
 					</div>
 					<div id="menu1" class="tab-pane fade">
-						<form name="joinform" action="/searchPwResult" method="post"
+						<form name="joinform" action="/bandsearchPwResult" method="post"
 							style="font-size: 12pt;" class="form-inline">
 							<div class="form-group" style="padding-bottom: 5px;">
 								<br /> <label>I D
 									:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 								<input type="text" required="required" class="form-control"
-									maxlength="20" name="id" id="cid" placeholder="사용할 아이디">
+									maxlength="20" name="id" id="id" placeholder="사용할 아이디">
 							</div>
 							<br />
 							<div class="form-group" style="padding-bottom: 5px;">
@@ -114,6 +115,8 @@
 				</div>
 				<div id="menu2" class="tab-pane fade">
 					<br />
+					<form name="joinform" action="/membersearchPwResult" method="post"
+							style="font-size: 12pt;" class="form-inline">
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>Email :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <input
 							type="email" required="required" class="form-control" id="email"
@@ -123,29 +126,32 @@
 					<br />
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>PonNum :&nbsp;&nbsp;</label> <select name="phonenum1"
-							id="ph1" class="form-control">
+							id="mph1" class="form-control">
 							<option>010</option>
 							<option>011</option>
 							<option>016</option>
 							<option>017</option>
 							<option>018</option>
 							<option>019</option>
-						</select> <input type="text" class="form-control" name="phonenum2" id="ph2"
+						</select> <input type="text" class="form-control" name="phonenum2" id="mph2"
 							maxlength="4" size="1px;"> <input type="text"
-							class="form-control" name="phonenum3" id="ph3" maxlength="4"
+							class="form-control" name="phonenum3" id="mph3" maxlength="4"
 							size="1px;"><br />
 					</div>
-					<div id="result"></div>
+					<div id="result2"></div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger btn-default pull-left"
 							data-dismiss="modal" onclick="location.href='/login'">
 							<span class="glyphicon glyphicon-remove"></span>취소
 						</button>
 						<input type="submit" class="btn btn-default btn-success"
-							name="join" value="찾기" onclick="join_click()">
+							name="join" value="찾기" id="bt2">
 					</div>
+					</form>
 				</div>
 				<div id="menu3" class="tab-pane fade">
+				<form name="joinform" action="/searchPwResult" method="post"
+							style="font-size: 12pt;" class="form-inline">
 					<div class="form-group" style="padding-bottom: 5px;">
 						<br /> <label>I D
 							:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
@@ -166,8 +172,9 @@
 							<span class="glyphicon glyphicon-remove"></span>취소
 						</button>
 						<input type="submit" class="btn btn-default btn-success"
-							name="join" value="찾기" onclick="join_click()">
+							name="join" value="찾기" >
 					</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -191,15 +198,39 @@ $("#bt1").click(function() {
 		var obj = $.parseJSON(txt); 
 		console.log(obj[0]);
 		if (obj.length!=0) {
-			$("#result").html("<i style='color:blue'>등록된 회원 정보</i>")
+			$("#result1").html("<i style='color:blue'>가입한 ID : </i>")
 			for(var i=0; i<obj.length; i++){		
-				$("#result").append("<i style='color:blue'>"+obj[i]+"</i>")
+				$("#result1").append("<i style='color:blue'>"+obj[i]+"</i>")
 			}
 			
 		} else {
-			$("#result").html("<i style='color:red'>등록된 회원 정보가 없습니다.</i>");
+			$("#result1").html("<i style='color:red'>등록된 회원 정보가 없습니다.</i>");
 		}
 	})
 });
 
+$("#bt2").click(function() {
+	var ph1 = $("#mph1").val();
+	var ph2 = $("#mph2").val();
+	var ph3 = $("#mph3").val();
+	var email = $("#email").val();
+	$.ajax({
+		"url" : "searchIdResult?phone1="+ph1+"&phone2="+ph2+"&phone3="+ph3+"&email="+email,
+		"method" : "post",
+		"aSync" : true
+	}).done(function(txt) {
+		console.log(">>"+txt);
+		var obj = $.parseJSON(txt); 
+		console.log(obj[0]);
+		if (obj.length!=0) {
+			$("#result2").html("<i style='color:blue'>가입한 ID : </i>")
+			for(var i=0; i<obj.length; i++){		
+				$("#result2").append("<i style='color:blue'>"+obj[i]+"</i>")
+			}
+			
+		} else {
+			$("#result2").html("<i style='color:red'>등록된 회원 정보가 없습니다.</i>");
+		}
+	})
+});
 </script>

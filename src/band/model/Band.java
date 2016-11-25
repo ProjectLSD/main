@@ -1,5 +1,8 @@
 package band.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Band {
 	String id;
 	String pass;

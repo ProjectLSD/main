@@ -50,6 +50,7 @@
 		<property name="dataSource" ref="ds" />
 		<property name="mapperLocations">
 			<list>
+				<value>/WEB-INF/mapper/IdPassSearch-mapper.xml</value>
 				<value>/WEB-INF/mapper/band-mapper.xml</value>
 				<value>/WEB-INF/mapper/member-mapper.xml</value>
 				<value>/WEB-INF/mapper/file-mapper.xml</value>

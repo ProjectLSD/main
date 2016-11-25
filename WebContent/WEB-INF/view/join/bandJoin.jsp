@@ -112,12 +112,6 @@
 <input type="hidden" id="num" />
 <input type="hidden" id="check" />
 <script>
-$("#name").keyup(function(){
-	var name = $("#name").val();
-	var languageCheckk = name.search(/[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/);
-	var languageChecke = name.search(/^[a-z0-9_-]{3,16}$/);
-	if(name.langth<)
-}
 //아이디가 없을때 리턴
 $("#pass1").keyup(function () {
 	var pass1 = $("#pass1").val();
