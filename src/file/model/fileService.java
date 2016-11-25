@@ -185,4 +185,12 @@ public class fileService {
 
 		return tg;
 	}
+	
+	public List Imguuid(String album){
+		SqlSession sql = fac.openSession();
+		List<HashMap> li = sql.selectList("file.img",album);
+		sql.close();
+		
+		return li;
+	}
 }

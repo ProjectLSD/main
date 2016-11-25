@@ -34,7 +34,7 @@
 		<c:choose>
 			<c:when test="${obj.CHECKS == null }">
 				<button type="button" class="btn btn-success"
-					onclick="location.href='/file/Approval1?filenum=${obj.FILENUM }'">승인</button>
+					onclick="location.href='/file/Approval1?filenum=${obj.FILENUM }&album=${obj.ALBUM}'">승인</button>
 			</c:when>
 			<c:otherwise>
 				<button type="button" class="btn btn-success"

@@ -5,8 +5,14 @@
 
 <h3 style="color: white;">New Disc</h3>
 <hr />
+		
 <div class="row text-center">
 	<c:forEach var="ob" items="${map }">
+		<c:choose>
+			<c:when test="${ob.IMGSIZE==0 }">
+				console.log("!!!!");
+			</c:when>
+			<c:otherwise>
 		<div class="col-sm-3" style="position:relative; height:3em; padding-bottom:35%">
 			<div class="thumbnail" style="background-color: #23232c; position:absolute; width:95%; height:100%; left:0; top:0">	
 				<a href="/file/Album1?owner=${ob.OWNER }&album=${ob.ALBUM }">
@@ -15,6 +21,8 @@
 					<p style="color:white;">${ob.ALBUM }</p>
 			</div>
 		</div>
+			</c:otherwise>		
+		</c:choose>
 	</c:forEach>
 </div>
 <hr />

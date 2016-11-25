@@ -80,9 +80,11 @@ public class fileController {
 	}
 
 	@RequestMapping("/file/Approval1")
-	public ModelAndView ModelApproval1(int filenum) {
-		System.out.println(filenum);
+	public ModelAndView ModelApproval1(int filenum, String album) {
+		System.out.println(album);
 		List<HashMap> map = fileSrv.readApproval1(filenum);
+		List li = fileSrv.getfileName(album);
+		int rst = li.size();
 		ModelAndView mav = new ModelAndView();
 		if (map != null) {
 			mav.addObject("map", map);
@@ -99,19 +101,19 @@ public class fileController {
 		System.out.println(owner);
 		System.out.println(album);
 		List<HashMap> mp = fileSrv.readAlbum(owner, album);
-		List<HashMap> li = fileSrv.getfileName(album);
-		String imgid = fileSrv.readImguuid(album);
+		List li = fileSrv.getfileName(album);
+		int rst = li.size();
 		ModelAndView mav = new ModelAndView();
 		if (mp != null) {
+			List imgid = fileSrv.Imguuid(album);
 			mav.addObject("own", owner);
 			mav.addObject("alb", album);
 			mav.addObject("album", mp);
-			mav.addObject("imgid", imgid);
-			mav.addObject("kind",li);
+			mav.addObject("imgid", imgid.get(0));
 			mav.setViewName("tm:file/album");
+			
 		} else {
 			mav.setViewName("file/error");
-
 		}
 		return mav;
 
@@ -168,18 +170,18 @@ public class fileController {
 		fileSrv.likeUp(filenum);
 		return filenum;
 	}
-	
+
 	@RequestMapping("/file/checkAlbum")
 	@ResponseBody
-	public String checkAlbum(String album){
-		List li= fileSrv.getfileName(album);
-		String rst="";
-		if(li.size()==0){
-			rst="FALSE";
-		}else{
-			rst="TRUE";
+	public String checkAlbum(String album) {
+		List li = fileSrv.getfileName(album);
+		String rst = "";
+		if (li.size() == 0) {
+			rst = "FALSE";
+		} else {
+			rst = "TRUE";
 		}
-		
+
 		System.out.println(rst);
 		return rst;
 	}
