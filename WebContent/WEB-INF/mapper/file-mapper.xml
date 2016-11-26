@@ -78,4 +78,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="img" resultType="java.lang.String" parameterType="java.lang.String">
 		select imguuid,imgsize from fileupload where album=#{album} order by IMGSIZE desc
 	</select>
+	
+	
 </mapper>

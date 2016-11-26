@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
@@ -14,7 +14,7 @@
 			album : ${alb }</div>
 		<div
 			style="font-size: 30px; color: #c2c2ca; width: 500px; margin-left: 350px;">
-			°¡¼ö : ${own }</div>
+			ê°€ìˆ˜ : ${own }</div>
 	</div>
 	<div class="panel panel-default" style="width: 1028px;">
 		<table class="table" style="font-size: 18px; border: 0px;">
@@ -32,7 +32,8 @@
 					style="color: #c2c2ca; background-color: #1e1e26">
 					<td align="center"><span style="font-size: 20px;" id="data${status.count}">${status.count}</span></td>
 					<td align="center" width="100px"><span id="${status.count}" class="glyphicon glyphicon-plus"></span></td>
-					<td>${ob.FILENAME} &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-heart-empty" id="like" title="${ob.FILENUM}">&nbsp;</span></td>
+					<td>${ob.FILENAME} &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-heart-empty" id="like" title="${ob.FILENUM}">&nbsp;</span> 
+					<a href="/file/down?filenum=${ob.FILENUM }"><span class="glyphicon glyphicon glyphicon-circle-arrow-down" id="down" title="${ob.FILENUM}">&nbsp;</span></a></td>
 					<td>${ob.LIKES}</td>
 					<td>${ob.COUNT}</td>
 					<td id="hd${status.count}" hidden="${ob.FILENUM}">${ob.FILENUM}</td>
@@ -74,7 +75,7 @@
      }); 	
      
  	$(".glyphicon-heart-empty").click(function(){
-		alert("ÃßÃµµÇ¾ú½À´Ï´Ù.");
+		alert("ì¶”ì²œë˜ì—ˆìŠµë‹ˆë‹¤.");
 		console.log($(this).attr("title"));
 		$.ajax({
 			"url" : "/file/like?filenum="+$(this).attr("title"),
@@ -84,5 +85,7 @@
 			location.reload();
 		})  
 	});
+ 	
+	
       	
   </script>

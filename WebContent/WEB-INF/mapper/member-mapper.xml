@@ -21,4 +21,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectPass" parameterType="java.lang.String" resultType="java.lang.String">		
 		select pass from member where id=#{id}
 	</select>
+	
+	<select id="point" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select point from member where id =#{id}
+	</select>
+	
+	<update id="usePoint" parameterType="java.lang.String">
+		update member set point=point-10 where id =#{id}
+	</update>
 </mapper>

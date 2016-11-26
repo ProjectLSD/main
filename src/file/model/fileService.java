@@ -97,6 +97,7 @@ public class fileService {
 	}
 
 	public HashMap readDownTarget(int filenum) {
+		System.out.println("2");
 		SqlSession sql = fac.openSession();
 		// FileData tg = sql.selectOne("files.readOnePojo");
 		int r = sql.update("file.updateCount", filenum);
@@ -192,5 +193,22 @@ public class fileService {
 		sql.close();
 		
 		return li;
+	}
+	
+	public int pointSum(String id){
+		SqlSession sql = fac.openSession();
+		int rst = sql.selectOne("member.point",id);
+		sql.close();
+		return rst;
+	}
+	
+	public int  usePoint(String id){
+		SqlSession sql = fac.openSession();
+		System.out.println(id);
+		System.out.println("s1");
+		int rst =  sql.update("member.usePoint",id);
+		System.out.println("s2");
+		sql.close();
+		return rst;
 	}
 }

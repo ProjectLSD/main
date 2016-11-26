@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -66,15 +67,32 @@ public class fileController {
 	}
 
 	@RequestMapping("/file/down")
-	public ModelAndView downReqResolve(int filenum) {
-
+	public ModelAndView downReqResolve(int filenum, HttpSession session) {
+		String id = (String) session.getAttribute("userId");
+		System.out.println("1");
 		HashMap map = fileSrv.readDownTarget(filenum);
+		System.out.println("3");
 		ModelAndView mav = new ModelAndView();
 		if (map == null) {
 			mav.setViewName("file/fail");
 		} else {
-			mav.setViewName("fileDown");
-			mav.addObject("target", map);
+			if (id == null) {
+				mav.setViewName("file/fail");
+			} else {
+				System.out.println("4");
+				int point = fileSrv.pointSum(id);
+				System.out.println("5");
+				if (point <= 0) {
+					mav.setViewName("memeber/noPoint");
+				} else {
+					System.out.println("6");
+					int rst = fileSrv.usePoint(id);
+					System.out.println("7");
+					mav.setViewName("fileDown");
+					System.out.println("8");
+					mav.addObject("target", map);
+				}
+			}
 		}
 		return mav;
 	}
@@ -109,7 +127,7 @@ public class fileController {
 			mav.addObject("album", mp);
 			mav.addObject("imgid", imgid.get(0));
 			mav.setViewName("tm:file/album");
-			
+
 		} else {
 			mav.setViewName("file/error");
 		}
