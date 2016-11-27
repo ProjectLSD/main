@@ -115,7 +115,7 @@
 				</div>
 				<div id="menu2" class="tab-pane fade">
 					<br />
-					<form name="joinform" action="/membersearchPwResult" method="post"
+					<form name="joinform" action="/membersearchIdResult" method="post"
 							style="font-size: 12pt;" class="form-inline">
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>Email :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <input
@@ -126,16 +126,16 @@
 					<br />
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>PonNum :&nbsp;&nbsp;</label> <select name="phonenum1"
-							id="mph1" class="form-control">
+							id="ph1" class="form-control">
 							<option>010</option>
 							<option>011</option>
 							<option>016</option>
 							<option>017</option>
 							<option>018</option>
 							<option>019</option>
-						</select> <input type="text" class="form-control" name="phonenum2" id="mph2"
+						</select> <input type="text" class="form-control" name="phonenum2" id="ph2"
 							maxlength="4" size="1px;"> <input type="text"
-							class="form-control" name="phonenum3" id="mph3" maxlength="4"
+							class="form-control" name="phonenum3" id="ph3" maxlength="4"
 							size="1px;"><br />
 					</div>
 					<div id="result2"></div>
@@ -190,7 +190,7 @@ $("#bt1").click(function() {
 	var ph3 = $("#ph3").val();
 	var email = $("#email").val();
 	$.ajax({
-		"url" : "searchIdResult?phone1="+ph1+"&phone2="+ph2+"&phone3="+ph3+"&email="+email,
+		"url" : "bandsearchIdResult?phone1="+ph1+"&phone2="+ph2+"&phone3="+ph3+"&email="+email,
 		"method" : "post",
 		"aSync" : true
 	}).done(function(txt) {
@@ -204,18 +204,18 @@ $("#bt1").click(function() {
 			}
 			
 		} else {
-			$("#result1").html("<i style='color:red'>등록된 회원 정보가 없습니다.</i>");
+			$("#result1").html("<i style='color:red'>회원 정보가 없습니다.</i>");
 		}
 	})
 });
 
 $("#bt2").click(function() {
-	var ph1 = $("#mph1").val();
-	var ph2 = $("#mph2").val();
-	var ph3 = $("#mph3").val();
+	var ph1 = $("#ph1").val();
+	var ph2 = $("#ph2").val();
+	var ph3 = $("#ph3").val();
 	var email = $("#email").val();
 	$.ajax({
-		"url" : "searchIdResult?phone1="+ph1+"&phone2="+ph2+"&phone3="+ph3+"&email="+email,
+		"url" : "membersearchIdResult?phone1="+ph1+"&phone2="+ph2+"&phone3="+ph3+"&email="+email,
 		"method" : "post",
 		"aSync" : true
 	}).done(function(txt) {
@@ -229,8 +229,10 @@ $("#bt2").click(function() {
 			}
 			
 		} else {
-			$("#result2").html("<i style='color:red'>등록된 회원 정보가 없습니다.</i>");
+			$("#result2").html("<i style='color:red'>회원 정보가 없습니다.</i>");
 		}
 	})
 });
+
+
 </script>
