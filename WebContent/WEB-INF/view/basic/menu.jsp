@@ -118,7 +118,7 @@
 	<ul class="nav nav-pills nav-stacked">
 		<li><a href="/top/chart"><span
 				class="glyphicon glyphicon-send"></span> 소개</a></li>
-		<li><a href="/board/list"><span
+		<li><a href="/chart/bs"><span
 				class="glyphicon glyphicon-thumbs-up"></span> 인기가요</a></li>
 		<li><a href="/board/list"><span
 				class="glyphicon glyphicon-plus"></span> 후원하기</a></li>

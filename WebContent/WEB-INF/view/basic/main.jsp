@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <h3 style="color: white;">New Disc</h3>
-<hr />
+<hr color="blue"/>
 		
 <div class="row text-center">
 	<c:forEach var="ob" items="${map }">
@@ -13,7 +13,7 @@
 			</c:when>
 			<c:otherwise>
 		<div class="col-sm-3" style="position:relative;  padding-bottom:30%">
-			<div class="thumbnail" style="background-color: #23232c; position:absolute; width:235px; height:300px; ">	
+			<div class="thumbnail" style="background-color: #23232c; position:absolute;  width:85%; height:90%; border: 0px">	
 				<a href="/file/Album1?owner=${ob.OWNER }&album=${ob.ALBUM }">
 				<img style="position:relative; width:auto; height:85%; left:0; top:0" src="${ob.IMGUUID}" alt="${ob.IMGNAME}"/></a>
 					<p><strong style="color:white;">${ob.OWNER }</strong></p>

@@ -27,6 +27,7 @@ html, body {
 #container {
    min-height: 100%;
    position:relative;
+   
 }
 
 a:link, a:hover, a:visited {
@@ -74,20 +75,20 @@ footer {
 </head>
 <body>
 	<div id="container" style="min-height: 100%; position: relative;">
-		<div class="row content" style="padding-bottom: 27px;">
+		<div class="row content">
 		
-			<div class="col-sm-2 sidenav" id="content-1" class="content" style="height:750px; max-height: 80%; padding: 5px; border: 3;"  >
+			<div class="col-sm-2 sidenav" id="content-1" class="content" style="height:750px; max-height: 100%; padding: 5px; border: 3;"  >
 				<p>
 					<tiles:insertAttribute name="menu" />
 				</p>
 			</div>
-			<div class="col-sm-8 text-left" id="content-2" class="content" style="height:750px; max-height: 80%; padding: 5px; border: 3;" >
+			<div class="col-sm-8 text-left" id="content-2" class="content" style="height:750px; max-height: 100%; padding: 5px; border: 3;" >
 	
 				<p>
 					<tiles:insertAttribute name="body" />
 				</p>
 			</div>
-			<div class="col-sm-2 sidenav" id="content-3" class="content" style="height:750px; max-height: 80%; padding: 5px; border: 3;">
+			<div class="col-sm-2 sidenav" id="content-3" class="content" style="height:750px; max-height: 100%; padding: 5px; border: 3;">
 				<p>
 					<tiles:insertAttribute name="header" />
 				</p>

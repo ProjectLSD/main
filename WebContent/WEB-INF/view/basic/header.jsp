@@ -1,31 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="/script/jquery.cookie.js"></script>
 <div align="center">
-<h2>Play list</h2>
-<hr/>
+	<h2 style="color: white;">Play list</h2>
+	<hr />
 </div>
 <c:if test="${sessionScope.PlayList ne null }">
-<c:forEach items="${sessionScope.PlayList }" var="li" begin="0" end="${sessionScope.PlayList.size() }" varStatus="status">            
-<div align="left">
-<span style="width: 50px;">
-<img src="/${li.IMGUUID }" id="${status.count}" class="img-circle play" alt="Cinque Terre" width="50" height="50">
-</span>
-<span>
-   <b style="color: pink;">${li.ALBUM }</b></br>
-   <b style="color: pink;">${li.FILENAME }</b>
-   <b id="music${status.count}" hidden="music">${li.FILEUUID }</b>
-   <hr/>
-</span>
-</div> 
-</c:forEach>   
+
+	<c:forEach items="${sessionScope.PlayList }" var="li" begin="0"
+		end="${sessionScope.PlayList.size() }" varStatus="status">
+		<div align="left">
+			<span > <img src="/${li.IMGUUID }"
+				id="${status.count}" class="img-circle play" alt="Cinque Terre"
+				style="width: 40px; height: 40px; float: left;">
+			</span> <span>
+				<div style="width: 300px; height: 50px;">
+					<b style="color: pink;">&nbsp; ${li.ALBUM }</b><br />
+					<b style="color: pink;">&nbsp; ${li.FILENAME }</b>
+				</div> <b id="music${status.count}" hidden="music">${li.FILEUUID }</b>
+			</span>
+		</div>
+		<hr />
+	</c:forEach>
 </c:if>
 
-<hr/> 
-<button id="btt" class="btn-default" type="button">remove<span class="glyphicon glyphicon-trash"></span></button>
+<button id="btt" class="btn-default" type="button">
+	remove<span class="glyphicon glyphicon-trash"></span>
+</button>
 
 <script>
 $("#btt").click(function() {
