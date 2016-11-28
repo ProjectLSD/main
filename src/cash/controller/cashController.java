@@ -15,7 +15,6 @@ public class cashController {
 
 	@Autowired
 	cashService cashSrv;
-	
 	@RequestMapping("cash/controller")
 	public ModelAndView page(HttpSession session){
 		ModelAndView mav = new ModelAndView();
@@ -23,14 +22,9 @@ public class cashController {
 		String point = cashSrv.point(id);
 		
 		mav.addObject("point",point);
-		mav.setViewName("tm:cash/cash");
+		mav.setViewName("tmmm:basic/menu");
 		
 		return mav;
-	}
-	
-	@RequestMapping("cash/charge")
-	public String charge(){
-		return "tm:cash/charge";
 	}
 	
 	@RequestMapping("cash/chargePoint")

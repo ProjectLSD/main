@@ -3,11 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-
 <style>
 .btn-default {
 	border: 2px;
@@ -20,6 +15,7 @@
 	color: #000;
 }
 </style>
+
 <div align="center">
 	<img src="/logo.png" height="180" ; width="80%"
 		onclick="location.href='/index'" />
@@ -39,6 +35,7 @@
 	<h3 align="center">LSD</h3>
 	<hr />
 	<ul class="nav nav-pills nav-stacked">
+		<li>메뉴</li>
 		<li><a href="/top/chart"><span
 				class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
 		<li><a href="/board/list"><span
@@ -46,9 +43,8 @@
 		<li><a href="/file/list"><span
 				class="glyphicon glyphicon-book"></span> 유용한자료</a></li>
 		<li><a href="/bandNotice/notice"><span
-				class="glyphicon glyphicon-bullhorn"></span>밴드 홍보</a></li>		
+				class="glyphicon glyphicon-bullhorn"></span>밴드 홍보</a></li>
 	</ul>
-
 	<hr />
 	<div align="center">
 		<c:choose>
@@ -76,59 +72,54 @@
 						aria-labelledby="bu">
 						<li role="presentation"><a role="menuitem" tabindex="-1"
 							href="/myInfo/info">내정보</a></li>
-						<li role="presentation"><div class="container" align="left">
-						<!-- 버튼 -->
-						<button type="button" class="btn btn-primary btn-lg"
-							data-toggle="modal" data-target="#myModal">Point charge</button>
-
-						<!-- 모달 팝업 -->
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-							aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal">
-											<span aria-hidden="true">x</span><span class="sr-only">Close</span>
-										</button>
-										<h4 class="modal-title" id="myModalLabel">Point-up</h4>
-									</div>
-									<div class="modal-body" align="/cash/chargePoint" method="get">
-										<h2 style="color: red;">My point</h2>
-										<br/><b style="color: silver;">포인트 : ${point}</b>
-										<select required name="point">
-											<option value="">Select a point</option>
-											<option value="100">100</option>
-											<option value="200">200</option>
-											<option value="300">300</option>
-											<option value="400">400</option>
-										</select>
-										<br/>
-										<br/>
-										<br/>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">충전</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1"
+							href="/cash/controller">포인트 : ${point}</a></li>
 						<li role="presentation" class="divider"></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1"
 							href="/logout">로그아웃</a></li>
 					</ul>
-					
+				</div>
+				<div class="container" align="left">
+					<!-- 버튼 -->
+					<button type="button" class="btn btn-primary btn-lg"
+						data-toggle="modal" data-target="#myModal">Charging station</button>
+
+					<!-- 모달 팝업 -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+						aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">
+										<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+									</button>
+									<h2 style="color: silver;">Point-up</h2>
+								</div>
+								<form class="modal-body" action="/cash/chargePoint" method="post">
+									<h2 style="color: red;">My Point</h2>
+								    <br /> <b style="color: silver;">Holding point : ${point}</b>
+									<select required name="point">
+										<option value="">Point</option>
+										<option value="100">100</option>
+										<option value="200">200</option>
+										<option value="300">300</option>
+										<option value="400">400</option>
+									</select>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
+									<input type="submit" class="btn btn-primary" value="층전"/>
+								</div>
+							</form>
+							</div>
+						</div>
+					</div>
 				</div>
 			</c:otherwise>
 		</c:choose>
 	</div>
 	<hr />
 </div>
-
-
-
-
 
 
 

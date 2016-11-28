@@ -43,7 +43,7 @@
 	function update()
 	{
 	  	console.log("?");
-		if(${sessionScope.music ne null}){            
+		if(${sessionScope.music ne null}){                
 	       if(!played){
 	           if(tillPlayed){
 	              console.log(song);
