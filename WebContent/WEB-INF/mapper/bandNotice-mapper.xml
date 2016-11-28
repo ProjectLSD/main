@@ -3,7 +3,28 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bandNotice">
-<insert id="insertNotice" parameterType="java.util.HashMap">
-	insert into bandnotice values (bandnotice_seq.nextval,#{title},#{text},#{filename},#{filesize},#{fileuuid},#{px},#{py},#{id})
-</insert>
+	<insert id="insertNotice" parameterType="java.util.HashMap">
+		insert into bandnotice values
+		(bandnotice_seq.nextval,#{title},#{text},#{filename},#{filesize},#{fileuuid},#{px},#{py},#{id},#{location},sysdate)
+	</insert>
+
+	<select id="getPart" resultType="java.util.HashMap"
+		parameterType="java.util.HashMap">
+		<![CDATA[
+		select * from(
+		select rownum idx, t.* from
+		(select * from bandNotice order by num desc) t
+		)where idx >=#{start} and idx <=#{end}
+		]]>
+	</select>
+
+
+	<select id="getCount" resultType="java.lang.Integer">
+		select count(*) from bandNotice
+	</select>
+	
+	<select id="selectNum" parameterType="java.lang.Integer"
+		resultType="java.util.HashMap">
+		select * from bandnotice where num=#{num}
+	</select>
 </mapper>
