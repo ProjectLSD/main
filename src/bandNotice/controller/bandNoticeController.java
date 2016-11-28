@@ -72,7 +72,7 @@ public class bandNoticeController {
 	      return mav;
 	   }
 	
-	@RequestMapping("/board/view")
+	@RequestMapping("/bandNotice/view")
 	   public ModelAndView view(int num) {
 		System.out.println(num);
 	      ModelAndView mav = new ModelAndView();
