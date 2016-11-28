@@ -68,7 +68,7 @@ footer {
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!-- stylesheet for demo and examples -->
-	<link rel="stylesheet" href="style.css">
+	
 	<!-- custom scrollbar stylesheet -->
 	<link rel="stylesheet" href="/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.css">	
 </head>
