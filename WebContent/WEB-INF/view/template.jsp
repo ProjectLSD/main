@@ -82,13 +82,13 @@ footer {
 					<tiles:insertAttribute name="menu" />
 				</p>
 			</div>
-			<div class="col-sm-8 text-left" id="content-2" class="content" style="height:750px; max-height: 100%; padding: 5px; border: 3;" >
-	
+			<div class="${sessionScope.PlayList eq null ? 'col-sm-10' : 'col-sm-8 text-left' }" id="content-2" class="content" style="height:750px; max-height: 100%; padding: 5px; border: 3;" >
+			
 				<p>
 					<tiles:insertAttribute name="body" />
 				</p>
 			</div>
-			<div class="col-sm-2 sidenav" id="content-3" class="content" style="height:750px; max-height: 100%; padding: 5px; border: 3;">
+			<div class="${sessionScope.PlayList eq null ? '' : 'col-sm-2 sidenav' }" id="content-3" class="content" style="height:750px; max-height: 100%; padding: 5px; border: 3;">
 				<p>
 					<tiles:insertAttribute name="header" />
 				</p>
