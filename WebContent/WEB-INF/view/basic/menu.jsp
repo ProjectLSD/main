@@ -32,18 +32,19 @@
 	</div>
 </form>
 <div align="left">
-	<h3 align="center">LSD</h3>
+	<h3 style="color: white;" align="center">LSD</h3>
 	<hr />
 	<ul class="nav nav-pills nav-stacked">
-		<li>메뉴</li>
 		<li><a href="/top/chart"><span
 				class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
 		<li><a href="/board/list"><span
 				class="glyphicon glyphicon-tags"></span> 자유게시판</a></li>
 		<li><a href="/file/list"><span
-				class="glyphicon glyphicon-book"></span> 유용한자료</a></li>
+				class="glyphicon glyphicon-book"></span> 엘범등록</a></li>
 		<li><a href="/bandNotice/notice"><span
-				class="glyphicon glyphicon-bullhorn"></span>밴드 홍보</a></li>
+				class="glyphicon glyphicon-bullhorn"></span> 밴드홍보</a></li>
+				<li><a href="/"><span
+				class="glyphicon glyphicon-music"></span> 노래듣기</a></li>
 	</ul>
 	<hr />
 	<div align="center">
@@ -74,50 +75,54 @@
 							href="/myInfo/info">내정보</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1"
 							href="/cash/controller">포인트 : ${point}</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1"
+							data-toggle="modal" data-target="#myModal">포인트 충전</a></li>
 						<li role="presentation" class="divider"></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1"
 							href="/logout">로그아웃</a></li>
 					</ul>
 				</div>
-				<div class="container" align="left">
-					<!-- 버튼 -->
-					<button type="button" class="btn btn-primary btn-lg"
-						data-toggle="modal" data-target="#myModal">Charging station</button>
-
-					<!-- 모달 팝업 -->
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-						aria-labelledby="myModalLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">
-										<span aria-hidden="true">×</span><span class="sr-only">Close</span>
-									</button>
-									<h2 style="color: silver;">Point-up</h2>
-								</div>
-								<form class="modal-body" action="/cash/chargePoint" method="post">
-									<h2 style="color: red;">My Point</h2>
-								    <br /> <b style="color: silver;">Holding point : ${point}</b>
-									<select required name="point">
-										<option value="">Point</option>
-										<option value="100">100</option>
-										<option value="200">200</option>
-										<option value="300">300</option>
-										<option value="400">400</option>
-									</select>
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+					align="left" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+								</button>
+								<h2 style="color: silver;">Point-up</h2>
+							</div>
+							<form class="modal-body" action="/cash/chargePoint" method="post">
+								<h2 style="color: red;">My Point</h2>
+								<br /> <b style="color: silver;">Holding point : ${point}</b> <select
+									required name="point">
+									<option value="">Point</option>
+									<option value="100">100</option>
+									<option value="200">200</option>
+									<option value="300">300</option>
+									<option value="400">400</option>
+								</select>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"
 										data-dismiss="modal">Close</button>
-									<input type="submit" class="btn btn-primary" value="층전"/>
+									<input type="submit" class="btn btn-primary" value="층전" />
 								</div>
 							</form>
-							</div>
 						</div>
 					</div>
 				</div>
+
 			</c:otherwise>
 		</c:choose>
 	</div>
+	<ul class="nav nav-pills nav-stacked">
+		<li><a href="/top/chart"><span
+				class="glyphicon glyphicon-send"></span> 소개</a></li>
+		<li><a href="/board/list"><span
+				class="glyphicon glyphicon-thumbs-up"></span> 인기가요</a></li>
+		<li><a href="/board/list"><span
+				class="glyphicon glyphicon-plus"></span> 후원하기</a></li>
+	</ul>
 	<hr />
 </div>
 

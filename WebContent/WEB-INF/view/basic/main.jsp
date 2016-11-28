@@ -12,8 +12,8 @@
 			<c:when test="${ob.IMGSIZE==0 }">
 			</c:when>
 			<c:otherwise>
-		<div class="col-sm-4" style="position:relative; height:3em; padding-bottom:20%">
-			<div class="thumbnail" style="background-color: #23232c; position:absolute; width:50%; height:70%; left:0; top:0">	
+		<div class="col-sm-3" style="position:relative;  padding-bottom:30%">
+			<div class="thumbnail" style="background-color: #23232c; position:absolute; width:235px; height:300px; ">	
 				<a href="/file/Album1?owner=${ob.OWNER }&album=${ob.ALBUM }">
 				<img style="position:relative; width:auto; height:85%; left:0; top:0" src="${ob.IMGUUID}" alt="${ob.IMGNAME}"/></a>
 					<p><strong style="color:white;">${ob.OWNER }</strong></p>
