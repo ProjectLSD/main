@@ -3,14 +3,220 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<b style="color: red">다운로드 순 TOP 10</b>
-<br />
-<br />
-<br />
-<hr />
-<c:forEach var="obj" items="${top }">
+<section class="no-padding" id="musicchart">
+         <h2 style="color: white;">Top Songs</h2>         
+   <ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#top">TOP10</a></li>
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Genre
+    <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><a data-toggle="tab" href="#pop">pop</a></li>
+      <li><a data-toggle="tab" href="#lock">lock</a></li>
+      <li><a data-toggle="tab" href="#jazz">jazz</a></li>
+      <li><a data-toggle="tab" href="#hiphop">hiphop</a></li>
+      <li><a data-toggle="tab" href="#country">country</a></li>
+      <li><a data-toggle="tab" href="#electronic">electronic</a></li> 
+    </ul>
+  </li>
+</ul>
 
-	<img src="/${obj.IMGUUID}" alt="${obj.IMGNAME}" width="100" height="100" />  ${obj.GENRE }| <a href="#f${obj.FILENUM }"
-		style="text-decoration: none">${obj.FILENAME }</a>&nbsp;&nbsp;
-<hr />
-</c:forEach>
+<div class="tab-content">
+  <div id="top" class="tab-pane fade in active">
+   <div class="table-responsive">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
+                     <th>rank</th>
+                     <th>album</th>
+                     <th>title</th>
+                     <th>artist</th>
+                     <th>like</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <c:forEach var="obj" items="${top }" varStatus="status">
+                     <tr>
+                        <td><input type="checkbox" name="chk"></td>
+                        <td>${status.count }</td>
+                        <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
+                        <td>${obj.FILENAME }</td>
+                        <td>${obj.OWNER}</td>
+                        <td>${obj.LIKES}</td>
+                     </tr>
+                  </c:forEach>
+               </tbody>
+            </table>
+         </div>
+  </div>
+  <div id="pop" class="tab-pane fade">
+    <div class="table-responsive">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
+                     <th>rank</th>
+                     <th>album</th>
+                     <th>title</th>
+                     <th>artist</th>
+                     <th>like</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <c:forEach var="obj" items="${pop }" varStatus="status">
+                     <tr>
+                        <td><input type="checkbox" name="chk"></td>
+                        <td>${status.count }</td>
+                        <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
+                        <td>${obj.FILENAME }</td>
+                        <td>${obj.OWNER}</td>
+                        <td>${obj.LIKES}</td>
+                     </tr>
+                  </c:forEach>
+               </tbody>
+            </table>
+         </div>
+  </div>
+  <div id="lock" class="tab-pane fade">
+    <div class="table-responsive">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
+                     <th>rank</th>
+                     <th>album</th>
+                     <th>title</th>
+                     <th>artist</th>
+                     <th>like</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <c:forEach var="obj" items="${lock }" varStatus="status">
+                     <tr>
+                        <td><input type="checkbox" name="chk"></td>
+                        <td>${status.count }</td>
+                        <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
+                        <td>${obj.FILENAME }</td>
+                        <td>${obj.OWNER}</td>
+                        <td>${obj.LIKES}</td>
+                     </tr>
+                  </c:forEach>
+               </tbody>
+            </table>
+         </div>
+  </div>
+  <div id="jazz" class="tab-pane fade">
+    <div class="table-responsive">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
+                     <th>rank</th>
+                     <th>album</th>
+                     <th>title</th>
+                     <th>artist</th>
+                     <th>like</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <c:forEach var="obj" items="${jazz }" varStatus="status">
+                     <tr>
+                        <td><input type="checkbox" name="chk"></td>
+                        <td>${status.count }</td>
+                        <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
+                        <td>${obj.FILENAME }</td>
+                        <td>${obj.OWNER}</td>
+                        <td>${obj.LIKES}</td>
+                     </tr>
+                  </c:forEach>
+               </tbody>
+            </table>
+         </div>
+  </div>
+  <div id="hiphop" class="tab-pane fade">
+    <div class="table-responsive">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
+                     <th>rank</th>
+                     <th>album</th>
+                     <th>title</th>
+                     <th>artist</th>
+                     <th>like</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <c:forEach var="obj" items="${hiphop }" varStatus="status">
+                     <tr>
+                        <td><input type="checkbox" name="chk"></td>
+                        <td>${status.count }</td>
+                        <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
+                        <td>${obj.FILENAME }</td>
+                        <td>${obj.OWNER}</td>
+                        <td>${obj.LIKES}</td>
+                     </tr>
+                  </c:forEach>
+               </tbody>
+            </table>
+         </div>
+  </div>
+   <div id="country" class="tab-pane fade">
+    <div class="table-responsive">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
+                     <th>rank</th>
+                     <th>album</th>
+                     <th>title</th>
+                     <th>artist</th>
+                     <th>like</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <c:forEach var="obj" items="${country }" varStatus="status">
+                     <tr>
+                        <td><input type="checkbox" name="chk"></td>
+                        <td>${status.count }</td>
+                        <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
+                        <td>${obj.FILENAME }</td>
+                        <td>${obj.OWNER}</td>
+                        <td>${obj.LIKES}</td>
+                     </tr>
+                  </c:forEach>
+               </tbody>
+            </table>
+         </div>
+  </div>
+   <div id="electronic" class="tab-pane fade">
+    <div class="table-responsive">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
+                     <th>rank</th>
+                     <th>album</th>
+                     <th>title</th>
+                     <th>artist</th>
+                     <th>like</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <c:forEach var="obj" items="${electronic }" varStatus="status">
+                     <tr>
+                        <td><input type="checkbox" name="chk"></td>
+                        <td>${status.count }</td>
+                        <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
+                        <td>${obj.FILENAME }</td>
+                        <td>${obj.OWNER}</td>
+                        <td>${obj.LIKES}</td>
+                     </tr>
+                  </c:forEach>
+               </tbody>
+            </table>
+         </div>
+  </div>
+</div>
+</section>

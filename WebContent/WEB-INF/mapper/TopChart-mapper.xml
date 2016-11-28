@@ -10,5 +10,48 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where rownum <=10
 	]]>
 	</select>
+	<select id="toppop" resultType="java.util.HashMap">
+	<![CDATA[
+		select rownum, temp.* from
+   		(select * from fileupload order by count desc) temp 
+		where rownum <=10 AND genre='pop'
+	]]>
+	</select>
+	<select id="toplock" resultType="java.util.HashMap">
+	<![CDATA[
+		select rownum, temp.* from
+   		(select * from fileupload order by count desc) temp 
+		where rownum <=10 AND genre='lock'
+	]]>
+	</select>
+	<select id="topjazz" resultType="java.util.HashMap">
+	<![CDATA[
+		select rownum, temp.* from
+   		(select * from fileupload order by count desc) temp 
+		where rownum <=10 AND genre='jazz'
+	]]>
+	</select>
+	<select id="tophiphop" resultType="java.util.HashMap">
+	<![CDATA[
+		select rownum, temp.* from
+   		(select * from fileupload order by count desc) temp 
+		where rownum <=10 AND genre='hiphop'
+	]]>
+	</select>
+	<select id="topcountry" resultType="java.util.HashMap">
+	<![CDATA[
+		select rownum, temp.* from
+   		(select * from fileupload order by count desc) temp 
+		where rownum <=10 AND genre='country'
+	]]>
+	</select>
+	<select id="topelectronic" resultType="java.util.HashMap">
+	<![CDATA[
+		select rownum, temp.* from
+   		(select * from fileupload order by count desc) temp 
+		where rownum <=10 AND genre='electronic'
+	]]>
+	</select>
+	
 </mapper>
  

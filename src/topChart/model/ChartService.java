@@ -19,4 +19,40 @@ public class ChartService {
 		sql.close();
 		return list;
 	}
+	public List readTopPop() {
+		SqlSession sql = fac.openSession();
+		List list = sql.selectList("topchart.toppop");
+		sql.close();
+		return list;
+	}
+	public List readTopLock() {
+		SqlSession sql = fac.openSession();
+		List list = sql.selectList("topchart.toplock");
+		sql.close();
+		return list;
+	}   
+	public List readTopJazz() {
+		SqlSession sql = fac.openSession();
+		List list = sql.selectList("topchart.topjazz");
+		sql.close();
+		return list;
+	}
+	public List readTopHiphop() {
+		SqlSession sql = fac.openSession();
+		List list = sql.selectList("topchart.tophiphop");
+		sql.close();
+		return list;
+	}
+	public List readTopCountry() {
+		SqlSession sql = fac.openSession();
+		List list = sql.selectList("topchart.topcountry");
+		sql.close();
+		return list;
+	}
+	public List readTopElectronic() {
+		SqlSession sql = fac.openSession();
+		List list = sql.selectList("topchart.topelectronic");
+		sql.close();
+		return list;
+	}
 }

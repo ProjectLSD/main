@@ -19,6 +19,13 @@ public class ChartController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("tm:chart/chart");
 		mav.addObject("top", CSrv.readTopChart());
+		mav.addObject("pop", CSrv.readTopPop());
+		mav.addObject("lock", CSrv.readTopLock());
+		mav.addObject("jazz", CSrv.readTopJazz());
+		mav.addObject("hiphop", CSrv.readTopHiphop());
+		mav.addObject("country", CSrv.readTopCountry());
+		mav.addObject("electronic", CSrv.readTopElectronic());
+
 		return mav;
 	}
 	
