@@ -143,6 +143,14 @@ public class fileService {
 	public boolean findMusic(int filenum, HttpSession hs) {
 		SqlSession sql = fac.openSession();
 		HashMap hm = sql.selectOne("file.readOneMap", filenum);
+		System.out.println("ALBUM : "+ hm.get("ALBUM"));
+		System.out.println("OWNER : "+ hm.get("OWNER"));
+		if(hm.get("IMGNAME")==null){
+			String img =sql.selectOne("file.albumimg",hm);
+			System.out.println(img);
+			hm.put("IMGUUID", img);
+			System.out.println(hm.get("IMGUUID"));
+		}
 		System.out.println("db music :" + hm);
 		boolean flag;
 		if (hm != null) {

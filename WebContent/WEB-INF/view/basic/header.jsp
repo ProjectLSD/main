@@ -12,7 +12,7 @@
 <c:forEach items="${sessionScope.PlayList }" var="li" begin="0" end="${sessionScope.PlayList.size() }" varStatus="status">            
 <div align="left">
 <span style="width: 50px;">
-<img src="/jjs.PNG" id="${status.count}" class="img-circle play" alt="Cinque Terre" width="50" height="50">
+<img src="/${li.IMGUUID }" id="${status.count}" class="img-circle play" alt="Cinque Terre" width="50" height="50">
 </span>
 <span>
    <b style="color: pink;">${li.ALBUM }</b></br>

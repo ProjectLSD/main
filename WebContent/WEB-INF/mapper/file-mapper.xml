@@ -62,7 +62,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="album1" resultType="java.util.HashMap" parameterType="java.util.HashMap">
 		select * from fileupload where album=#{album} and filename=#{filename} and checks='true'
 	</select>
-
+	<select id="albumimg" parameterType="java.util.HashMap" resultType="java.lang.String">
+		select imguuid from fileupload where album=#{ALBUM} and checks='true' and owner = #{OWNER} and IMGNAME != 'null'
+	</select>
 	<select id="imguuid" resultType="java.lang.String" parameterType="java.lang.String">
 		select imguuid from fileupload where album=#{album}
 	</select>
