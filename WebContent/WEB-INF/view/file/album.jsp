@@ -33,7 +33,7 @@
 					<td align="center"><span style="font-size: 20px;" id="data${status.count}">${status.count}</span></td>
 					<td align="center" width="100px"><span id="${status.count}" class="glyphicon glyphicon-plus"></span></td>
 					<td>${ob.FILENAME} &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-heart-empty" id="like" title="${ob.FILENUM}">&nbsp;</span> 
-					<a href="/file/down?filenum=${ob.FILENUM }"><span class="glyphicon glyphicon glyphicon-circle-arrow-down" id="down" title="${ob.FILENUM}">&nbsp;</span></a></td>
+					<a href="/file/down?filenum=${ob.FILENUM }" onclick="usePoint()"><span class="glyphicon glyphicon glyphicon-circle-arrow-down" id="down" title="${ob.FILENUM}">&nbsp;</span></a></td>
 					<td>${ob.LIKES}</td>
 					<td>${ob.COUNT}</td>
 					<td id="hd${status.count}" hidden="${ob.FILENUM}">${ob.FILENUM}</td>
@@ -44,6 +44,10 @@
 	</div>
 </div>
 <script>
+function usePoint(){
+	alert("10 포인트가 차감됩니다.");
+}
+
    $(".trevent").mouseenter(function(){
       var id = $(this).attr("id");
       $(this).attr("style","background-color:#23232c; color: #c2c2ca");

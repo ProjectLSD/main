@@ -45,6 +45,8 @@
 				class="glyphicon glyphicon-tags"></span> 자유게시판</a></li>
 		<li><a href="/file/list"><span
 				class="glyphicon glyphicon-book"></span> 유용한자료</a></li>
+		<li><a href="/bandNotice/notice"><span
+				class="glyphicon glyphicon-bullhorn"></span>밴드 홍보</a></li>		
 	</ul>
 
 	<hr />
@@ -74,13 +76,7 @@
 						aria-labelledby="bu">
 						<li role="presentation"><a role="menuitem" tabindex="-1"
 							href="/myInfo/info">내정보</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="/?/?">포인트</a></li>
-						<li role="presentation" class="divider"></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="/logout">로그아웃</a></li>
-					</ul>
-					<div class="container" align="left">
+						<li role="presentation"><div class="container" align="left">
 						<!-- 버튼 -->
 						<button type="button" class="btn btn-primary btn-lg"
 							data-toggle="modal" data-target="#myModal">Point charge</button>
@@ -96,7 +92,7 @@
 										</button>
 										<h4 class="modal-title" id="myModalLabel">Point-up</h4>
 									</div>
-									<div class="modal-body" align="/cash/chargePoint" method="post">
+									<div class="modal-body" align="/cash/chargePoint" method="get">
 										<h2 style="color: red;">My point</h2>
 										<br/><b style="color: silver;">포인트 : ${point}</b>
 										<select required name="point">
@@ -117,7 +113,12 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div></li>
+						<li role="presentation" class="divider"></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1"
+							href="/logout">로그아웃</a></li>
+					</ul>
+					
 				</div>
 			</c:otherwise>
 		</c:choose>
