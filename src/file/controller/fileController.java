@@ -46,7 +46,7 @@ public class fileController {
 		System.out.println(rst);
 		if (rst) {
 
-			mav.setViewName("tm:file/redirect");
+			mav.setViewName("t:main");
 		} else {
 
 			mav.setViewName("tm:file/error");
