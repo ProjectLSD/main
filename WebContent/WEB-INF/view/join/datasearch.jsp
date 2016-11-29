@@ -150,7 +150,7 @@
 					</form>
 				</div>
 				<div id="menu3" class="tab-pane fade">
-				<form name="joinform" action="/searchPwResult" method="post"
+				<form name="joinform" action="/membersearchPwResult" method="post"
 							style="font-size: 12pt;" class="form-inline">
 					<div class="form-group" style="padding-bottom: 5px;">
 						<br /> <label>I D

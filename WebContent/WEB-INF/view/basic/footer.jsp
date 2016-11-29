@@ -12,7 +12,7 @@
 <link rel="stylesheet"
 	href="/johndyer-mediaelement-dd102f1/build/mediaelementplayer.min.css" />
 <audio id="player2" src="/${sessionScope.music }" type="audio/mp3"
-	controls="controls" height="30px" width="1340px">
+	controls="controls" height="30px" width="100%">
 </audio>
 <script>
 	$('audio,video').mediaelementplayer();

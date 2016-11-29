@@ -78,4 +78,32 @@ public class IdPassSearchService {
 		return li;
 
 	}
+	public boolean membersearchPw(String id, String email) {
+		MimeMessage mail = sender.createMimeMessage();
+		SqlSession ss = fac.openSession();
+		try {
+			String pass = ss.selectOne("idpass.memberpass", id);
+			if (pass == null) {
+				return false;
+			}
+			mail.addRecipient(RecipientType.TO, new InternetAddress(email)); // To
+																				// setRecipient
+																				// /
+																				// setRecipients
+
+			mail.setSender(new InternetAddress("admin@group.kr"));// From
+			mail.setSubject("LSD 회원 비밀 번호 입니다.");
+			String text = "<h3>비밀 번호</h3>";
+			text += "비밀 번호는 " + pass + " 입니다.";
+			mail.setText(text, "utf-8", "html");
+			sender.send(mail);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			ss.close();
+		}
+	}
+
 }
