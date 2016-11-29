@@ -1,69 +1,48 @@
 package Chart.controller;
 
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.htmlparser.jericho.Source;
+import Chart.model.ChartDataService;
 
 @Controller
-public class Chartcontroller {  
-	
-	@RequestMapping("/chart/bs")  
-	public ModelAndView charts(){
+public class Chartcontroller {
+	@Autowired
+	ChartDataService cds;
+
+	@RequestMapping("/chart/all")
+	public ModelAndView chartsAA() {
 		ModelAndView mav = new ModelAndView();
-		try {
-		String bugsStie = "http://music.bugs.co.kr/chart/track/day/total";
+		List<HashMap> bugs = cds.readBugs();
+		List<HashMap> mnet = cds.readMnet();
+		mav.addObject("bugs", bugs);
+		mav.addObject("mnet", mnet);
+		mav.setViewName("tm:chart/Bschart");
+		return mav;
+	}
 
-		// bugs
-		Source bugSource = new Source(new URL(bugsStie));  
-		bugSource.getAllTags();
-		bugSource.fullSequentialParse();
-		String sourBugs = bugSource.toString();
+	@RequestMapping("/chart/bs")
+	public ModelAndView charts() {
+		ModelAndView mav = new ModelAndView();
+		List<HashMap> bugs = cds.readBugs();
+		mav.addObject("bugs", bugs);
+		mav.setViewName("tm:chart/Bschart");
+		return mav;
+	}
 
-		String[] bugsTitle = sourBugs.split("name=\"check\" disc_id=\"1\" title=\"");
-		String[] title = null;
+	@RequestMapping("/chart/mnet")
+	public ModelAndView charts1() {
+		ModelAndView mav = new ModelAndView();
+		List<HashMap> mnet = cds.readMnet();
+		mav.addObject("mnet", mnet);
+		mav.setViewName("tm:chart/Bschart");
 
-		String[] bugsArtist = sourBugs.split("\" artist_disp_nm=\"");
-		String[] artist = null;
+		return mav;
 
-		String[] bugsAlbum = sourBugs.split("\"http://image.bugsm.co.kr/album/images/");
-		String[] album = null;
-
-		ArrayList<HashMap> bugs = new ArrayList<>();
-
-		for (int i = 1; i < 101; i++) {
-			HashMap map = new HashMap();
-			title = bugsTitle[i].split("\"");
-			artist = bugsArtist[i].split("\"");
-			album = bugsAlbum[i].split("\"");
-			map.put("title", title[0]);
-			map.put("artist", artist[0]);
-			map.put("album", "http://image.bugsm.co.kr/album/images/" + album[0]);
-			bugs.add(map);
-			System.out.println(map);
-		}
-         
-          mav.addObject("bugs", bugs);
-          mav.setViewName("tm:chart/Bschart");
-          
-         
-          } catch (Exception e) {
-          	e.printStackTrace();
-          }
-		  return mav;
-		  
 	}
 }
-          
-
-	
-		
-
-
-
-

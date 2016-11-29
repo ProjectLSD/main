@@ -49,7 +49,7 @@
                </tbody>
             </table>
          </div>
-  </div>
+  </div>  
   <div id="pop" class="tab-pane fade">
     <div class="table-responsive">
             <table class="table">
