@@ -22,27 +22,36 @@ public class bandNoticeService {
 	SqlSessionFactory fac;
 	@Autowired
 	ServletContext application;
-	
-	public String upLoad(HashMap map,MultipartFile file){
-		SqlSession sql = fac.openSession();
-		String result=null;
-		String fileuuid = UUID.randomUUID().toString().substring(0, 20);
-		String fileName = file.getOriginalFilename();
-		String dir = application.getRealPath("/");
-		File mv = new File(dir, fileuuid);
-		map.put("fileuuid", fileuuid);
-		map.put("filename", fileName);
-		map.put("filesize", file.getSize());
-		System.out.println(map.toString());
-		int rst = sql.insert("bandNotice.insertNotice",map);
-		sql.close();
-		if(rst>=1){
-			result="true";
-		}else{
-			result="false";
+
+	public String upLoad(HashMap map, MultipartFile file) {
+		try {
+			SqlSession sql = fac.openSession();
+			String result = null;
+			String fileuuid = UUID.randomUUID().toString().substring(0, 15);
+			String fileName = file.getOriginalFilename();
+			String dir = application.getRealPath("/");
+			String type = fileName.substring(fileName.lastIndexOf("."));
+			File mv = new File(dir, fileuuid+type);
+			file.transferTo(mv);
+			map.put("fileuuid", fileuuid+type);
+			map.put("filename", fileName);
+			map.put("filesize", file.getSize());
+			System.out.println(map.toString());
+			int rst = sql.insert("bandNotice.insertNotice", map);
+			sql.close();
+			if (rst >= 1) {
+				result = "true";
+			} else {
+				result = "false";
+			}
+			return result;
+
+		} catch (Exception e) {
+			System.out.println(e);
+			return "false";
 		}
-		return result;
 	}
+
 	public List readSomePage(int p) {
 		int block = 5;
 		SqlSession sql = fac.openSession();
@@ -54,22 +63,22 @@ public class bandNoticeService {
 		sql.close();
 		return list;
 	}
-	
+
 	public int calcLast() {
 		SqlSession sql = fac.openSession();
-//		List list = sql.selectList("files.getCount");
+		// List list = sql.selectList("files.getCount");
 		int count = sql.selectOne("bandNotice.getCount");
 		sql.close();
-		return count%5==0 ? count/5 : count/5+1;
+		return count % 5 == 0 ? count / 5 : count / 5 + 1;
 	}
-	
+
 	public int getTotalCount() {
 		SqlSession sql = fac.openSession();
 		int count = sql.selectOne("bandNotice.getCount");
 		sql.close();
 		return count;
 	}
-	
+
 	public HashMap selectNum(int num) {
 		SqlSession sql = fac.openSession();
 		HashMap map = sql.selectOne("bandNotice.selectNum", num);

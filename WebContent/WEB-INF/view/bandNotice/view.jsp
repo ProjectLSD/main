@@ -2,6 +2,17 @@
    pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<script
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+
+<link rel="stylesheet" href="css/map.css" />
+<script
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT0Mp7oBqIMB38egvlesA8j9uf6nYdEeE&libraries=places&callback=initAutocomplete"
+   async defer></script>
+<script type="text/javascript" src="/js/map.js"></script>
+
 <script>
 var i = 0;
 function Map() {
@@ -21,6 +32,28 @@ function Map() {
 
 	var map = new Map();
 	map.put("name","이상훈");
+	
+	
+	  var px = ${notice.PX};
+	   var py = ${notice.PY};
+	    
+	   var src= {
+	      lat : parseFloat(py),
+	      lng : parseFloat(px)
+	   };
+	   
+	   function initAutocomplete() {
+	      if(isNaN(src.lat)){
+	         $("#pac-input").hide();
+	         $("#mapview").hide();
+	         return;
+	      }
+	      map(src, true);
+	   }
+	   $(".add").click(function(){
+	      $(this).next().toggle();
+	  })
+	   
 </script>
 <div class="container">
    <h2 style="color: white;">Band</h2>
@@ -38,6 +71,18 @@ function Map() {
          </tr>
       </table>
       <div class="panel-body">${notice.TEXT}</div>
+      <div>
+      밴드 동영상
+      	<video controls="controls" width="300" height="250">
+    	<source src="/${notice.FILEUUID}">
+    </video>
+      </div>
+      
+      <div>
+      공연장 장소
+      
+      
+      </div>
    </div>
    <c:set var="user" value="${sessionScope.userId}"/>
    <div align="right" style="padding-right: 450px;">
