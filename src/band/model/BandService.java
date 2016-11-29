@@ -55,4 +55,16 @@ public class BandService {
 			return randomNum;
 		}
 	
+		public String likeUp(String owner){
+			SqlSession sql = fac.openSession();
+			int rst = sql.update("band.likeUp",owner);
+			String result="";
+			if(rst == 1){
+				result="true";
+			}else{
+				result="false";
+			}
+			sql.close();
+			return result;
+		}
 }

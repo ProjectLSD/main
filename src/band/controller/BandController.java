@@ -81,4 +81,12 @@ public class BandController {
 			return "이메일을 입력해주세요";
 		}
 	}
+	
+	@RequestMapping("/ownerCheck")
+	@ResponseBody
+	public String ownerCheck(String owner){
+		String rst = bs.likeUp(owner);
+		return rst;
+		
+	}
 }

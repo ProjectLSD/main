@@ -14,7 +14,7 @@
 			album : ${alb }</div>
 		<div
 			style="font-size: 30px; color: #c2c2ca; width: 500px; margin-left: 350px;">
-			가수 : ${own }</div>
+			가수 : ${own }  &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-circle-arrow-up" title="${own }">&nbsp;</span></div>
 	</div>
 	<div class="panel panel-default">
 		<table class="table" style="font-size: 18px; border: 0px;">
@@ -83,6 +83,18 @@ function usePoint(){
 		console.log($(this).attr("title"));
 		$.ajax({
 			"url" : "/file/like?filenum="+$(this).attr("title"),
+			"method" : "get",
+			"aSync" : true
+		}).done(function(txt){  
+			location.reload();
+		})  
+	});
+ 	
+ 	$(".glyphicon-circle-arrow-up").click(function(){
+		alert("추천되었습니다.");
+		console.log($(this).attr("title"));
+		$.ajax({
+			"url" : "/band/ownerCheck?owner="+$(this).attr("title"),
 			"method" : "get",
 			"aSync" : true
 		}).done(function(txt){  

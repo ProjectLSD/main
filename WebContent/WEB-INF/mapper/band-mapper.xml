@@ -16,4 +16,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into band values(#{id},#{pass},#{email},#{phonenum1},#{phonenum2},
 								#{phonenum3},#{paycheck},#{info},#{downcount},#{likes},#{amountcash},#{point},#{name})
 	</insert>
+	
+	<update id="likeUp" parameterType="java.lang.String">
+		update band set likes = likes +1 where owner =#{owner }
+	</update>
+	
 </mapper>
