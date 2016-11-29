@@ -7,5 +7,6 @@
             <tr>
                <td style="width: 80px;">${b.ID}</td>
                <td style="width: 50px;">${b.LIKES}</td><br>
+               
             </tr>
          </c:forEach>
