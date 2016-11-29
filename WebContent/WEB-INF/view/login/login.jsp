@@ -59,8 +59,8 @@
 					</div>
 					<div>
 						<label><input type="checkbox" id="idSaveCheck">아이디 저장</label>
+						<label><input type="radio" name="check" value="basic" checked="checked">Basic</label>
 						<label><input type="radio" name="check" value="band">Band</label>
-						<label><input type="radio" name="check" value="basic">Basic</label>
 					</div>
 					
 					

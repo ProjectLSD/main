@@ -52,7 +52,7 @@ public class rootcontroller {
 	public ModelAndView loginConfirm(String id, String pass , String check, HttpSession session) {
 		ModelAndView mav = new ModelAndView("tm:login/success");
 		System.out.println("id: "+ id + " pass: "+pass+ " check: "+check);
-		if (rs.getAllMember(id, pass) == true) {
+		if (rs.getAllMember(id, pass, check, session) == true) {
 			session.setAttribute("userId", id);	
 			session.setAttribute("login", "true");
 		}

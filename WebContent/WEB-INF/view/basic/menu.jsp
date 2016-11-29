@@ -41,9 +41,9 @@
 		<li><a href="/top/chart"><span
 				class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
 		<li><a href="/board/list"><span
-				class="glyphicon glyphicon-tags"></span> 자유게시판</a></li>
+				class="glyphicon glyphicon-tags"></span> 자유게시판</a></li>	
 		<li><a href="/file/list"><span
-				class="glyphicon glyphicon-book"></span> 앨범등록승인</a></li>
+				class="glyphicon glyphicon-book"></span> 앨범등록승인</a></li>		
 		<li><a href="/bandNotice/notice"><span
 				class="glyphicon glyphicon-bullhorn"></span> 밴드홍보</a></li>
 				<li><a href="/"><span
@@ -57,8 +57,10 @@
 				class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
 		<li><a href="/board/list"><span
 				class="glyphicon glyphicon-tags"></span> 자유게시판</a></li>
-				<li><a href="/file"><span
+		<c:if test="${sessionScope.check == 'band' }">		
+		<li><a href="/file"><span
 				class="glyphicon glyphicon-book"></span> 앨범등록</a></li>
+		</c:if>
 		<li><a href="/bandNotice/notice"><span
 				class="glyphicon glyphicon-bullhorn"></span> 밴드홍보</a></li>
 				<li><a href="/"><span

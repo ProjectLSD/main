@@ -3,6 +3,8 @@ package root.model;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,27 +18,27 @@ public class RootService {
 
 	@Autowired
 	SqlSessionFactory fac;
-	public boolean getAllMember(String id, String pass){
+	public boolean getAllMember(String id, String pass, String check, HttpSession session){
 		SqlSession sql = fac.openSession();
 		HashMap hm = new HashMap<>();
 		hm.put("id", id);
 		hm.put("pass", pass);
-		Member m = (Member)sql.selectOne("member.selectMember",hm);
-		Band b = (Band)sql.selectOne("band.selectBand",hm);
+		Band b = null;
+		Member m = null;
+		if(check.equals("band")){
+			b = (Band)sql.selectOne("band.selectBand",hm);	
+			System.out.println(b);
+			session.setAttribute("check", "band");
+		}else{
+			m = (Member)sql.selectOne("member.selectMember",hm);
+			System.out.println(m);
+			session.setAttribute("check", "member");
+		}
 		boolean flag=false;
-		System.out.println(m);
-		System.out.println(b);
+		
 		if(m!=null || b!=null ){
 			flag = true;
 		}
-		/*
-		for(int i=0; i<li.size(); i++){
-			Member m = li.get(i);
-			if(m.getId().equals(id) && m.getPass().equals(pass)){
-				flag=true;
-			}
-		}
-		*/
 		sql.close();
 		return flag;
 	}
