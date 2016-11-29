@@ -1,104 +1,94 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-   pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-
-
-<link rel="stylesheet" href="css/map.css" />
-<script
-   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT0Mp7oBqIMB38egvlesA8j9uf6nYdEeE&libraries=places&callback=initAutocomplete"
-   async defer></script>
 <script type="text/javascript" src="/js/map.js"></script>
 
-<script>
-var i = 0;
-function Map() {
-	 this.elements = {};
-	 this.length = 0;
-	}
 
-	Map.prototype.put = function(key,value) {
-	 this.length++;
-	 this.elements[key] = value;
-	}
-
-
-	Map.prototype.get = function(key) {
-	 return this.elements[key];
-	}
-
-	var map = new Map();
-	map.put("name","¿ÃªÛ»∆");
-	
-	
-	  var px = ${notice.PX};
-	   var py = ${notice.PY};
-	    
-	   var src= {
-	      lat : parseFloat(py),
-	      lng : parseFloat(px)
-	   };
-	   
-	   function initAutocomplete() {
-	      if(isNaN(src.lat)){
-	         $("#pac-input").hide();
-	         $("#mapview").hide();
-	         return;
-	      }
-	      map(src, true);
-	   }
-	   $(".add").click(function(){
-	      $(this).next().toggle();
-	  })
-	   
-</script>
 <div class="container">
-   <h2 style="color: white;">Band</h2>
-   <br />
-   <div class="panel panel-default" style="width: 700px;">
-      <div class="panel-heading">${notice.TITLE}</div>
-      <table class="table table-bordered">
-         <tr style="color: black;">
-            <td align="center" width="30px"><span
-               class="glyphicon glyphicon-blackboard"></span></td>
-            <td><b>${notice.ID}</b></td>
-            <td align="right" width="200px"><span
-               class="glyphicon glyphicon-time" style="text-align: right;"><fmt:formatDate
-                     value="${notice.WRITEDATE}" pattern="yyyy-MM-dd hh:mm:ss" /></span></td>
-         </tr>
-      </table>
-      <div class="panel-body">${notice.TEXT}</div>
-      <div>
-      πÍµÂ µøøµªÛ
-      	<video controls="controls" width="300" height="250">
-    	<source src="/${notice.FILEUUID}">
-    </video>
-      </div>
-      
-      <div>
-      ∞¯ø¨¿Â ¿Âº“
-      
-      
-      </div>
-   </div>
-   <c:set var="user" value="${sessionScope.userId}"/>
-   <div align="right" style="padding-right: 450px;">
-      <c:if test="${notice.writer eq user}">
-      <form action="/board/register" method="post">
-      <input type="hidden" name="subject" value="${notice.TITLE}">
-      <input type="hidden" name="comments" value="${notice.TEXT}">
-      <input type="hidden" name="num" value="${notice.NUM}">
-      <button type="submit" class="btn btn-default" id="bt1" style="padding:10px;"> 
-      <b>ºˆ¡§</b>
-      </button>
-      <button type="button" class="btn btn-default" id="bt2" style="padding:10px;">
-      <b>ªË¡¶</b>
-      </button>
-      </form>
-      </c:if>
-   </div>
-   <!-- ∏Æ∫‰ ¿‘∑¬ -->
+	<h2 style="color: white;">Band</h2>
+	<br />
+	<div class="panel panel-default" style="width: 700px;">
+		<div class="panel-heading">${notice.TITLE}</div>
+		<table class="table table-bordered">
+			<tr style="color: black;">
+				<td align="center" width="30px"><span
+					class="glyphicon glyphicon-blackboard"></span></td>
+				<td><b>${notice.ID}</b></td>
+				<td align="right" width="200px"><span
+					class="glyphicon glyphicon-time" style="text-align: right;"><fmt:formatDate
+							value="${notice.WRITEDATE}" pattern="yyyy-MM-dd hh:mm:ss" /></span></td>
+			</tr>
+		</table>
+		<div class="panel-body">${notice.TEXT}</div>
+		<div>
+			Î∞¥Îìú ÎèôÏòÅÏÉÅ
+			<video controls="controls" width="300" height="250">
+				<source src="/${notice.FILEUUID}">
+			</video>
+		</div>
+		Í≥µÏó∞ Ïû•ÏÜå
+		<div id="map" style="width: 500px; height: 300px; border: 1 solid;"></div>
+		${notice.LOCATION }
+
+	</div>
+	<c:set var="user" value="${sessionScope.userId}" />
+	<div align="right" style="padding-right: 450px;">
+		<c:if test="${notice.writer eq user}">
+			<form action="/board/register" method="post">
+				<input type="hidden" name="subject" value="${notice.TITLE}">
+				<input type="hidden" name="comments" value="${notice.TEXT}">
+				<input type="hidden" name="num" value="${notice.NUM}"> <input
+					type="hidden" name="px" id="px" value="${notice.PX}"> <input
+					type="hidden" name="py" id="py" value="${notice.PY}">
+				<button type="submit" class="btn btn-default" id="bt1"
+					style="padding: 10px;">
+					<b>ÏàòÏ†ï</b>
+				</button>
+				<button type="button" class="btn btn-default" id="bt2"
+					style="padding: 10px;">
+					<b>ÏÇ≠Ï†ú</b>
+				</button>
+			</form>
+		</c:if>
+	</div>
 </div>
+
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWw_0vNidLB9rB78fcVBZmOhiB02hZsKM&callback=initMap"
+	async defer></script>
+<script>
+	function initMap() {
+		var dest = {
+				"lat" : ${notice.PY},  
+				"lng" : ${notice.PX} 
+			};
+		var src= {
+				"lat" : ${notice.PY},  
+				"lng" : ${notice.PX} 
+			}
+		
+		var map = new google.maps.Map(document.getElementById('map'), {
+			"center" : dest,
+			"scrollwheel" : true,
+			"zoom" : 17
+		});
+		
+		var marker = new google.maps.Marker({
+			"position" : dest,
+			"map" : map,
+			"title" : "Í≥µÏó∞ Ïû•ÏÜå"
+		});
+		var directionsDisplay = new google.maps.DirectionsRenderer({
+	          "map" : map
+	    });
+		var request = {
+		    "destination" : dest,
+            "origin": src,
+		    "travelMode": "TRANSIT"
+		};
+	}
+</script>
