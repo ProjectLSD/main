@@ -18,7 +18,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<update id="likeUp" parameterType="java.lang.String">
-		update band set likes = likes +1 where owner =#{owner }
+		update band set likes = likes +1 where id =#{owner }
 	</update>
+	
+	<select id="getDesc" resultType="java.util.HashMap">
+		select * from band order by likes desc
+	</select>
 	
 </mapper>

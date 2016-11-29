@@ -1,5 +1,7 @@
 package band.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -87,6 +89,17 @@ public class BandController {
 	public String ownerCheck(String owner){
 		String rst = bs.likeUp(owner);
 		return rst;
+		
+	}
+	
+	@RequestMapping("/topList")
+	public ModelAndView view(){
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("tm:band/top");
+		List li = bs.getDesc();
+		
+		mav.addObject("data",li);
+		return mav;
 		
 	}
 }

@@ -36,10 +36,12 @@
 	<hr />
 	<c:choose>
 			<c:when test="${sessionScope.userId == 'admin'}">
-			<b style="color: red;">관리자 계정</b>
+		<b style="color: red;">　　　　　　관리자 계정</b>
 				<ul class="nav nav-pills nav-stacked">
 		<li><a href="/top/chart"><span
 				class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
+		<li><a href="/band/topList"><span
+				class="glyphicon glyphicon-cd"></span> 밴드 순위</a></li>
 		<li><a href="/board/list"><span
 				class="glyphicon glyphicon-tags"></span> 자유게시판</a></li>	
 		<li><a href="/file/list"><span
@@ -55,6 +57,8 @@
 	<ul class="nav nav-pills nav-stacked">
 		<li><a href="/top/chart"><span
 				class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
+		<li><a href="/band/topList"><span
+				class="glyphicon glyphicon-cd"></span> 밴드 순위</a></li>
 		<li><a href="/board/list"><span
 				class="glyphicon glyphicon-tags"></span> 자유게시판</a></li>
 		<c:if test="${sessionScope.check == 'band' }">		

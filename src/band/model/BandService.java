@@ -67,4 +67,11 @@ public class BandService {
 			sql.close();
 			return result;
 		}
+		
+		public List getDesc(){
+			SqlSession sql = fac.openSession();
+			List li = sql.selectList("band.getDesc");
+			sql.close();
+			return li;
+		}
 }
