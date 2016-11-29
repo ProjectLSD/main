@@ -19,9 +19,9 @@
 					<b>&nbsp; ${li.ALBUM }</b><br />
 					&nbsp;&nbsp;<a href="#" id="filename${status.count}" style="font-size: 12px;" title="${li.FILENAME }">${li.FILENAME }</a>
 					<script>
-						var subfile = $("#filename"+${status.count}).text().substring( 0, 13 );
+						var subfile = $("#filename"+"${status.count}").text().substring( 0, 13 );
 						console.log(subfile);
-						$("#filename"+${status.count}).text(subfile+"...");
+						$("#filename"+"${status.count}").text(subfile+"...");
 					</script>	
 				</div> <b id="music${status.count}" hidden="music">${li.FILEUUID }</b>
 			</span>

@@ -151,6 +151,10 @@ public class fileController {
 		ck.setPath("/");
 		ck.setMaxAge(0);
 		response.addCookie(ck);
+		Cookie coo = new Cookie("musicstart", "start");
+		coo.setPath("/");
+		coo.setMaxAge(60);
+		response.addCookie(coo);
 		if (session.getAttribute("music") == null) {
 			System.out.println("등록안됨");
 			return "FALSE";
@@ -164,6 +168,7 @@ public class fileController {
 	@ResponseBody
 	public String Sessionremove(HttpSession session) {
 		session.removeAttribute("PlayList");
+		session.removeAttribute("music");
 		if (session.getAttribute("PlayList") == null) {
 			System.out.println("세션 지움");
 			return "TRUE";
