@@ -57,9 +57,12 @@
 							type="password" class="form-control" id="pass" name="pass" 
 							placeholder="비밀번호">
 					</div>
-					<div class="checkbox">
+					<div>
 						<label><input type="checkbox" id="idSaveCheck">아이디 저장</label>
+						<label><input type="radio" name="check" value="band">Band</label>
+						<label><input type="radio" name="check" value="basic">Basic</label>
 					</div>
+					
 					
 					<button type="submit" class="btn btn-block">
 						Login <span class="glyphicon glyphicon-ok"></span>
@@ -80,25 +83,6 @@
 	</div>
 </div>
 <script>
-$("#bt").click(function() {
-	var id = $("#id").val();
-	var pass = $("#pass").val();
-	
-	$.ajax({
-		"url" : "/login/home?id=" + id + "&pass=" + pass,
-		"method" : "post",
-		"aSync" : true
-	}).done(function(txt) {
-		console.log(txt);
-		if (txt == "true") {
-			location.replace("/login?id="+ id+ "&pass="+ pass);
-		} else {
-			$("#result").html("<i style='color:red'>회원 정보가 다릅니다!</i>");
-		}
-	});
-});
-
-
 $(document).ready(function(){
 
     // 저장된 쿠키값을 가져와서 ID 칸에 넣어준다. 없으면 공백으로 들어감.

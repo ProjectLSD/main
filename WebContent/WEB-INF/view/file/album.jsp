@@ -16,7 +16,7 @@
 			style="font-size: 30px; color: #c2c2ca; width: 500px; margin-left: 350px;">
 			가수 : ${own }</div>
 	</div>
-	<div class="panel panel-default" style="width: 1028px;">
+	<div class="panel panel-default">
 		<table class="table" style="font-size: 18px; border: 0px;">
 			<tr style="color: #c2c2ca; background-color: #282832">
 				<td align="center" width="40px"><span

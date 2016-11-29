@@ -49,8 +49,9 @@ public class rootcontroller {
 		return mav;
 	}
 	@RequestMapping("/home")
-	public ModelAndView loginConfirm(String id, String pass , HttpSession session) {
+	public ModelAndView loginConfirm(String id, String pass , String check, HttpSession session) {
 		ModelAndView mav = new ModelAndView("tm:login/success");
+		System.out.println("id: "+ id + " pass: "+pass+ " check: "+check);
 		if (rs.getAllMember(id, pass) == true) {
 			session.setAttribute("userId", id);	
 			session.setAttribute("login", "true");
