@@ -17,4 +17,7 @@
 	<definition name="t:fileUp" extends="t:main">
 		<put-attribute name="body" value="/WEB-INF/view/file/fileupload.jsp" />
 	</definition>
+	<definition name="t:boardlist" extends="t:main">
+		<put-attribute name="body" value="/WEB-INF/view/board/list.jsp" />
+	</definition>
 </tiles-definitions>

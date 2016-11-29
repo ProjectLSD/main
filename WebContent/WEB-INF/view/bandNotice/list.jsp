@@ -6,7 +6,6 @@
 <div class="container">
 
    <h2 style="color: white;">밴드 홍보 게시판</h2>
-   <p>밴드 홍보</p>
    <hr />  
    <table class="table">
       <thead>
@@ -30,6 +29,8 @@
    </table>
 
 </div>
+<input type="button" class="btn btn-info btn-sm" value="홍보하기"
+   onclick="location.href='/baneNotice/write'" />
 <div class="container" align="center">
    <ul class="pagination">
       <li><a href="/bandNotice/view?p=1">≪</a></li>
@@ -63,6 +64,5 @@
       <li><a href="/bandNotice/view?p=${last}">≫</a></li>
    </ul>
 </div>
-<input type="button" class="btn btn-info btn-sm" value="글작성"
-   onclick="location.href='/baneNotice/write'" />
+
 	

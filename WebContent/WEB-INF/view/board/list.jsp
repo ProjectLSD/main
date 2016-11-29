@@ -43,6 +43,9 @@
    </table>
 
 </div>
+
+<input type="button" class="btn btn-info btn-sm " value="글작성"
+   onclick="location.href='/board/register'" />
 <div class="container" align="center">
    <ul class="pagination">
       <li><a href="/board/list?p=1">≪</a></li>
@@ -76,5 +79,3 @@
       <li><a href="/board/list?p=${last}">≫</a></li>
    </ul>
 </div>
-<input type="button" class="btn btn-info btn-sm" value="글작성"
-   onclick="location.href='/board/register'" />
