@@ -230,7 +230,7 @@ $("#pass2").keyup(function(){
    
    function join_click(){
 		var check = document.getElementById("check").value;
-		if(check==true){
+		if(check=="true"){
 			 alert("가입이 완료되었습니다");
 		}else{
 		}

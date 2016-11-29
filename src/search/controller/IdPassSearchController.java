@@ -57,5 +57,14 @@ public class IdPassSearchController {
 		str += "]";
 		return str;
 	}
+	@RequestMapping("/membersearchPwResult")
+	public String membersearchPw(String id, String email) {
+		boolean r = idpss.bandsearchPw(id, email);
+		if (r) {
+			return "tm:email/sendEmail";
+		} else {
+			return "tm:Erorr/emailErr";
+		}
+	}
 
 }
