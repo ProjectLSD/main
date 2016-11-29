@@ -7,6 +7,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <head>
 <title>LSD Music</title>
+<link rel='icon' href='/img/KakaoTalk.ico' type=‘image/x-ico’ />
 <link rel="main.jpg" href="/main.jpg" />
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
