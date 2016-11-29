@@ -13,6 +13,8 @@
 				<li><a data-toggle="tab" href="#Mnet">엠넷</a></li>
 			</ul></li>
 	</ul>
+	<c:choose>
+	<c:when test="location:#bugs">
 	<div class="tab-content">
 		<div id="bugs" class="tab-pane fade in active">
 			<h3>벅스 차트</h3>
@@ -42,8 +44,9 @@
 			</div>
 		</div>
 	</div>
+	</c:when>
 	
-	
+	<c:otherwise>
 	<div id="Mnet" class="tab-pane fade">
 	<h3>M.NET 차트</h3>
 		<div class="table-responsive">
@@ -71,4 +74,6 @@
 			</table>
 		</div>
 	</div>
+	</c:otherwise>
+	</c:choose>
 </section>
