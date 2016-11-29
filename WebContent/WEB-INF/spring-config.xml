@@ -21,7 +21,6 @@
   	<context:component-scan base-package="image"/>
   	<context:component-scan base-package="bandNotice"/>
   	<context:component-scan base-package="Chart"/>
-  	<context:component-scan base-package="artist"/>
   
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -34,7 +33,7 @@
 	<bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"
 		id="tilesViewResolver" p:order="2" />
 	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"
-		id="tilesConfigurer">
+		id="tilesConfigurer">  
 		<property name="definitions">
 			<list>
 				<value>/WEB-INF/tiles/tiles-config.xml</value>
@@ -64,7 +63,6 @@
 				<value>/WEB-INF/mapper/point-mapper.xml</value>
 				<value>/WEB-INF/mapper/image-mapper.xml</value>
 				<value>/WEB-INF/mapper/bandNotice-mapper.xml</value>
-				<value>/WEB-INF/mapper/artist-mapper.xml</value>
 			</list>
 		</property>
 	</bean>
