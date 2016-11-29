@@ -26,7 +26,7 @@
 		<div class="panel-body">${notice.TEXT}</div>
 		<div>
 			밴드 동영상
-			<video controls="controls" width="300" height="250">
+			<video controls="controls" width="500" height="300">
 				<source src="/${notice.FILEUUID}">
 			</video>
 		</div>

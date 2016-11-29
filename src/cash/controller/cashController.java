@@ -33,9 +33,9 @@ public class cashController {
 		String id = (String) session.getAttribute("userId");
 		String result = cashSrv.chargeResult(point, id);
 		if(result=="true"){
-			mav.setViewName("/cash/success");
+			mav.setViewName("tm:cash/success");
 		}else{
-			mav.setViewName("cash/fail");
+			mav.setViewName("tm:cash/fail");
 		}
 		return mav;
 	}

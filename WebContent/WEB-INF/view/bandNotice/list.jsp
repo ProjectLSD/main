@@ -13,8 +13,8 @@
          <tr>
             <th><p class="glyphicon glyphicon-time"></p></th>
             <th><p class="glyphicon glyphicon-user"></p></th>
-            <th><p class="glyphicon glyphicon-search"></p></th>
             <th><p class="glyphicon glyphicon-pencil"></p></th>
+            <th><p class="glyphicon glyphicon-search"></p></th>
          </tr>
       </thead>
       <tbody>

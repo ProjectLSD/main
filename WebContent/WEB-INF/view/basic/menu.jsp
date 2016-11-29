@@ -34,7 +34,9 @@
 <div align="left">
 	<h3 style="color: white;" align="center">LSD</h3>
 	<hr />
-	<ul class="nav nav-pills nav-stacked">
+	<c:choose>
+			<c:when test="${sessionScope.userId == 'admin'}">
+				<ul class="nav nav-pills nav-stacked">
 		<li><a href="/top/chart"><span
 				class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
 		<li><a href="/board/list"><span
@@ -46,6 +48,21 @@
 				<li><a href="/"><span
 				class="glyphicon glyphicon-music"></span> 노래듣기</a></li>
 	</ul>
+			</c:when>
+			<c:otherwise>
+	
+	<ul class="nav nav-pills nav-stacked">
+		<li><a href="/top/chart"><span
+				class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
+		<li><a href="/board/list"><span
+				class="glyphicon glyphicon-tags"></span> 자유게시판</a></li>
+		<li><a href="/bandNotice/notice"><span
+				class="glyphicon glyphicon-bullhorn"></span> 밴드홍보</a></li>
+				<li><a href="/"><span
+				class="glyphicon glyphicon-music"></span> 노래듣기</a></li>
+	</ul>
+			</c:otherwise>
+			</c:choose>
 	<hr />
 	<div align="center">
 		<c:choose>
