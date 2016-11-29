@@ -36,7 +36,7 @@
 	<hr />
 	<c:choose>
 			<c:when test="${sessionScope.userId == 'admin'}">
-			<b style="color: red;">관리자 계정</b>
+		<b style="color: red;">　　　　　　관리자 계정</b>
 				<ul class="nav nav-pills nav-stacked">
 		<li><a href="/top/chart"><span
 				class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
