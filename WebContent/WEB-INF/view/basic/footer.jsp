@@ -14,7 +14,6 @@
 <script>
 	$('audio,video').mediaelementplayer();
 
-	console.log("!!!");
 	function setCookie(c_name, value, exdays) {
 		document.cookie = c_name+"="+escape(value)+";path=/";
 	}
@@ -39,10 +38,8 @@
 	var tillPlayed = getCookie('timePlayed');
 	function update()
 	{
-	  	console.log("?");
 	  	var title = $("#mebu").attr("title");
 	  	var coo = getCookie('musicstart');
-	  	console.log("coo"+coo);
 	  	if(coo == "stop"){
 	  		console.log("하지마");
 	  	}else{

@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import file.model.fileService;
@@ -61,7 +62,9 @@ public class rootcontroller {
 	}
 	@RequestMapping("/logout")
 	public String logout(HttpSession session){
-		session.invalidate();
-		return "t:main";
+		System.out.println(session.getAttribute("userId"));
+		session.removeAttribute("userId");
+		
+		return "tm:login/success";
 	}
 }

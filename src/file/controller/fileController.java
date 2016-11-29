@@ -160,7 +160,7 @@ public class fileController {
 		response.addCookie(ck);
 		Cookie coo = new Cookie("musicstart", "start");
 		coo.setPath("/");
-		coo.setMaxAge(60);
+		coo.setMaxAge(0);
 		response.addCookie(coo);
 		if (session.getAttribute("music") == null) {
 			System.out.println("µî·Ï¾ÈµÊ");
