@@ -36,39 +36,39 @@
 	<hr />
 	<c:choose>
 			<c:when test="${sessionScope.userId == 'admin'}">
-		<b style="color: red;">　　　　　　관리자 계정</b>
+		<b style="color: red;">　　　　　　manager account</b>
 				<ul class="nav nav-pills nav-stacked">
 		<li><a href="/top/chart"><span
-				class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
+				class="glyphicon glyphicon-thumbs-up"></span> Music Chart</a></li>
 		<li><a href="/band/topList"><span
-				class="glyphicon glyphicon-cd"></span> 밴드 순위</a></li>
+				class="glyphicon glyphicon-cd"></span> Band Chart</a></li>
 		<li><a href="/board/list"><span
-				class="glyphicon glyphicon-tags"></span> 자유게시판</a></li>	
+				class="glyphicon glyphicon-tags"></span> FreeTalk</a></li>	
 		<li><a href="/file/list"><span
-				class="glyphicon glyphicon-book"></span> 앨범등록승인</a></li>		
+				class="glyphicon glyphicon-book"></span> AlbumCheck</a></li>		
 		<li><a href="/bandNotice/notice"><span
-				class="glyphicon glyphicon-bullhorn"></span> 밴드홍보</a></li>
+				class="glyphicon glyphicon-bullhorn"></span> Band AD</a></li>
 				<li><a href="/"><span
-				class="glyphicon glyphicon-music"></span> 노래듣기</a></li>
+				class="glyphicon glyphicon-music"></span> Music</a></li>
 	</ul>
 			</c:when>
 			<c:otherwise>
 	
 	<ul class="nav nav-pills nav-stacked">
 		<li><a href="/top/chart"><span
-				class="glyphicon glyphicon-thumbs-up"></span> 인기순위</a></li>
+				class="glyphicon glyphicon-thumbs-up"></span> Music Chart</a></li>
 		<li><a href="/band/topList"><span
-				class="glyphicon glyphicon-cd"></span> 밴드 순위</a></li>
+				class="glyphicon glyphicon-cd"></span> Band Chart</a></li>
 		<li><a href="/board/list"><span
-				class="glyphicon glyphicon-tags"></span> 자유게시판</a></li>
+				class="glyphicon glyphicon-tags"></span> FreeTalk</a></li>
 		<c:if test="${sessionScope.check == 'band' }">		
 		<li><a href="/file"><span
-				class="glyphicon glyphicon-book"></span> 앨범등록</a></li>
+				class="glyphicon glyphicon-book"></span> Album Register</a></li>
 		</c:if>
 		<li><a href="/bandNotice/notice"><span
-				class="glyphicon glyphicon-bullhorn"></span> 밴드홍보</a></li>
+				class="glyphicon glyphicon-bullhorn"></span> Band AD</a></li>
 				<li><a href="/"><span
-				class="glyphicon glyphicon-music"></span> 노래듣기</a></li>
+				class="glyphicon glyphicon-music"></span> Music</a></li>
 	</ul>
 			</c:otherwise>
 			</c:choose>
@@ -98,14 +98,14 @@
 					<ul class="dropdown-menu dropdown-menu-right" role="menu"
 						aria-labelledby="bu">
 						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="/myInfo/info">내정보</a></li>
+							href="/myInfo/info">My Info</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="/cash/controller">포인트 : ${point}</a></li>
+							href="/cash/controller">Point : ${point}</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1"
-							data-toggle="modal" data-target="#myModal">포인트 충전</a></li>
+							data-toggle="modal" data-target="#myModal">Point Charge</a></li>
 						<li role="presentation" class="divider"></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="/logout">로그아웃</a></li>
+							href="/logout">Logout</a></li>
 					</ul>
 				</div>
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -143,11 +143,10 @@
 	</div>
 	<ul class="nav nav-pills nav-stacked">
 		<li><a href="/top/chart"><span
-				class="glyphicon glyphicon-send"></span> 소개</a></li>
+				class="glyphicon glyphicon-send"></span> Introduce</a></li>
 		<li><a href="/chart/all"><span
-				class="glyphicon glyphicon-thumbs-up"></span> 인기가요</a></li>
-		<li><a href="/board/list"><span
-				class="glyphicon glyphicon-plus"></span> 후원하기</a></li>
+				class="glyphicon glyphicon-thumbs-up"></span> Hot Chart</a></li>
+				<br>
 	</ul>
 	<hr />
 </div>

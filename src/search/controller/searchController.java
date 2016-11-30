@@ -19,8 +19,8 @@ public class searchController {
 	public ModelAndView srchResolve(String q) {
 		ModelAndView mav = new ModelAndView();
 		List li = searchSrv.readSomeContain(q);
-		mav.setViewName("tm:file/list");
-		mav.addObject("data", li);
+		mav.setViewName("tm:chart/chart");
+		mav.addObject("top", li);
 		mav.addObject("size", li.size());
 		return mav;
 	}
