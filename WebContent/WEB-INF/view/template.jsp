@@ -13,6 +13,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="/css/loading.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
@@ -87,10 +89,21 @@ footer {
 				class="${sessionScope.PlayList eq null ? 'col-sm-10' : 'col-sm-8 text-left' }"
 				id="content-2" class="content"
 				style="height: 750px; max-height: 100%; padding: 5px; border: 3;">
-
-				<p>
+				<!-- 로딩중 태그 -->
+				<div id="load" class="loading-container" style="height: 100%;">
+					<div class="loading"></div>
+					<div id="loading-text">loading</div>
+				</div>
+				<div id="loadon" style="display: none;">
 					<tiles:insertAttribute name="body" />
-				</p>
+				</div>
+				<script>
+					function loadEffect() {
+						$("#load").hide();
+						$("#loadon").fadeIn(200);
+					}	
+					setTimeout(loadEffect, 1000);
+				</script>
 			</div>
 			<div
 				class="${sessionScope.PlayList eq null ? '' : 'col-sm-2 sidenav' }"
@@ -101,7 +114,8 @@ footer {
 				</p>
 			</div>
 		</div>
-		<div  class="content" style="height: 30px; max-height: 100%;  position: fixed;; bottom: 0; width: 100%;"
+		<div class="content"
+			style="height: 30px; max-height: 100%; position: fixed;; bottom: 0; width: 100%;"
 			align="center">
 			<tiles:insertAttribute name="footer" />
 		</div>
@@ -109,29 +123,34 @@ footer {
 	<!-- Google CDN jQuery with fallback to local -->
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="../js/minified/jquery-1.11.0.min.js"><\/script>')</script>
+	<script>
+		window.jQuery
+				|| document
+						.write(
+								'<script src="../js/minified/jquery-1.11.0.min.js"><\/script>')
+	</script>
 	<!-- custom scrollbar plugin -->
 	<script
 		src="/malihu-custom-scrollbar-plugin-master/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script>
-		(function($){
-			$(window).on("load",function(){
-				
-				$("#content-1").mCustomScrollbar({
-					autoHideScrollbar:true,
-					scrollInertia: 60
-				});
-				$("#content-2").mCustomScrollbar({
-					autoHideScrollbar:true,
-					scrollInertia: 60
-				});
-				$("#content-3").mCustomScrollbar({
-					autoHideScrollbar:true,
-					scrollInertia: 60
-				});
-				
-			});
-		})(jQuery);
+		(function($) {
+							$(window).on("load", function() {
+
+								$("#content-1").mCustomScrollbar({
+									autoHideScrollbar : true,
+									scrollInertia : 60
+								});
+								$("#content-2").mCustomScrollbar({
+									autoHideScrollbar : true,
+									scrollInertia : 60
+								});
+								$("#content-3").mCustomScrollbar({
+									autoHideScrollbar : true,
+									scrollInertia : 60
+								});
+
+							});
+						})(jQuery);
 	</script>
 </body>
 </html>
