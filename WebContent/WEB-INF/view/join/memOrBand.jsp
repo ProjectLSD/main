@@ -14,14 +14,14 @@
 }
 
 .button4 {
-	background-color: white;
-	color: black;
-	border: 2px solid #555555;
+	border: 2px;
+	background: #23232c;
+	color: #fff;
 }
 
 .button4:hover {
-	background-color: #555555;
-	color: white;
+	background: #fff;
+	color: #000;
 }
 
 .modal-header, h4, .close {
