@@ -28,7 +28,8 @@ public class BoardController {
       ModelAndView mav = new ModelAndView();
       List li = bs.readSomePage(p);
       mav.addObject("data", li);
-      System.out.println(li);
+      List<Board> b = bs.getNotify();
+      mav.addObject("notify",b);
       mav.addObject("p",p);
       System.out.println("p="+p);
       mav.addObject("last",bs.calcLast());
@@ -63,7 +64,9 @@ public class BoardController {
    public ModelAndView insertVisit(Board vb, HttpSession session) {
       ModelAndView mav = new ModelAndView();
       String id = (String) session.getAttribute("userId");
-
+      if(id.equals("admin")){
+    	  vb.setType("°øÁö");
+      }
       System.out.println(vb.getComments() + "/" + vb.getLikes() + "/" + vb.getNum() + "/" + vb.getSubject() + "/"
             + vb.getViewcount() + "/" + vb.getWriter()+ "/" + vb.getType());
       boolean flag = bs.insert(id, vb);

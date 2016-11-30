@@ -20,14 +20,16 @@
          </tr>
       </thead>
       <tbody>
+         <c:forEach items="${notify}" var="n" begin="0" end="0">
          <tr style="color: black;" class="success">
-            <td>16-11-15</td>
-            <td>1</td>
-            <td><button type="button" class="btn btn-default" style="padding:5px; font-size: 11px;"><b>공지</b></button></td>
-            <td>뭘 처다보노?? 염탐하지마라</td>
-            <td>jjs01</td>
-            <td>183</td>
+           <td style="width: 80px;"><fmt:formatDate value="${n.writedate}" pattern="yy-MM-dd" /></td>
+           <td style="width: 50px;">${n.likes}</td>
+           <td style="width: 60px;"><button type="button" class="btn btn-default" style="padding:5px; font-size: 11px;"><b>${n.type}</b></button></td>
+           <td><a style="color: black;" href="/board/view?num=${n.num}">${n.subject}</a></td>
+           <td>${n.writer}</td>
+           <td>${n.viewcount}</td>
          </tr>
+         </c:forEach>
          <c:forEach items="${data}" var="b">
             <tr>
                <td style="width: 80px;"><fmt:formatDate value="${b.WRITEDATE}" pattern="yy-MM-dd" /></td>

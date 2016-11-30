@@ -102,4 +102,11 @@ public class BoardService {
 		return flag;
 	}
 	// 게시판 삭제
+	
+	public List<Board> getNotify(){
+		SqlSession sql = fac.openSession();
+		List<Board> b = sql.selectList("board.getNotify");
+		sql.close();
+		return b;
+	}
 }
