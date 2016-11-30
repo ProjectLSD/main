@@ -5,11 +5,11 @@
 
 
 <!--  -->
+<h2 style="color: silver; font-style: oblique;">Band Chart</h2>
 	<div class="table-responsive">
 		<table class="table">
 			<thead>
 				<tr>
-					<th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
 					<th>rank</th>
 					<th>artist</th>
 					<th>e-mail</th>
@@ -19,7 +19,6 @@
 			<tbody>
 				<c:forEach var="obj" items="${data }" varStatus="status">
 					<tr>
-						<td><input type="checkbox" name="chk"></td>
 						<td>${status.count }</td>
 						<td>${obj.ID}</td>
 						<td>${obj.EMAIL}</td>

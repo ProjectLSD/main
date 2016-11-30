@@ -12,7 +12,7 @@
     <span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a data-toggle="tab" href="#pop">pop</a></li>
-      <li><a data-toggle="tab" href="#lock">lock</a></li>
+      <li><a data-toggle="tab" href="#Rock">Rock</a></li>
       <li><a data-toggle="tab" href="#jazz">jazz</a></li>
       <li><a data-toggle="tab" href="#hiphop">hiphop</a></li>
       <li><a data-toggle="tab" href="#country">country</a></li>
@@ -78,7 +78,7 @@
             </table>
          </div>
   </div>
-  <div id="lock" class="tab-pane fade">
+  <div id="Rock" class="tab-pane fade">
     <div class="table-responsive">
             <table class="table">
                <thead>
@@ -92,7 +92,7 @@
                   </tr>
                </thead>
                <tbody>
-                  <c:forEach var="obj" items="${lock }" varStatus="status">
+                  <c:forEach var="obj" items="${Rock }" varStatus="status">
                      <tr>
                         <td><input type="checkbox" name="chk"></td>
                         <td>${status.count }</td>

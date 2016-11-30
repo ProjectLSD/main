@@ -67,4 +67,9 @@ public class rootcontroller {
 		
 		return "tm:login/success";
 	}
+	
+	@RequestMapping("/intro/intro")
+	public String intro(){
+		return "tm:introduce/introduce";
+	}
 }

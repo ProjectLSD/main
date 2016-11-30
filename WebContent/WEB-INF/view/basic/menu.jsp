@@ -142,10 +142,10 @@
 		</c:choose>
 	</div>
 	<ul class="nav nav-pills nav-stacked">
-		<li><a href="/top/chart"><span
-				class="glyphicon glyphicon-send"></span> Introduce</a></li>
 		<li><a href="/chart/all"><span
 				class="glyphicon glyphicon-thumbs-up"></span> Hot Chart</a></li>
+		<li><a href="/intro/intro"><span
+				class="glyphicon glyphicon-send"></span> agreement of utilization</a></li>
 				<br>
 	</ul>
 	<hr />
