@@ -10,7 +10,7 @@
    <hr />
    <table class="table">
       <thead>
-         <tr>
+         <tr style="background-color: #434354">
             <th><p class="glyphicon glyphicon-time"></p></th>
             <th><p class="glyphicon glyphicon-thumbs-up"></p></th>
             <th><p class="glyphicon glyphicon-search"></p></th>
@@ -21,11 +21,11 @@
       </thead>
       <tbody>
          <c:forEach items="${notify}" var="n" begin="0" end="0">
-         <tr style="color: black;" class="success">
+         <tr style="color:white;background-color: #1e1e26">
            <td style="width: 80px;"><fmt:formatDate value="${n.writedate}" pattern="yy-MM-dd" /></td>
            <td style="width: 50px;">${n.likes}</td>
            <td style="width: 60px;"><button type="button" class="btn btn-default" style="padding:5px; font-size: 11px;"><b>${n.type}</b></button></td>
-           <td><a style="color: black;" href="/board/view?num=${n.num}">${n.subject}</a></td>
+           <td><a style="color:white;" href="/board/view?num=${n.num}">${n.subject}</a></td>
            <td>${n.writer}</td>
            <td>${n.viewcount}</td>
          </tr>

@@ -4,42 +4,25 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script>
 var i = 0;
-function Map() {
-	 this.elements = {};
-	 this.length = 0;
-	}
-
-	Map.prototype.put = function(key,value) {
-	 this.length++;
-	 this.elements[key] = value;
-	}
-
-
-	Map.prototype.get = function(key) {
-	 return this.elements[key];
-	}
-
-	var map = new Map();
-	map.put("name","¿ÃªÛ»∆");
 </script>
 <div class="container">
-   <h2 style="color: white;">FREE-TALK</h2>
+   <h2 style="color: white; border: 2px;">FREE-TALK</h2>
    <br />
-   <div class="panel panel-default" style="width: 700px;">
-      <div class="panel-heading">${board.subject}</div>
-      <table class="table table-bordered">
-         <tr style="color: black;">
-            <td align="center" width="30px"><span
+   <div class="panel panel-default" style="width: 700px; border: 2px;" >
+      <div class="panel-heading" style="color:white; border: 2px; background-color: #434354">${board.subject}</div>
+      <table class="table table-bordered" style=" border: 2px; background-color: #282832" >
+         <tr style="color: black; border: 2px;" >
+            <td align="center" width="30px" style="color: white; border: 2px;"><span
                class="glyphicon glyphicon-blackboard"></span></td>
-            <td><b>${board.writer}</b></td>
-            <td align="right" width="200px"><span
+            <td style="color: white; border: 2px;"><b>${board.writer}</b></td>
+            <td align="right" width="200px" style="color: white; border: 2px;"><span
                class="glyphicon glyphicon-time" style="text-align: right;"><fmt:formatDate
                      value="${board.writedate}" pattern="yyyy-MM-dd hh:mm:ss" /></span></td>
-            <td width="50px"><span class="glyphicon glyphicon-eye-open">&nbsp;${board.viewcount}</span></td>
-            <td width="50px"><span class="glyphicon glyphicon-thumbs-up">&nbsp;${board.likes}</span></td>
+            <td width="50px" style="color: white; border: 2px;"><span class="glyphicon glyphicon-eye-open">&nbsp;${board.viewcount}</span></td>
+            <td width="50px" style="color: white; border: 2px;"><span class="glyphicon glyphicon-thumbs-up">&nbsp;${board.likes}</span></td>
          </tr>
       </table>
-      <div class="panel-body">${board.comments}</div>
+      <div class="panel-body" style="color:white; border: 2px; background-color: #282832">${board.comments}</div>
    </div>
    <c:set var="user" value="${sessionScope.userId}"/>
    <div align="right" style="padding-right: 450px;">
@@ -60,8 +43,8 @@ function Map() {
    <!-- ∏Æ∫‰ ¿‘∑¬ -->
 
    <br />
-   <div class="panel panel-default" style="width: 700px;">
-      <div class="panel-heading">
+   <div class="panel panel-default" style="width: 700px; border:2px; ">
+      <div class="panel-heading" style="border:2px; background-color: #282832;">
          <input size="4" type="text" required="required" class="form-control"
             id="comments" name="review" placeholder=" ≥ªøÎ"><br /> <input
             type="button" class="btn btn-success" id="bt" value="¥Ò±€µÓ∑œ">
@@ -78,8 +61,8 @@ function Map() {
    <br /> <br />
    <div id="rv" style="display: none;">
       <c:forEach items="${review }" var="r">
-         <div class="panel panel-default" style="width: 700px;">
-            <div style="color: black;" class="panel-heading">
+         <div class="panel panel-default" style="width: 700px; margin-bottom: 5px;">
+            <div style="color: black; border: 2px;" class="panel-heading">
                <table style="table-layout: fixed; word-break: break-all;">
                   <tr style="color: black;">
                      <td width="70%">${r.writer}</td>
