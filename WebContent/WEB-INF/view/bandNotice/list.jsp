@@ -17,7 +17,7 @@
          </tr>
       </thead>
       <tbody>
-         <c:forEach items="${data}" var="b">
+         <c:forEach items="${data3}" var="b">
             <tr>
                <td style="width: 80px;"><fmt:formatDate value="${b.WRITEDATE}" pattern="yy-MM-dd" /></td>
                <td>${b.ID}</td>

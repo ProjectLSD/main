@@ -27,7 +27,7 @@ public class BoardController {
    public ModelAndView list(@RequestParam(defaultValue="1")int p) {
       ModelAndView mav = new ModelAndView();
       List li = bs.readSomePage(p);
-      mav.addObject("data", li);
+      mav.addObject("data2", li);
       List<Board> b = bs.getNotify();
       mav.addObject("notify",b);
       mav.addObject("p",p);

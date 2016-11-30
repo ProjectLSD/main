@@ -98,7 +98,7 @@ public class BandController {
 		mav.setViewName("tm:band/top");
 		List li = bs.getDesc();
 		
-		mav.addObject("data",li);
+		mav.addObject("data1",li);
 		return mav;
 		
 	}

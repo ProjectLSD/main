@@ -30,7 +30,7 @@
            <td>${n.viewcount}</td>
          </tr>
          </c:forEach>
-         <c:forEach items="${data}" var="b">
+         <c:forEach items="${data2}" var="b">
             <tr style="background-color: #282832">
                <td style="width: 80px;"><fmt:formatDate value="${b.WRITEDATE}" pattern="yy-MM-dd" /></td>
                <td style="width: 50px;">${b.LIKES}</td>

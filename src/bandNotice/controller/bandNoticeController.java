@@ -52,7 +52,7 @@ public class bandNoticeController {
 		
 		String rst = bnSrv.upLoad(map, File);
 		if(rst=="true"){
-			mav.addObject("data",map);
+			mav.addObject("data3",map);
 			mav.setViewName("tm:bandNotice/success");
 		}
 		return mav;
@@ -62,7 +62,7 @@ public class bandNoticeController {
 	   public ModelAndView list(@RequestParam(defaultValue="1")int p) {
 	      ModelAndView mav = new ModelAndView();
 	      List li = bnSrv.readSomePage(p);
-	      mav.addObject("data", li);
+	      mav.addObject("data3", li);
 	      System.out.println(li);
 	      mav.addObject("p",p);
 	      System.out.println("p="+p);
