@@ -2,21 +2,22 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<br/>
 <div style="background-color: #1e1e26">
-	<div class="thumbnail" style="height: 320px; background-color: #1e1e26">
+	<div class="thumbnail" style="border: 2px; height: 250px; background-color: #1e1e26">
 		<div style="float: left;">
-			<img src="/${imgid }" alt="Paris" width="300" height="300"
+			<img src="/${imgid }" alt="Paris" width="250" height="250"
 				style="margin-left: 0px;" />
 		</div>
 		<div
-			style="font-size: 40px; color: #c2c2ca; width: 500px; margin-left: 350px;">
-			album : ${alb }</div>
+			style="font-size: 40px; color: #c2c2ca; width: 500px; margin-left: 270px;">
+			${alb }</div>
+			<br/>
 		<div
-			style="font-size: 30px; color: #c2c2ca; width: 500px; margin-left: 350px;">
-			가수 : ${own }  &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-circle-arrow-up" title="${own }">&nbsp;</span></div>
+			style="font-size: 20px; color: #c2c2ca; width: 500px; margin-left: 270px;">
+			${own }  &nbsp;&nbsp;<span class="glyphicon glyphicon-circle-arrow-up" title="${own }">&nbsp;</span></div>
 	</div>
-	<div class="panel panel-default">
+	<div class="panel panel-default" style="margin-top: 50px; border-left: 2px; border-right: 2px; border-bottom: 2px; border-top: 2px;">
 		<table class="table" style="font-size: 18px; border: 0px;">
 			<tr style="color: #c2c2ca; background-color: #282832">
 				<td align="center" width="40px"><span

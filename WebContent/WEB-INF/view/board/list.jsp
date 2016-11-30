@@ -21,7 +21,7 @@
       </thead>
       <tbody>
          <c:forEach items="${notify}" var="n" begin="0" end="0">
-         <tr style="color:white;background-color: #1e1e26">
+         <tr style="color:white;background-color: #282832">
            <td style="width: 80px;"><fmt:formatDate value="${n.writedate}" pattern="yy-MM-dd" /></td>
            <td style="width: 50px;">${n.likes}</td>
            <td style="width: 60px;"><button type="button" class="btn btn-default" style="padding:5px; font-size: 11px;"><b>${n.type}</b></button></td>
@@ -31,7 +31,7 @@
          </tr>
          </c:forEach>
          <c:forEach items="${data}" var="b">
-            <tr>
+            <tr style="background-color: #282832">
                <td style="width: 80px;"><fmt:formatDate value="${b.WRITEDATE}" pattern="yy-MM-dd" /></td>
                <td style="width: 50px;">${b.LIKES}</td>
                <td style="width: 60px;"><button type="button" class="btn btn-default" style="padding:5px; font-size: 11px;"><b>${b.TYPE}</b></button></td>

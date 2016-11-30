@@ -46,7 +46,7 @@ var i = 0;
    <div class="panel panel-default" style="width: 700px; border:2px; ">
       <div class="panel-heading" style="border:2px; background-color: #282832;">
          <input size="4" type="text" required="required" class="form-control"
-            id="comments" name="review" placeholder=" 내용"><br /> <input
+            id="comments" name="review" placeholder=" 내용" style="border:2px; color:white; background-color:#a8a8b9;"><br /> <input
             type="button" class="btn btn-success" id="bt" value="댓글등록">
       </div>
    </div>
@@ -61,17 +61,20 @@ var i = 0;
    <br /> <br />
    <div id="rv" style="display: none;">
       <c:forEach items="${review }" var="r">
-         <div class="panel panel-default" style="width: 700px; margin-bottom: 5px;">
-            <div style="color: black; border: 2px;" class="panel-heading">
-               <table style="table-layout: fixed; word-break: break-all;">
-                  <tr style="color: black;">
-                     <td width="70%">${r.writer}</td>
-                     <td align="right" ; width="200px"><span
-                        class="glyphicon glyphicon-time" style="text-align: right;"><fmt:formatDate
-                              value="${r.writedate}" pattern="yyyy-MM-dd HH:mm:ss" /></span></td>
+         <div class="panel panel-default" style="border:2px; width: 700px; margin-bottom: 5px;">
+            <div style="border:2px; background-color:#434354; color:white; padding: 0px;" class="panel-heading">
+               <table style="width:700px; border:2px; table-layout: fixed; word-break: break-all;">
+                  <tr style="background-color:#434354; color: white;">
+                     <td style="padding: 10px;" width="70%">${r.writer}</td>
+                     <td style="padding: 10px;" align="right" ; width="200px">
+                     <span class="glyphicon glyphicon-time" style="text-align: right;">
+                     <fmt:formatDate value="${r.writedate}" pattern="yyyy-MM-dd HH:mm:ss" />
+                     </span>
+                     </td>
                   </tr>
-                  <tr style="color: black;">
-                     <td>${r.comments}</td>
+                  <tr style="color:white;background-color: #282832">
+                     <td colspan="2" style="padding: 10px;">${r.comments}</td>
+                    
                   </tr>
                </table>
             </div>
