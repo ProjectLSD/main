@@ -31,7 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<![CDATA[
 		select * from(
 		select rownum idx, t.* from
-		(select * from board order by num desc) t
+		(select * from board where type='일반'order by num desc) t
 		)where idx >=#{start} and idx <=#{end}
 		]]>
 	</select>
@@ -59,6 +59,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from review where
 		uuid=#{uuid}
 	</delete>
-
+	<select id="getNotify" resultType="board.model.Board">
+		select * from board where type='공지'order by writedate desc
+	</select>
 
 </mapper>
