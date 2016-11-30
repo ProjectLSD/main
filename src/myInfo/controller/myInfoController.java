@@ -58,7 +58,7 @@ public class myInfoController {
 	
 	@RequestMapping("/changeInfoView")
 	public String changeInfo(){
-		return "tm:info/changeInfo";
+		return "/info/changeInfo";
 	}
 	
 	
