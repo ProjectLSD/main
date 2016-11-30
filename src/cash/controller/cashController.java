@@ -22,7 +22,7 @@ public class cashController {
 		String point = cashSrv.point(id);
 		
 		mav.addObject("point",point);
-		mav.setViewName("tmmm:basic/menu");
+		mav.setViewName("tmm:basic/menu");
 		
 		return mav;
 	}

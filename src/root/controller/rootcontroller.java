@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import file.model.fileService;
 import member.model.Member;
 import member.model.MemberService;
+import myInfo.model.myInfoService;
 import root.model.RootService;
 
 @Controller
@@ -23,6 +24,9 @@ public class rootcontroller {
 	RootService rs;
 	@Autowired
 	fileService fileSrv;
+	
+	@Autowired
+	myInfoService mySrv;
 	
 	@RequestMapping("/join")
 	public String join(){
@@ -56,6 +60,10 @@ public class rootcontroller {
 		if (rs.getAllMember(id, pass, check, session) == true) {
 			session.setAttribute("userId", id);	
 			session.setAttribute("login", "true");
+			List li = mySrv.info(id);
+			
+			mav.addObject("data",li);
+			session.setAttribute("data",li);
 		}
 
 		return mav; 

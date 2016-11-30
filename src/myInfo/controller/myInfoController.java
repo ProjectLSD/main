@@ -22,18 +22,6 @@ public class myInfoController {
 	@Autowired
 	myInfoService mySrv;
 	
-	@RequestMapping("/info")
-	public ModelAndView info(HttpSession session){
-		ModelAndView mav = new ModelAndView();
-		String id = (String) session.getAttribute("userId");
-		List li = mySrv.info(id);
-		
-		mav.addObject("data",li);
-		mav.setViewName("tm:info/info");
-		return mav;
-		
-	}
-	
 	@RequestMapping("/inputPass")
 	public String inputPass(){
 		return "tm:info/inputPass";

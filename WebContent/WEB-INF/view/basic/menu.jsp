@@ -35,43 +35,43 @@
 	<h3 style="color: white;" align="center">LSD</h3>
 	<hr />
 	<c:choose>
-			<c:when test="${sessionScope.userId == 'admin'}">
-		<b style="color: red;">　　　　　　manager account</b>
-				<ul class="nav nav-pills nav-stacked">
-		<li><a href="/top/chart"><span
-				class="glyphicon glyphicon-thumbs-up"></span> Music Chart</a></li>
-		<li><a href="/band/topList"><span
-				class="glyphicon glyphicon-cd"></span> Band Chart</a></li>
-		<li><a href="/board/list"><span
-				class="glyphicon glyphicon-tags"></span> FreeTalk</a></li>	
-		<li><a href="/file/list"><span
-				class="glyphicon glyphicon-book"></span> AlbumCheck</a></li>		
-		<li><a href="/bandNotice/notice"><span
-				class="glyphicon glyphicon-bullhorn"></span> Band AD</a></li>
-				<li><a href="/"><span
-				class="glyphicon glyphicon-music"></span> Music</a></li>
-	</ul>
-			</c:when>
-			<c:otherwise>
-	
-	<ul class="nav nav-pills nav-stacked">
-		<li><a href="/top/chart"><span
-				class="glyphicon glyphicon-thumbs-up"></span> Music Chart</a></li>
-		<li><a href="/band/topList"><span
-				class="glyphicon glyphicon-cd"></span> Band Chart</a></li>
-		<li><a href="/board/list"><span
-				class="glyphicon glyphicon-tags"></span> FreeTalk</a></li>
-		<c:if test="${sessionScope.check == 'band' }">		
-		<li><a href="/file"><span
-				class="glyphicon glyphicon-book"></span> Album Register</a></li>
-		</c:if>
-		<li><a href="/bandNotice/notice"><span
-				class="glyphicon glyphicon-bullhorn"></span> Band AD</a></li>
-				<li><a href="/"><span
-				class="glyphicon glyphicon-music"></span> Music</a></li>
-	</ul>
-			</c:otherwise>
-			</c:choose>
+		<c:when test="${sessionScope.userId == 'admin'}">
+			<b style="color: red;"> manager account</b>
+			<ul class="nav nav-pills nav-stacked">
+				<li><a href="/top/chart"><span
+						class="glyphicon glyphicon-thumbs-up"></span> Music Chart</a></li>
+				<li><a href="/band/topList"><span
+						class="glyphicon glyphicon-cd"></span> Band Chart</a></li>
+				<li><a href="/board/list"><span
+						class="glyphicon glyphicon-tags"></span> FreeTalk</a></li>
+				<li><a href="/file/list"><span
+						class="glyphicon glyphicon-book"></span> AlbumCheck</a></li>
+				<li><a href="/bandNotice/notice"><span
+						class="glyphicon glyphicon-bullhorn"></span> Band AD</a></li>
+				<li><a href="/"><span class="glyphicon glyphicon-music"></span>
+						Music</a></li>
+			</ul>
+		</c:when>
+		<c:otherwise>
+
+			<ul class="nav nav-pills nav-stacked">
+				<li><a href="/top/chart"><span
+						class="glyphicon glyphicon-thumbs-up"></span> Music Chart</a></li>
+				<li><a href="/band/topList"><span
+						class="glyphicon glyphicon-cd"></span> Band Chart</a></li>
+				<li><a href="/board/list"><span
+						class="glyphicon glyphicon-tags"></span> FreeTalk</a></li>
+				<c:if test="${sessionScope.check == 'band' }">
+					<li><a href="/file"><span class="glyphicon glyphicon-book"></span>
+							Album Register</a></li>
+				</c:if>
+				<li><a href="/bandNotice/notice"><span
+						class="glyphicon glyphicon-bullhorn"></span> Band AD</a></li>
+				<li><a href="/"><span class="glyphicon glyphicon-music"></span>
+						Music</a></li>
+			</ul>
+		</c:otherwise>
+	</c:choose>
 	<hr />
 	<div align="center">
 		<c:choose>
@@ -98,7 +98,9 @@
 					<ul class="dropdown-menu dropdown-menu-right" role="menu"
 						aria-labelledby="bu">
 						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="/myInfo/info">My Info</a></li>
+							data-toggle="modal" data-target="#myModal1">My Info</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1"
+							data-toggle="modal" data-target="#myModal2">Edit My Info</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1"
 							href="/cash/controller">Point : ${point}</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1"
@@ -138,6 +140,91 @@
 					</div>
 				</div>
 
+				<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+					align="left" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+								</button>
+								<h2 style="color: silver;">My information</h2>
+							</div>
+							<form class="modal-body" action="/cash/chargePoint" method="post">
+								<h2 style="color: red;">My Point</h2>
+								<c:forEach var="obj" items="${data }">
+									<b style="color: silver;"> My ID : ${obj.ID }<br> Name
+										: ${obj.NAME }<br> E-mail : ${obj.EMAIL }<br> Phone
+										number : ${obj.PHONENUM1 } -${obj.PHONENUM2 } -${obj.PHONENUM3 }<br>
+										Point : ${obj.POINT }<br> Follow :${obj.LIKES }<br>
+									</b>
+									<hr />
+								</c:forEach>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
+									<a class="btn btn-primary" href="/myInfo/inputPass">정보수정</a>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
+					align="left" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+								</button>
+								<h2 style="color: silver;">My information</h2>
+							</div>
+							<div align="center">
+							<form action="/myInfo/changeInfoView">
+								<b style="color: silver;">비밀번호를 입력해 주세요</b> <br> <input
+									type="password" name="pass" id="pass" /> <input type="button"
+									class="btn btn-default" value="확인" onclick="button_click()" /> <br> <span
+									id="rst"></span> <br></div>
+							<div class="modal-footer">
+								<input class="btn btn-primary" type="submit" name="conf" disabled="disabled" value="정보수정"/>
+							</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<script>
+					document
+							.getElementById("pass")
+							.addEventListener(
+									"blur",
+									function() {
+										var v = document.getElementById("pass").value;
+
+										var xhr = new XMLHttpRequest();
+										xhr.open("post",
+												"/myInfo/checkPass?pass=" + v,
+												true);
+										xhr.onreadystatechange = function() {
+											if (xhr.status == 200
+													& xhr.readyState == 4) {
+												var t = xhr.responseText;
+												var html;
+												if (t == "TRUE") {
+													html = "<i style='color:green;'>비밀번호 일치</i>";
+													$("input[name=conf]").attr(
+															"disabled", false);
+
+												} else {
+													html = "<i style='color:red;'>비밀번호 불일치</i>";
+												}
+												document.getElementById("rst").innerHTML = html;
+											}
+
+										};
+										xhr.send();
+									});
+				</script>
 			</c:otherwise>
 		</c:choose>
 	</div>
@@ -146,10 +233,11 @@
 				class="glyphicon glyphicon-thumbs-up"></span> Hot Chart</a></li>
 		<li><a href="/intro/intro"><span
 				class="glyphicon glyphicon-send"></span> agreement of utilization</a></li>
-				<br>
+		<br>
 	</ul>
 	<hr />
 </div>
+
 
 
 
