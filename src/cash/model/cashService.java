@@ -13,7 +13,6 @@ public class cashService {
 	
 	 @Autowired
 	 SqlSessionFactory fac;
-	 
 	 public String point(String id){
 		 SqlSession sql = fac.openSession();
 		 String point = sql.selectOne("point.viewPoint",id);
@@ -36,6 +35,5 @@ public class cashService {
 		 }
 		 return rst;
 	 }
-	 
-	
+
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import cash.model.cashService;
 import file.model.fileService;
 import member.model.Member;
 import member.model.MemberService;
@@ -27,6 +28,9 @@ public class rootcontroller {
 	
 	@Autowired
 	myInfoService mySrv;
+	@Autowired
+	cashService cashSrv;
+	
 	
 	@RequestMapping("/join")
 	public String join(){
@@ -41,9 +45,10 @@ public class rootcontroller {
 		return"join/datasearch";
 	}
 	@RequestMapping({"/index","/"})
-	public ModelAndView index(){
+	public ModelAndView index(HttpSession session){
 		List<HashMap> map = fileSrv.readApproval();
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("map", map);
 		if (map != null) {
 			mav.addObject("map", map);
 			mav.setViewName("t:main");
@@ -56,14 +61,17 @@ public class rootcontroller {
 	@RequestMapping("/home")
 	public ModelAndView loginConfirm(String id, String pass , String check, HttpSession session) {
 		ModelAndView mav = new ModelAndView("tm:login/success");
+		
 		System.out.println("id: "+ id + " pass: "+pass+ " check: "+check);
 		if (rs.getAllMember(id, pass, check, session) == true) {
 			session.setAttribute("userId", id);	
 			session.setAttribute("login", "true");
-			List li = mySrv.info(id);
 			
+			List li = mySrv.info(id);
+			String point = cashSrv.point(session.getAttribute("userId").toString());
 			mav.addObject("data",li);
 			session.setAttribute("data",li);
+			session.setAttribute("point",point);
 		}
 
 		return mav; 

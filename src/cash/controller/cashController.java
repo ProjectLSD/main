@@ -1,6 +1,8 @@
 package cash.controller;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +17,12 @@ public class cashController {
 
 	@Autowired
 	cashService cashSrv;
+	
 	@RequestMapping("cash/controller")
 	public ModelAndView page(HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		String id = (String) session.getAttribute("userId");
 		String point = cashSrv.point(id);
-		
 		mav.addObject("point",point);
 		mav.setViewName("tmm:basic/menu");
 		
@@ -28,14 +30,14 @@ public class cashController {
 	}
 	
 	@RequestMapping("cash/chargePoint")
-	public ModelAndView chargePoint(int point,HttpSession session){
+	public ModelAndView chargePoint(int point, HttpSession session){
 		ModelAndView mav = new ModelAndView();
 		String id = (String) session.getAttribute("userId");
 		String result = cashSrv.chargeResult(point, id);
 		if(result=="true"){
-			mav.setViewName("tm:cash/success");
+			mav.setViewName("login/success");
 		}else{
-			mav.setViewName("tm:cash/fail");
+			mav.setViewName("login/success");
 		}
 		return mav;
 	}

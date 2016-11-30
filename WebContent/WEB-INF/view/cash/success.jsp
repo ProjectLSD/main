@@ -2,4 +2,4 @@
     pageEncoding="EUC-KR"%>
 
     <h2>포인트 충전 성공</h2>
-   <a href="/">홈으로</a>
+   <a href="/cash/chargePoint">홈으로</a>

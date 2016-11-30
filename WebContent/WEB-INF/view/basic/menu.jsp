@@ -102,7 +102,7 @@
 						<li role="presentation"><a role="menuitem" tabindex="-1"
 							data-toggle="modal" data-target="#myModal2">Edit My Info</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1"
-							href="/cash/controller">Point : ${point}</a></li>
+							href="/index">Point : ${point}</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1"
 							data-toggle="modal" data-target="#myModal">Point Charge</a></li>
 						<li role="presentation" class="divider"></li>
@@ -163,7 +163,6 @@
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"
 										data-dismiss="modal">Close</button>
-									<a class="btn btn-primary" href="/myInfo/inputPass">정보수정</a>
 								</div>
 							</form>
 						</div>

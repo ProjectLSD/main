@@ -18,6 +18,7 @@ public class RootService {
 
 	@Autowired
 	SqlSessionFactory fac;
+	
 	public boolean getAllMember(String id, String pass, String check, HttpSession session){
 		SqlSession sql = fac.openSession();
 		HashMap hm = new HashMap<>();
