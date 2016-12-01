@@ -17,9 +17,10 @@
 </style>
 
 <div align="center">
-	<img src="/logo.png" height="180" ; width="80%"
-		onclick="location.href='/index'" />
+	<img src="/logo4.png" height="150"; width="100%"; 
+				 onclick="location.href='/index'"/>
 </div>
+<br/>
 <form action="/file/search" style="width: 180px; padding-left: 20px;">
 	<div class="input-group" align="center">
 		<span class="input-group-btn"> <input type="text"
@@ -32,7 +33,6 @@
 	</div>
 </form>
 <div align="left">
-	<h3 style="color: white;" align="center">LSD</h3>
 	<hr />
 	<c:choose>
 		<c:when test="${sessionScope.userId == 'admin'}">
