@@ -109,22 +109,22 @@ body {
 	border-color: #2e6da4;
 }
 </style>
-<h2 style="color: white;">글올리기</h2>
+<h2 style="color: white;">Posting</h2>
 <hr />
 <div align="center">
 	<table>
 		<tr>
 			<th>
-				<div class="panel panel-default" style="width: 550px; height: auto;">
-					<div class="panel-heading">
+				<div class="panel panel-default" style="width: 550px; height: auto; border:2px;">
+					<div class="panel-heading" style="background-color:#4c4949" >
 						<form id="form1" name="form1" action="/bandNotice/reg"
 							method="post" enctype="multipart/form-data">
 							<h4>
-								<b>공연 영상</b>
+								<b>The public image</b>
 							</h4>
 							<div align="right" class="filebox bs3-primary preview-image">
 								<input class="upload-name" value="동영상 선택" disabled="disabled"
-									style="width: 440px;"> <label for="input_file">업로드</label>
+									style="width: 440px; background-color:#d0c6c6"> <label for="input_file">업로드</label>
 								<input type="file" id="input_file" name="file" class="upload-hidden" accept="video/*"> 
 							</div>
 
@@ -132,31 +132,31 @@ body {
 							<br />
 							<div class="form-group">
 								<h4>
-									<b>제목</b>
+									<b>Title</b>
 								</h4>
-								<input type="text" class="form-control" name="title" id="ti" maxlength="12"; placeholder="12글자 이하로 입력하세요">
+								<input type="text" class="form-control" name="title" id="ti" maxlength="12"; placeholder="12글자 이하로 입력하세요" style="background-color:#d0c6c6">
 							</div>
 							<h4>
-								<b>소개글</b>
+								<b>Introduced article</b>
 							</h4>
-							<textarea class="form-control" rows="5" name="text" id="ta"></textarea>
+							<textarea class="form-control" rows="5" name="text" id="ta" style="background-color:#d0c6c6" ></textarea>
 							<br />
 							<h4>
-								<b>위치 등록</b>
+								<b>Location Register</b>
 							</h4>
 							<input id="location" name="location" type="text"
-								class="form-control" style="width: 60%" readonly="readonly" />
+								class="form-control" style="width: 60%; background-color:#d0c6c6;" readonly="readonly" />
 							<input id="px" name="px" type="hidden" class="form-control"
 								style="width: 30%" /> <input id="py" name="py" type="hidden"
 								class="form-control" style="width: 30%" />
 
 							<div id="imgPick">
 								<h4>
-									<b>공연 장소 검색</b>
+									<b>Search the place show.</b>
 								</h4>
 								<!-- 구글지도 START -->
 								<input id="pac-input" class="controls" type="text"
-									placeholder="공연 장소 입력">
+									placeholder="공연 장소 입력" style="background-color:#d0c6c6">
 								<div id="mapview" style="width: 60%; height: 50%;"></div>
 								<!-- 구글지도 END -->
 							</div>
