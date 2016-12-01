@@ -1,68 +1,80 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<style>
+.panel {
+	border: 1px solid #23232c;;
+	border-radius: 0 !important;
+	transition: box-shadow 0.5s;
+}
 
-<div class="container">
+.panel:hover {
+	box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
+}
 
-   <h2 style="color: white;">밴드 홍보 게시판</h2>
-   <hr />  
-   <table class="table">
-      <thead>
-         <tr>
-            <th><p class="glyphicon glyphicon-time"></p></th>
-            <th><p class="glyphicon glyphicon-user"></p></th>
-            <th><p class="glyphicon glyphicon-pencil"></p></th>
-            <th><p class="glyphicon glyphicon-search"></p></th>
-         </tr>
-      </thead>
-      <tbody>
-         <c:forEach items="${data3}" var="b">
-            <tr>
-               <td style="width: 80px;"><fmt:formatDate value="${b.WRITEDATE}" pattern="yy-MM-dd" /></td>
-               <td>${b.ID}</td>
-               <td style="color: white;"><a href="/bandNotice/view?num=${b.NUM}">${b.TITLE}</a></td>
-            </tr>
-         </c:forEach>
+.panel-footer .btn:hover {
+	border: 1px solid #23232c;
+	background-color: #fff !important;
+	color: #23232c;
+}
 
-      </tbody>
-   </table>
+.panel-heading {
+	color: #fff !important;
+	background-color: #23232c !important;
+	padding: 10px;
+	border-bottom: 1px solid transparent;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
 
+.panel-footer {
+	background-color: white !important;
+}
+</style>
+
+<h2 style="color: white;">Band AD</h2>
+<hr />
+<div class="row slideanim">
+	<c:forEach items="${data3}" var="b">
+		<div class="col-sm-2">
+			<div class="panel panel-default text-center">
+				<div class="panel-heading">
+					<h5>
+						<strong>${b.TITLE}</strong>
+					</h5>
+				</div>
+				<div class="panel-body">
+					<p style="color: black;">
+						<strong><span class="glyphicon glyphicon-user"></span>
+							${b.ID}</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong><span
+							class="glyphicon glyphicon-eye-open"></span> ${b.NUM}</strong>
+					</p>
+					<p style="color: black;">
+						<strong><span class="glyphicon glyphicon-time"
+							style="text-align: right;"><fmt:formatDate
+									value="${b.WRITEDATE}" pattern="yyyy-MM-dd hh:mm:ss" /></span></strong>
+					</p>
+				</div>
+				<div class="panel-footer">
+					<a href="/bandNotice/view?num=${b.NUM}"><button
+							class="btn btn btn-default ">구경하기</button></a>
+				</div>
+			
+			</div></div>
+	</c:forEach>
 </div>
-<input type="button" class="btn btn-info btn-sm" value="홍보하기"
-   onclick="location.href='/baneNotice/write'" />
-<div class="container" align="center">
-   <ul class="pagination">
-      <li><a href="/bandNotice/view?p=1">≪</a></li>
-      <c:choose>
-         <c:when test="${p > 1 }">
-            <li><a href="/bandNotice/view?p=${p-1}">＜</a></li>
-         </c:when>
-         <c:otherwise>
-            <li><a href="/bandNotice/view?p=1">＜</a></li>
-         </c:otherwise>  
-      </c:choose>
-      <c:forEach var="num" begin="1" end="${last }" step="1">
-         <c:choose>  
-            <c:when test="${p==num }">
-               <li class="active"><a href="/bandNotice/view?p=${num}"> ${num }
-               </a></li>
-            </c:when>
-            <c:otherwise>
-               <li><a href="/bandNotice/view?p=${num}"> ${num } </a></li>
-            </c:otherwise>
-         </c:choose>
-      </c:forEach>
-      <c:choose>
-         <c:when test="${p < last }">
-            <li><a href="/bandNotice/view?p=${p+1}">＞</a></li>
-         </c:when>
-         <c:otherwise>
-            <li><a href="/bandNotice/view?p=${last}">></a></li>
-         </c:otherwise>
-      </c:choose>
-      <li><a href="/bandNotice/view?p=${last}">≫</a></li>
-   </ul>
 </div>
 
-	
+
+
+
+
+
+
+
+
+
