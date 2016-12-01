@@ -66,7 +66,7 @@ public class rootcontroller {
 		if (rs.getAllMember(id, pass, check, session) == true) {
 			session.setAttribute("userId", id);	
 			session.setAttribute("login", "true");
-			
+			session.setAttribute("check", check);
 			List li = mySrv.info(id);
 			String point = cashSrv.point(session.getAttribute("userId").toString());
 			mav.addObject("data",li);

@@ -46,7 +46,7 @@ var i = 0;
    <div class="panel panel-default" style="width: 700px; border:2px; ">
       <div class="panel-heading" style="border:2px; background-color: #282832;">
          <input size="4" type="text" required="required" class="form-control"
-            id="comments" name="review" placeholder=" 내용" style="border:2px; color:white; background-color:#a8a8b9;"><br /> <input
+            id="comments" name="review" placeholder=" 내용" style="border:2px; color:white; background-color: #a8a8b9;"><br /> <input
             type="button" class="btn btn-success" id="bt" value="댓글등록">
       </div>
    </div>

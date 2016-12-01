@@ -203,9 +203,14 @@ public class fileService {
 		return li;
 	}
 	
-	public int pointSum(String id){
+	public int pointSum(String id, String check){
 		SqlSession sql = fac.openSession();
-		int rst = sql.selectOne("member.point",id);
+		int rst=0;
+		if(check.equals("basic")){
+		rst = sql.selectOne("member.point",id);
+		}else if(check.equals("band")){
+		rst	= sql.selectOne("band.point",id);
+		}
 		sql.close();
 		return rst;
 	}

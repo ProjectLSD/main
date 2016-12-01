@@ -25,4 +25,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from band order by likes desc
 	</select>
 	
+	<select id="point" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select point from band where id =#{id}
+	</select>
+	
 </mapper>

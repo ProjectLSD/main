@@ -12,15 +12,15 @@
 			<input type="hidden" name="num" value="${board.num }" />
 	</c:otherwise>
 </c:choose>
-<div class="panel panel-default" style="width: 700px;">
-	<div class="panel-heading">
-		<input size="4" type="text" required="required" id="subject"
+<div class="panel panel-default" style="border:2px; width: 700px;">
+	<div class="panel-heading" style="border:2px; background-color: #434354;">
+		<input style="border: 2px;color:white; background-color: #a8a8b9 " size="4" type="text" required="required" id="subject"
 			class="form-control" name="subject" placeholder=" 제목">
 	</div>
 </div>
-<div class="panel panel-default" style="width: 700px; height: 370px;">
-	<div class="panel-heading">
-		<textarea name="comments" id="comments" rows="15" cols="92"
+<div class="panel panel-default" style="border:2px; width: 700px; height: 370px;">
+	<div class="panel-heading" style="border:2px; background-color: #282832; height: 370px;">
+		<textarea style="color:white; background-color: #a8a8b9;" name="comments" id="comments" rows="15" cols="92"
 			placeholder=" 내용"></textarea>
 		<br /> <input type="submit" class="btn btn-success pull-right"
 			id="bt" value="등록">

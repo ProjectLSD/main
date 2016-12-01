@@ -9,19 +9,26 @@
 <c:if test="${sessionScope.PlayList ne null }">
 	<c:forEach items="${sessionScope.PlayList }" var="li" begin="0"
 		end="${sessionScope.PlayList.size() }" varStatus="status">
-		<div align="left" style="background-color: #333340;width: 200px; 
+		<div align="left" style="background-color: #333340;width: 240px; 
 		overflow:hidden;white-space:nowrap; text-overflow:ellipsis;margin-bottom: 6px; padding-top: 8px;padding-left: 5px;">
 			<span > <img src="/${li.IMGUUID }"
 				id="${status.count}" class="img-circle play" alt="Cinque Terre"
 				style="width: 40px; height: 40px; float: left;">
 			</span> <span>
 				<div style="width: 200px; height: 50px; color: #b8c2c0;">
-					<b>&nbsp; ${li.ALBUM }</b><br />
+					<b>&nbsp; <a href="#" id="album${status.count}" style="font-size: 12px;" title="${li.ALBUM }">${li.ALBUM }</a></b><br />
 					&nbsp;&nbsp;<a href="#" id="filename${status.count}" style="font-size: 12px;" title="${li.FILENAME }">${li.FILENAME }</a>
 					<script>
-						var subfile = $("#filename"+"${status.count}").text().substring( 0, 13 );
-						console.log(subfile);
+						var alsize = "${li.ALBUM}".length;
+						if(alsize>20){
+						var subalbum = $("#album"+"${status.count}").text().substring( 0, 20 );
+						$("#album"+"${status.count}").text(subalbum+"...");
+						}
+						var filsize = "${li.FILENAME}".length;
+						if(filsize>20){
+						var subfile = $("#filename"+"${status.count}").text().substring( 0, 20 );
 						$("#filename"+"${status.count}").text(subfile+"...");
+						}
 					</script>	
 				</div> <b id="music${status.count}" hidden="music">${li.FILEUUID }</b>
 			</span>

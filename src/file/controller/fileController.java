@@ -8,6 +8,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.text.Document;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,6 +70,7 @@ public class fileController {
 	@RequestMapping("/file/down")
 	public ModelAndView downReqResolve(int filenum, HttpSession session) {
 		String id = (String) session.getAttribute("userId");
+		String check = (String) session.getAttribute("check");
 		HashMap map = fileSrv.readDownTarget(filenum);
 		ModelAndView mav = new ModelAndView();
 		if (map == null) {
@@ -77,7 +79,7 @@ public class fileController {
 			if (id == null) {
 				mav.setViewName("file/fail");
 			} else {
-				int point = fileSrv.pointSum(id);
+				int point = fileSrv.pointSum(id,check);
 				if (point <= 0) {
 					mav.setViewName("tm:member/noPoint");
 				} else {
