@@ -83,6 +83,7 @@ public class rootcontroller {
 	public String logout(HttpSession session){
 		System.out.println(session.getAttribute("userId"));
 		session.removeAttribute("userId");
+		session.removeAttribute("check");
 		
 		return "tm:login/success";
 	}
