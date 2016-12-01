@@ -53,8 +53,7 @@
 			</ul>
 		</c:when>
 		<c:otherwise>
-
-			<ul class="nav nav-pills nav-stacked">
+			<ul class="nav nav-pills nav-stacked" >
 				<li><a href="/top/chart"><span
 						class="glyphicon glyphicon-thumbs-up"></span> Music Chart</a></li>
 				<li><a href="/band/topList"><span
@@ -95,8 +94,7 @@
 							<span class="glyphicon glyphicon-list"></span>
 						</h4>
 					</button>
-					<ul class="dropdown-menu dropdown-menu-right" role="menu"
-						aria-labelledby="bu">
+					<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="bu" style="background-color:black;" >
 						<li role="presentation"><a role="menuitem" tabindex="-1"
 							data-toggle="modal" data-target="#myModal1">My Info</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1"
