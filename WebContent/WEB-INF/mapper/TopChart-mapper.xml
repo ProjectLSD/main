@@ -17,11 +17,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where rownum <=10 AND genre='pop'
 	]]>
 	</select>
-	<select id="toplock" resultType="java.util.HashMap">
+	<select id="toprock" resultType="java.util.HashMap">
 	<![CDATA[
 		select rownum, temp.* from
    		(select * from fileupload order by count desc) temp 
-		where rownum <=10 AND genre='lock'
+		where rownum <=10 AND genre='rock'
 	]]>
 	</select>
 	<select id="topjazz" resultType="java.util.HashMap">

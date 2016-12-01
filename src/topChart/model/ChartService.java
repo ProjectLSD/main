@@ -25,9 +25,9 @@ public class ChartService {
 		sql.close();
 		return list;
 	}
-	public List readTopLock() {
+	public List readTopRock() {
 		SqlSession sql = fac.openSession();
-		List list = sql.selectList("topchart.toplock");
+		List list = sql.selectList("topchart.toprock");
 		sql.close();
 		return list;
 	}   

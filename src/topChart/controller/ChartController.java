@@ -20,7 +20,7 @@ public class ChartController {
 		mav.setViewName("tm:chart/chart");
 		mav.addObject("top", CSrv.readTopChart());
 		mav.addObject("pop", CSrv.readTopPop());
-		mav.addObject("lock", CSrv.readTopLock());
+		mav.addObject("rock", CSrv.readTopRock());
 		mav.addObject("jazz", CSrv.readTopJazz());
 		mav.addObject("hiphop", CSrv.readTopHiphop());
 		mav.addObject("country", CSrv.readTopCountry());
