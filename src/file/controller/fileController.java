@@ -79,7 +79,7 @@ public class fileController {
 			} else {
 				int point = fileSrv.pointSum(id);
 				if (point <= 0) {
-					mav.setViewName("memeber/noPoint");
+					mav.setViewName("tm:member/noPoint");
 				} else {
 					int rst = fileSrv.usePoint(id);
 					mav.setViewName("fileDown");
