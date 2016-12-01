@@ -34,8 +34,23 @@ public class myInfoService {
 
 	public boolean checkPass(String pass, String id) {
 		SqlSession sql = fac.openSession();
+		System.out.println("ChPP!!!!!");
+		List li = sql.selectList("myInfo.infoMember", id);
+		System.out.println(li.toString());
+		String r="";
+		String rst="";
+		if(li.toString()=="[]"){
+			r="band";
+		}else{
+			r="member";
+		}
+		
 		boolean result;
-		String rst = sql.selectOne("member.selectPass", id);
+		if(r=="member"){
+			rst = sql.selectOne("member.selectPass", id);
+		}else{
+			rst = sql.selectOne("band.selectPass", id);
+		}
 		sql.close();
 
 		if (rst.equals(pass)) {
@@ -57,11 +72,21 @@ public class myInfoService {
 			map.put("phonenum3",phonenum3);
 			map.put("name",name);
 			map.put("id", id);
-		System.out.println("!");
-			int rst = sql.update("myInfo.updateMember", map);
-		System.out.println("@");
-		 System.out.println(rst);
+			int rst ;
+			List li = sql.selectList("myInfo.infoMember", id);
+			String result="";
+			if(li.toString()=="[]"){
+				result="band";
+			}else{
+				result="member";
+			}
+			if(result=="member"){
+				rst = sql.update("myInfo.updateMember", map);
+			}else{
+				rst = sql.update("myInfo.updateBand", map);
+			}
 		sql.close();
 		return rst;
 	}
+	
 }

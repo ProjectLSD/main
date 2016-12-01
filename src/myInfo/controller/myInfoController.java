@@ -33,6 +33,7 @@ public class myInfoController {
 		ModelAndView mav = new ModelAndView();
 		String id = (String) session.getAttribute("userId");
 		String rst=null;
+				
 		boolean result = mySrv.checkPass(pass, id);
 		System.out.println(result);
 		if(result){
