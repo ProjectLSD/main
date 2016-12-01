@@ -24,7 +24,7 @@
 			</tr>
 		</table>
 		<div class="panel-body">${notice.TEXT}</div>
-		<div>
+		<div >
 			밴드 동영상
 			<video controls="controls" width="500" height="300">
 				<source src="/${notice.FILEUUID}">
@@ -90,5 +90,13 @@
             "origin": src,
 		    "travelMode": "TRANSIT"
 		};
+		
+		setTimeout(function() {
+	        google.maps.event.trigger(map, "resize");
+	        map.setCenter(dest);
+	        map.setZoom(default_map_zoom);
+	    }, 2000);
 	}
+	
+	
 </script>
