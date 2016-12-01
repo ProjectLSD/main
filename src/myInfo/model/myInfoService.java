@@ -34,7 +34,6 @@ public class myInfoService {
 
 	public boolean checkPass(String pass, String id) {
 		SqlSession sql = fac.openSession();
-		System.out.println("ChPP!!!!!");
 		List li = sql.selectList("myInfo.infoMember", id);
 		System.out.println(li.toString());
 		String r="";
