@@ -51,7 +51,8 @@
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>Password :</label> <input type="password"
 							required="required" class="form-control" name="pass" id="pass1"
-							placeholder="패스워드" >
+							placeholder="패스워드" ><span id="pw" style="color: red;"><i>비밀번호를
+								입력하세요</i></span>
 					</div>
 					<br />
 					<div class="form-group" style="padding-bottom: 5px;">
@@ -243,7 +244,8 @@ $("#pass2").keyup(function(){
 		if (check == "true") {
 			//alert("가입이 완료되었습니다");
 		} else {
-
+			alert("입력한 정보가 올바르지 않습니다");
+			history.go(-1);
 		}
 	}
 </script>

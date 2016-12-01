@@ -10,3 +10,6 @@
 를 주십시오.
 <br />
 (추정원인:손상된 파일 / 삭제된 파일)
+  <script type='text/javascript'>
+setTimeout("location.href='/file'",2500);
+</script>

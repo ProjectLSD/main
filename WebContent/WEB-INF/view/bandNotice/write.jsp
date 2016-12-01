@@ -165,14 +165,6 @@ body {
 							<link rel="stylesheet" href="/css/map.css" />
 							<br />
 							<hr />
-							<button type="button" class="btn  btn-default  pull-left"
-								data-dismiss="modal" onclick="location.href='/'">
-								<span class="glyphicon glyphicon-remove"
-									onclick="location.href='tm:bandNotice/list'"></span> 취소
-							</button>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 							<button class="btn  btn-default " type="reset">
 								<span class="glyphicon glyphicon-repeat"></span> 다시작성

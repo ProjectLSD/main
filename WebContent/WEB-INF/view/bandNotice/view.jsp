@@ -10,29 +10,31 @@
 
 <div class="container">
 	<h2 style="color: white;">Band</h2>
-	<br />
-	<div class="panel panel-default" style="width: 1130px; background-color:#4c4949;  border:2px; color:black;" >
+	<hr/>
+	<div class="panel panel-default" style="width: 1030px; background-color:#4c4949;  border:2px; color:black;" >
 		<div class="panel-heading" >${notice.TITLE}</div>
 		<table class="table table-bordered">
 			<tr style="color: black;">
 				<td align="center" width="30px"><span
 					class="glyphicon glyphicon-blackboard"></span></td>
-				<td><b>${notice.ID}</b></td>
-				<td align="right" width="200px"><span
+				<td><b style="color: white;">${notice.ID}</b></td>
+				<td align="right" width="200px" style="color: white;"><span
 					class="glyphicon glyphicon-time" style="text-align: right;"><fmt:formatDate
 							value="${notice.WRITEDATE}" pattern="yyyy-MM-dd hh:mm:ss" /></span></td>
 			</tr>
 		</table>
-		<div class="panel-body">${notice.TEXT}</div>
+		<div class="panel-body" style="color: white;">${notice.TEXT}</div>
 		<div >
 		<hr/>
 		
-			<h4>Band videos</h4>
-			<video controls="controls" width="1130" height="500" >
+			<h3 style="color: white;" >&lt Band videos &gt</h3>
+			<video controls="controls" width="1020px" height="500" >
 				<source src="/${notice.FILEUUID}">
 			</video>
 		</div>
+		
 		<hr/>
+			<h3 style="color: white;"><b>&lt MAP &gt</b></h3>
 		<table border="1" style="background-color: #627b86">
 		<th colspan="2"> <h2 class="glyphicon glyphicon-stats">Venues</h2>
 		<br/>

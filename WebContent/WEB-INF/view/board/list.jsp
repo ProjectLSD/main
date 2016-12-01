@@ -6,7 +6,6 @@
 <div class="container">
 
    <h2 style="color: white;">자유게시판</h2>
-   <p>우리모두 매너있게 글을 써봐요 ^^</p>
    <hr />
    <table class="table">
       <thead>
@@ -24,9 +23,9 @@
          <tr style="color:white;background-color: #282832">
            <td style="width: 80px;"><fmt:formatDate value="${n.writedate}" pattern="yy-MM-dd" /></td>
            <td style="width: 50px;">${n.likes}</td>
-           <td style="width: 60px;"><button type="button" class="btn btn-default" style="padding:5px; font-size: 11px;"><b>${n.type}</b></button></td>
+           <td style="width: 60px;"><button type="button" class="btn btn-danger" style="padding:5px; font-size: 11px;"><b>${n.type}</b></button></td>
            <td><a style="color:white;" href="/board/view?num=${n.num}">${n.subject}</a></td>
-           <td>${n.writer}</td>
+           <td>${n.writer}</td>	
            <td>${n.viewcount}</td>
          </tr>
          </c:forEach>
