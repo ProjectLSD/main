@@ -120,7 +120,7 @@ body {
 								<b>앨범명</b>
 							</h4>
 							<input type="text" class="form-control" id="album"
-								placeholder="일범명 입력 13자 이하" name="album" maxlength="13"
+								placeholder="일범명 입력 50자 이하" name="album" maxlength="50"
 								size="1px;"> <br /> <span id="albumtxt"
 								style="color: red;"></span>
 							<h4>
