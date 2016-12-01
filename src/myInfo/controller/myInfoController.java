@@ -61,7 +61,7 @@ public class myInfoController {
 		if(r==1){
 			mav.setViewName("tm:login/success");
 		}else{
-			mav.setViewName("/err.jsp");
+			mav.setViewName("/err");
 		}
 		return mav;
 	}
