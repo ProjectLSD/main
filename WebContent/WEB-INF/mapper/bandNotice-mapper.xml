@@ -10,12 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getPart" resultType="java.util.HashMap"
 		parameterType="java.util.HashMap">
-		<![CDATA[
-		select * from(
-		select rownum idx, t.* from
-		(select * from bandNotice order by num desc) t
-		)where idx >=#{start} and idx <=#{end}
-		]]>
+		select * from bandnotice
 	</select>
 
 

@@ -14,11 +14,6 @@
 	box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
 }
 
-.panel-footer .btn:hover {
-	border: 1px solid #23232c;
-	background-color: #fff !important;
-	color: #23232c;
-}
 
 .panel-heading {
 	color: #fff !important;
@@ -38,36 +33,34 @@
 
 <h2 style="color: white;">Band AD</h2>
 <hr />
-<div class="row slideanim">
-	<c:forEach items="${data3}" var="b">
-		<div class="col-sm-2">
-			<div class="panel panel-default text-center">
-				<div class="panel-heading">
-					<h5>
-						<strong>${b.TITLE}</strong>
-					</h5>
-				</div>
-				<div class="panel-body">
-					<p style="color: black;">
-						<strong><span class="glyphicon glyphicon-user"></span>
-							${b.ID}</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong><span
-							class="glyphicon glyphicon-eye-open"></span> ${b.NUM}</strong>
-					</p>
-					<p style="color: black;">
-						<strong><span class="glyphicon glyphicon-time"
-							style="text-align: right;"><fmt:formatDate
-									value="${b.WRITEDATE}" pattern="yyyy-MM-dd hh:mm:ss" /></span></strong>
-					</p>
-				</div>
-				<div class="panel-footer">
-					<a href="/bandNotice/view?num=${b.NUM}"><button
-							class="btn btn btn-default ">구경하기</button></a>
-				</div>
-			
-			</div></div>
-	</c:forEach>
-</div>
-</div>
+<c:forEach items="${data3}" var="b">
+	<div class="col-sm-2" style="margin: 1%;">
+		<div class="panel panel-default text-center">
+			<div class="panel-heading">
+				<h5>
+					<strong>${b.TITLE}</strong>
+				</h5>
+			</div>
+			<div class="panel-body">
+				<p style="color: black;">
+					<strong><span class="glyphicon glyphicon-user"></span>
+						${b.ID}</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong><span
+						class="glyphicon glyphicon-eye-open"></span> ${b.NUM}</strong>
+				</p>
+				<p style="color: black;">
+					<strong><span class="glyphicon glyphicon-time"
+						style="text-align: right;"></span> <fmt:formatDate
+								value="${b.WRITEDATE}" pattern="yyyy-MM-dd" /></strong>
+				</p>
+			</div>
+			<div class="panel-footer">
+				<a href="/bandNotice/view?num=${b.NUM}"><button
+						class="btn btn btn-default ">구경하기</button></a>
+			</div>
+
+		</div>
+	</div>
+</c:forEach>
 
 
 

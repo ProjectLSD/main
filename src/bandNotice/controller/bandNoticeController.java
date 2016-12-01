@@ -66,8 +66,6 @@ public class bandNoticeController {
 	      System.out.println(li);
 	      mav.addObject("p",p);
 	      System.out.println("p="+p);
-	      mav.addObject("last",bnSrv.calcLast());
-	      mav.addObject("size",bnSrv.getTotalCount());
 	      mav.setViewName("tm:bandNotice/list");
 	      return mav;
 	   }
