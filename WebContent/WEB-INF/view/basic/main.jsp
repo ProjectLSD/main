@@ -70,10 +70,10 @@
 									</div>
 								</div> <img src="${ob.IMGUUID}" alt="${ob.IMGNAME}"
 								class="img-responsive"
-								style=" width: auto; height: 200px; left: 0; top: 0">
+								style="max-width: auto; height: 200px; left: 0; top: 0">
 							</a>
 							<p>
-								<strong style="color: white;">${ob.OWNER }</strong>
+								<strong style=" color: white;">${ob.OWNER }</strong>
 							</p>
 							<p style="color: white;">${ob.ALBUM }</p>
 						</div>
