@@ -8,10 +8,10 @@
 <script type="text/javascript" src="/js/map.js"></script>
 
 
-<div class="container" style="background-color:#4c4949">
+<div class="container">
 	<h2 style="color: white;">Band</h2>
 	<br />
-	<div class="panel panel-default" style="width: 700px;">
+	<div class="panel panel-default" style="width: 1130px; background-color:#4c4949;  border:2px; color:black;" >
 		<div class="panel-heading" >${notice.TITLE}</div>
 		<table class="table table-bordered">
 			<tr style="color: black;">
@@ -25,14 +25,22 @@
 		</table>
 		<div class="panel-body">${notice.TEXT}</div>
 		<div >
-			밴드 동영상
-			<video controls="controls" width="500" height="300">
+		<hr/>
+		
+			<h4>Band videos</h4>
+			<video controls="controls" width="1130" height="500" >
 				<source src="/${notice.FILEUUID}">
 			</video>
 		</div>
-		공연 장소
-		<div id="map" style="width: 500px; height: 300px; border: 1 solid;"></div>
-		${notice.LOCATION }
+		<hr/>
+		<table border="1" style="background-color: #627b86">
+		<th colspan="2"> <h2 class="glyphicon glyphicon-stats">Venues</h2>
+		<br/>
+		<hr>
+		<h4>${notice.LOCATION }</h4></th>
+		<th colspan="2"><div id="map" style="width: 800px; height: 300px; border: 1 solid;"></div></th>
+		</table>
+		<hr>
 
 	</div>
 	<c:set var="user" value="${sessionScope.userId}" />
