@@ -36,7 +36,7 @@
 	<hr />
 	<c:choose>
 		<c:when test="${sessionScope.userId == 'admin'}">
-			<b style="color: red;"> manager account</b>
+			<b style="color: red;">　　　　　 manager account</b>
 			<ul class="nav nav-pills nav-stacked">
 				<li><a href="/top/chart"><span
 						class="glyphicon glyphicon-thumbs-up"></span> Music Chart</a></li>
@@ -230,6 +230,7 @@
 				class="glyphicon glyphicon-thumbs-up"></span> Hot Chart</a></li>
 		<li><a href="/intro/intro"><span
 				class="glyphicon glyphicon-send"></span> agreement of utilization</a></li>
+		<br>
 		<br>
 	</ul>
 	<hr />
