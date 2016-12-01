@@ -46,16 +46,16 @@ public class BandController {
 	@RequestMapping("/input")
 	public ModelAndView input(Band b){
 		ModelAndView mav = new ModelAndView();
-		
-		System.out.println(b.getId()+"/"+b.getPass()+"/"+b.getEmail()+"/"+b.getPhonenum1()
-							+"/"+b.getPhonenum2()+"/"+b.getPhonenum3()+"/"+b.getName());
-		
+		if(b.getPass().length()<8){
+			mav.setViewName("/err");
+		}else{
 		int r=0;
 		r+=bs.Input(b);
 		if(r==1){
 			mav.setViewName("tm:login/success");
 		}else{
-			mav.setViewName("/err.jsp");
+			mav.setViewName("/err");
+		}
 		}
 		return mav;
 	}

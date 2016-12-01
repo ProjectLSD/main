@@ -46,14 +46,17 @@ public class MemberController {
 	@RequestMapping("/input")
 	public ModelAndView input(Member m){
 		ModelAndView mav = new ModelAndView();
-		
+		if(m.getPass().length()<8){
+			mav.setViewName("/err");
+		}else{
 		int r=0;
 		r+=ms.Input(m);
 		
 		if(r==1){
 			mav.setViewName("tm:login/success");
 		}else{
-			mav.setViewName("/err.jsp");
+			mav.setViewName("/err");
+		}
 		}
 		return mav;
 	}

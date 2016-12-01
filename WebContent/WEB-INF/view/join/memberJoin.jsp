@@ -92,8 +92,8 @@
 							<option>017</option>
 							<option>018</option>
 							<option>019</option>
-						</select> <input type="text" class="form-control" name="phonenum2"
-							maxlength="4" size="1px;"> <input type="text"
+						</select> <input type="text" required="required" class="form-control" name="phonenum2"
+							maxlength="4" size="1px;"> <input type="text" required="required"
 							class="form-control" name="phonenum3" maxlength="4" size="1px;"><br />
 					</div>
 					<div class="modal-footer">
@@ -101,8 +101,8 @@
 							data-dismiss="modal" onclick="location.href='/join'">
 							<span class="glyphicon glyphicon-remove"></span>취소
 						</button>
-						<input type="submit" class="btn btn-default btn-success" name="join"
-							value="가입하기" onclick="join_click()"/>
+						<input type="submit" id="subbt" disabled="disabled" class="btn btn-default btn-success" 
+						name="join" value="가입하기" />
 					</div>
 				</form>
 			</div>
@@ -231,6 +231,7 @@ $("#pass2").keyup(function(){
 		if (conf == num) {
 			alert("인증이 완료되었습니다");
 			document.getElementById("check").value = true;
+			$("#subbt").attr("disabled",false);
 		} else {
 			alert("인증 번호가 틀립니다.");
 			document.getElementById("check").value = false;
@@ -240,7 +241,7 @@ $("#pass2").keyup(function(){
 	function join_click() {
 		var check = document.getElementById("check").value;
 		if (check == "true") {
-			alert("가입이 완료되었습니다");
+			//alert("가입이 완료되었습니다");
 		} else {
 
 		}
