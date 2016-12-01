@@ -32,6 +32,7 @@
 </style>
 
 <h2 style="color: white;">Band AD</h2>
+<button class="btn btn btn-default" onclick="location.href='/baneNotice/write'"; style="background-color: red;">Register public relations</button>
 <hr />
 <c:forEach items="${data3}" var="b">
 	<div class="col-sm-2" style="margin: 1%; width:18%;height: 100%;" >
@@ -55,12 +56,14 @@
 			</div>
 			<div class="panel-footer">
 				<a href="/bandNotice/view?num=${b.NUM}"><button
-						class="btn btn btn-default ">구경하기</button></a>
+						class="btn btn btn-default ">Watching</button></a>
 			</div>
 
 		</div>
 	</div>
 </c:forEach>
+
+			
 
 
 

@@ -185,7 +185,6 @@ body {
 		</tr>
 	</table>
 </div>
-
 <script
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT0Mp7oBqIMB38egvlesA8j9uf6nYdEeE&libraries=places&callback=initAutocomplete"
 	async defer></script>
