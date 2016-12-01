@@ -81,8 +81,6 @@
 					onclick="location.href='/join'">Sign Up</button>
 			</c:when>
 			<c:otherwise>
-
-
 				<div class="dropdown">
 					<i class="glyphicon glyphicon-user"
 						style="font-size: 48px; color: lightblue; margin-top: 15px; margin-bottom: 0px;"></i>
@@ -94,7 +92,7 @@
 							<span class="glyphicon glyphicon-list"></span>
 						</h4>
 					</button>
-					<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="bu" style="background-color:black;" >
+					<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="bu" style="background-color:silver;" >
 						<li role="presentation"><a role="menuitem" tabindex="-1"
 							data-toggle="modal" data-target="#myModal1">My Info</a></li>
 						<li role="presentation"><a role="menuitem" tabindex="-1"
@@ -236,12 +234,12 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
+		<br/>
 	<ul class="nav nav-pills nav-stacked">
 		<li><a href="/chart/all"><span
 				class="glyphicon glyphicon-thumbs-up"></span> Hot Chart</a></li>
 		<li><a href="/intro/intro"><span
 				class="glyphicon glyphicon-send"></span> agreement of utilization</a></li>
-		<br>
 		<br>
 	</ul>
 	<hr />

@@ -58,7 +58,7 @@
 			</c:when>
 			<c:otherwise>
 				<div id="imgDiv" class="col-sm-2" align="center"
-					style="position: relative; padding-bottom: 20%; margin: 1%;">
+					style="position: relative; padding-bottom: 25%; margin: 1%;">
 					<div class="row">
 						<div class="col-md-4 col-sm-6 portfolio-item"
 							style="background-color: #23232c; position: absolute; width: 100%; height: 100%; border: 0px; padding: 0px;">

@@ -34,7 +34,7 @@
 <h2 style="color: white;">Band AD</h2>
 <hr />
 <c:forEach items="${data3}" var="b">
-	<div class="col-sm-2" style="margin: 1%;">
+	<div class="col-sm-2" style="margin: 1%; width:18%;height: 100%;" >
 		<div class="panel panel-default text-center">
 			<div class="panel-heading">
 				<h5>

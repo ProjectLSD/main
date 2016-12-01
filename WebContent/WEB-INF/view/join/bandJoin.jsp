@@ -63,7 +63,8 @@
 					<br />
 					<div class="form-group" style="padding-bottom: 5px;">
 						<label>Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <input
-							type="text" class="form-control" name="name" id="name" placeholder="이름">
+							type="text" class="form-control" name="name" id="name"
+							placeholder="이름">
 					</div>
 					<br />
 					<div class="form-group" style="padding-bottom: 5px;">
@@ -112,127 +113,128 @@
 <input type="hidden" id="num" />
 <input type="hidden" id="check" />
 <script>
-//아이디가 없을때 리턴
-$("#pass1").keyup(function () {
-	var pass1 = $("#pass1").val();
-	var pass2 = $("#pass2").val();
-	      if($("#pass1").val().length==0){
-		 $("#pw").html("<i style='color:red'>비밀번호를 입력하세요</i>");
-    }else if($("#pass1").val().length>=1){
-		 $("#pw").html("");
-	}else if(pass1!=pass2){
-		 $("#cpass").html("<i style='color:red'>비밀번호가 다릅니다</i>");
-	}else{
-		 $("#cpass").html("<i style='color:green'>비밀번호가 일치합니다</i>");
-	}
-	
-});
-$("#pass2").keyup(function () {
-	var pass1 = $("#pass1").val();
-	var pass2 = $("#pass2").val();
-	      if($("#pass1").val().length==0){
-		 $("#pw").html("<i style='color:red'>비밀번호를 입력하세요</i>");
-    }else if($("#pass1").val().length>=1){
-		 $("#pw").html("");
-	}else if(pass1!=pass2){
-		 $("#cpass").html("<i style='color:red'>비밀번호가 다릅니다</i>");
-	}else{
-		 $("#cpass").html("<i style='color:green'>비밀번호가 일치합니다</i>");
-	}
-	
-});
-	
+	//아이디가 없을때 리턴
+	$("#pass1").keyup(function() {
+		var pass1 = $("#pass1").val();
+		var pass2 = $("#pass2").val();
+		if ($("#pass1").val().length == 0) {
+			$("#pw").html("<i style='color:red'>비밀번호를 입력하세요</i>");
+		} else {
+			$("#pw").html("");
+		}
+		if (pass1 != pass2) {
+			$("#cpass").html("<i style='color:red'>비밀번호가 다릅니다</i>");
+		} else {
+			$("#cpass").html("<i style='color:green'>비밀번호가 일치합니다</i>");
+		}
 
-$("#pass1").keyup(function(){
-    var pass1 = $("#pass1").val();
-    var chk_num = pass1.search(/[0-9]/g);
-    var chk_eng = pass1.search(/[a-z]/ig);       
-           if(pass1.length < 8){
-           $("#cpass").html("<i style='color:red'> 8~20자리로 설정해주세요.</i>");
-     }else if(chk_num<0 || chk_eng<0){
-    	 $("#cpass").html("<i style='color:red'>영문,숫자로 설정해주세요</i>")            
-           }else{          
-           }  	
- });
-$("#pass2").keyup(function(){
-    var pass1 = $("#pass1").val();
-    var chk_num = pass1.search(/[0-9]/g);
-    var chk_eng = pass1.search(/[a-z]/ig);       
-           if(pass1.length < 8){
-           $("#cpass").html("<i style='color:red'> 8~20자리로 설정해주세요.</i>");
-     }else if(chk_num<0 || chk_eng<0){
-    	 $("#cpass").html("<i style='color:red'>영문,숫자로 설정해주세요</i>")            
-           }else{          
-           }  	
- });
+	});
+	$("#pass2").keyup(function() {
+		var pass1 = $("#pass1").val();
+		var pass2 = $("#pass2").val();
+		if ($("#pass1").val().length == 0) {
+			$("#pw").html("<i style='color:red'>비밀번호를 입력하세요</i>");
+		} else {
+			$("#pw").html("");
+		}
+		if (pass1 != pass2) {
+			$("#cpass").html("<i style='color:red'>비밀번호가 다릅니다</i>");
+		} else {
+			$("#cpass").html("<i style='color:green'>비밀번호가 일치합니다</i>");
+		}
 
-   document.getElementById("cid").addEventListener("keyup", function(){
-      var v =document.getElementById("cid").value;
-      var xhr = new XMLHttpRequest();
-      xhr.open("get", "/band/joinId?id="+v,true);
-      xhr.onreadystatechange=function(){
-             if(xhr.status==200&xhr.readyState==4){
-            var t =xhr.responseText;
-            var html;
-            if($("#cid").val().length==0){
-     		   html = "<i style='color:red;'>아이디를 입력하세요</i>";  
-     	   }else if(t=="TRUE") {
-               html = "<i style='color:green;'>사용가능한 아이디입니다</i>";  
-               
-            }else if(t=="FALSE"){
-               html = "<i style='color:red;'>사용중인 아이디입니다</i>";
-            }
-            document.getElementById("rst").innerHTML = html;
-         }
-         
-      };
-      xhr.send();
-   });
- 
-   
-   function button_click() {
+	});
+
+	$("#pass1").keyup(function() {
+		var pass1 = $("#pass1").val();
+		var chk_num = pass1.search(/[0-9]/g);
+		var chk_eng = pass1.search(/[a-z]/ig);
+		if (pass1.length < 8) {
+			$("#cpass").html("<i style='color:red'> 8~20자리로 설정해주세요.</i>");
+		} else if (chk_num < 0 || chk_eng < 0) {
+			$("#cpass").html("<i style='color:red'>영문,숫자로 설정해주세요</i>")
+		} else {
+		}
+	});
+	$("#pass2").keyup(function() {
+		var pass1 = $("#pass1").val();
+		var chk_num = pass1.search(/[0-9]/g);
+		var chk_eng = pass1.search(/[a-z]/ig);
+		if (pass1.length < 8) {
+			$("#cpass").html("<i style='color:red'> 8~20자리로 설정해주세요.</i>");
+		} else if (chk_num < 0 || chk_eng < 0) {
+			$("#cpass").html("<i style='color:red'>영문,숫자로 설정해주세요</i>")
+		} else {
+		}
+	});
+
+	document.getElementById("cid").addEventListener("keyup", function() {
+		var v = document.getElementById("cid").value;
+		var xhr = new XMLHttpRequest();
+		xhr.open("get", "/band/joinId?id=" + v, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.status == 200 & xhr.readyState == 4) {
+				var t = xhr.responseText;
+				var html;
+				if ($("#cid").val().length == 0) {
+					html = "<i style='color:red;'>아이디를 입력하세요</i>";
+				} else if (t == "TRUE") {
+					html = "<i style='color:green;'>사용가능한 아이디입니다</i>";
+
+				} else if (t == "FALSE") {
+					html = "<i style='color:red;'>사용중인 아이디입니다</i>";
+				}
+				document.getElementById("rst").innerHTML = html;
+			}
+
+		};
+		xhr.send();
+	});
+
+	function button_click() {
 		var email = document.getElementById("email").value;
-		if(email.length>2){
+		if (email.length > 2) {
 			alert("메일이 발송 되었습니다");
-		}else{
+		} else {
 			alert("이메일을 입력해 주세요");
 		}
-		 var xhr = new XMLHttpRequest();
-	      xhr.open("get", "/band/emailCheck?email="+email,true);
-	      xhr.onreadystatechange=function(){
-	         if(xhr.status==200&xhr.readyState==4){
-	            var t =xhr.responseText;
-	            if(t!=null) {  
-	            } else {
-	            	alert("메일 발송중 오료가 발생하였습니다.");
-	       
-	            }
-	            document.getElementById("num").value = t;  
-	        
-	         }
-	            
-	      };  
-	      xhr.send();
+		var xhr = new XMLHttpRequest();
+		xhr.open("get", "/band/emailCheck?email=" + email, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.status == 200 & xhr.readyState == 4) {
+				var t = xhr.responseText;
+				if (t != null) {
+				} else {
+					alert("메일 발송중 오료가 발생하였습니다.");
+
+				}
+				document.getElementById("num").value = t;
+
+			}
+
+		};
+		xhr.send();
 	}
-	
-   function conf_click(){
-	   var conf = document.getElementById("conf").value;
-	   var num = document.getElementById("num").value;
-	   
-	   if(conf==num){
-		   alert("인증이 완료되었습니다");
-		   document.getElementById("check").value = true;
-	   }else{
-		   alert("인증 번호가 틀립니다.");
-		   document.getElementById("check").value = false;	
-	   }
-   }
-   
-   function join_click(){
-		var check = document.getElementById("check").value;
-		if(check=="true"){
-			 alert("가입이 완료되었습니다");
-		}else{
+
+	function conf_click() {
+		var conf = document.getElementById("conf").value;
+		var num = document.getElementById("num").value;
+
+		if (conf == num) {
+			alert("인증이 완료되었습니다");
+			document.getElementById("check").value = true;
+		} else {
+			alert("인증 번호가 틀립니다.");
+			document.getElementById("check").value = false;
 		}
-   }
+	}
+
+	function join_click() {
+		var check = document.getElementById("check").value;
+		if (check == "true") {
+			alert("가입이 완료되었습니다");
+		} else {
+			alert("입력한 정보가 올바르지 않습니다")
+		}
+	}
 </script>

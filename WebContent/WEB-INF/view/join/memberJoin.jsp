@@ -114,27 +114,37 @@
 <script>
 
 //아이디가 없을때 리턴
-$("#pass1").keyup(function () {
-	var pass1 = $("#pass1").val();
-	var pass2 = $("#pass2").val();
-	if(pass1!=pass2){
-		 $("#cpass").html("<i style='color:red'>비밀번호가 다릅니다</i>");
-	}else{
-		 $("#cpass").html("<i style='color:green'>비밀번호가 일치합니다</i>");
-	}
-	
-});
-$("#pass2").keyup(function () {
-	var pass1 = $("#pass1").val();
-	var pass2 = $("#pass2").val();
-	if(pass1!=pass2){
-		 $("#cpass").html("<i style='color:red'>비밀번호가 다릅니다</i>");
-	}else{
-		 $("#cpass").html("<i style='color:green'>비밀번호가 일치합니다</i>");
-	}
-	
-});
-	
+//아이디가 없을때 리턴
+	$("#pass1").keyup(function() {
+		var pass1 = $("#pass1").val();
+		var pass2 = $("#pass2").val();
+		if ($("#pass1").val().length == 0) {
+			$("#pw").html("<i style='color:red'>비밀번호를 입력하세요</i>");
+		} else {
+			$("#pw").html("");
+		}
+		if (pass1 != pass2) {
+			$("#cpass").html("<i style='color:red'>비밀번호가 다릅니다</i>");
+		} else {
+			$("#cpass").html("<i style='color:green'>비밀번호가 일치합니다</i>");
+		}
+
+	});
+	$("#pass2").keyup(function() {
+		var pass1 = $("#pass1").val();
+		var pass2 = $("#pass2").val();
+		if ($("#pass1").val().length == 0) {
+			$("#pw").html("<i style='color:red'>비밀번호를 입력하세요</i>");
+		} else {
+			$("#pw").html("");
+		}
+		if (pass1 != pass2) {
+			$("#cpass").html("<i style='color:red'>비밀번호가 다릅니다</i>");
+		} else {
+			$("#cpass").html("<i style='color:green'>비밀번호가 일치합니다</i>");
+		}
+
+	});
 
 $("#pass1").keyup(function(){
   var pass1 = $("#pass1").val();

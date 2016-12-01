@@ -13,8 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="/css/loading.css">
+<link rel="stylesheet" href="/css/loading.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
@@ -85,9 +84,7 @@ footer {
 					<tiles:insertAttribute name="menu" />
 				</p>
 			</div>
-			<div
-				class="${sessionScope.PlayList eq null ? 'col-sm-10' : 'col-sm-8 text-left' }"
-				id="content-2" class="content"
+			<div class="col-sm-8" id="content-2" class="content"
 				style="height: 750px; max-height: 100%; padding: 5px; border: 3;">
 				<!-- 로딩중 태그 -->
 				<div id="load" class="loading-container" style="height: 100%;">
@@ -101,13 +98,11 @@ footer {
 					function loadEffect() {
 						$("#load").hide();
 						$("#loadon").fadeIn(200);
-					}	
+					}
 					setTimeout(loadEffect, 1000);
 				</script>
 			</div>
-			<div
-				class="${sessionScope.PlayList eq null ? '' : 'col-sm-2 sidenav' }"
-				id="content-3" class="content"
+			<div class="col-sm-2 sidenav" id="content-3" class="content"
 				style="height: 750px; max-height: 100%; padding: 5px; border: 3;">
 				<p>
 					<tiles:insertAttribute name="header" />

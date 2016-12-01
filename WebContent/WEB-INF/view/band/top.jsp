@@ -12,7 +12,7 @@
 				<tr>
 					<th>rank</th>
 					<th>artist</th>
-					<th>e-mail</th>
+					<th>name</th>
 					<th>like</th>
 				</tr>
 			</thead>
@@ -21,7 +21,7 @@
 					<tr>
 						<td>${status.count }</td>
 						<td>${obj.ID}</td>
-						<td>${obj.EMAIL}</td>
+						<td>${obj.NAME}</td>
 						<td>${obj.LIKES}</td>
 					</tr>
 				</c:forEach>
