@@ -8,11 +8,11 @@
 <script type="text/javascript" src="/js/map.js"></script>
 
 
-<div class="container">
+<div class="container" style="background-color:#4c4949">
 	<h2 style="color: white;">Band</h2>
 	<br />
 	<div class="panel panel-default" style="width: 700px;">
-		<div class="panel-heading">${notice.TITLE}</div>
+		<div class="panel-heading" >${notice.TITLE}</div>
 		<table class="table table-bordered">
 			<tr style="color: black;">
 				<td align="center" width="30px"><span
