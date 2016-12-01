@@ -27,7 +27,6 @@
             <table class="table">
                <thead>
                   <tr>
-                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
                      <th>rank</th>
                      <th>album</th>
                      <th>title</th>
@@ -38,7 +37,6 @@
                <tbody>
                   <c:forEach var="obj" items="${top }" varStatus="status">
                      <tr>
-                        <td><input type="checkbox" name="chk"></td>
                         <td>${status.count }</td>
                         <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
                         <td>${obj.FILENAME }</td>
@@ -55,7 +53,6 @@
             <table class="table">
                <thead>
                   <tr>
-                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
                      <th>rank</th>
                      <th>album</th>
                      <th>title</th>
@@ -66,7 +63,6 @@
                <tbody>
                   <c:forEach var="obj" items="${pop }" varStatus="status">
                      <tr>
-                        <td><input type="checkbox" name="chk"></td>
                         <td>${status.count }</td>
                         <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
                         <td>${obj.FILENAME }</td>
@@ -83,7 +79,6 @@
             <table class="table">
                <thead>
                   <tr>
-                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
                      <th>rank</th>
                      <th>album</th>
                      <th>title</th>
@@ -94,7 +89,6 @@
                <tbody>
                   <c:forEach var="obj" items="${Rock }" varStatus="status">
                      <tr>
-                        <td><input type="checkbox" name="chk"></td>
                         <td>${status.count }</td>
                         <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
                         <td>${obj.FILENAME }</td>
@@ -111,7 +105,6 @@
             <table class="table">
                <thead>
                   <tr>
-                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
                      <th>rank</th>
                      <th>album</th>
                      <th>title</th>
@@ -122,7 +115,6 @@
                <tbody>
                   <c:forEach var="obj" items="${jazz }" varStatus="status">
                      <tr>
-                        <td><input type="checkbox" name="chk"></td>
                         <td>${status.count }</td>
                         <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
                         <td>${obj.FILENAME }</td>
@@ -139,7 +131,6 @@
             <table class="table">
                <thead>
                   <tr>
-                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
                      <th>rank</th>
                      <th>album</th>
                      <th>title</th>
@@ -150,7 +141,6 @@
                <tbody>
                   <c:forEach var="obj" items="${hiphop }" varStatus="status">
                      <tr>
-                        <td><input type="checkbox" name="chk"></td>
                         <td>${status.count }</td>
                         <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
                         <td>${obj.FILENAME }</td>
@@ -167,7 +157,6 @@
             <table class="table">
                <thead>
                   <tr>
-                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
                      <th>rank</th>
                      <th>album</th>
                      <th>title</th>
@@ -178,7 +167,6 @@
                <tbody>
                   <c:forEach var="obj" items="${country }" varStatus="status">
                      <tr>
-                        <td><input type="checkbox" name="chk"></td>
                         <td>${status.count }</td>
                         <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
                         <td>${obj.FILENAME }</td>
@@ -195,7 +183,6 @@
             <table class="table">
                <thead>
                   <tr>
-                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
                      <th>rank</th>
                      <th>album</th>
                      <th>title</th>
@@ -206,7 +193,6 @@
                <tbody>
                   <c:forEach var="obj" items="${electronic }" varStatus="status">
                      <tr>
-                        <td><input type="checkbox" name="chk"></td>
                         <td>${status.count }</td>
                         <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
                         <td>${obj.FILENAME }</td>

@@ -15,12 +15,11 @@
    </ul>
    <div class="tab-content">
       <div id="bugs" class="tab-pane fade in active">
-         <h3>벅스 차트</h3>
+         <h3 style="color: white;">벅스 차트</h3>
          <div class="table-responsive">
             <table class="table">
                <thead>
                   <tr>
-                     <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
                      <th>rank</th>
                      <th>album</th>
                      <th>title</th>
@@ -30,7 +29,6 @@
                <tbody>
                   <c:forEach var="obj" items="${bugs }" varStatus="status">
                      <tr>
-                        <td><input type="checkbox" name="chk"></td>
                         <td>${status.count }</td>
                         <td><img src="${obj.album}" width="50" height="50" /></td>
                         <td>${obj.title }</td>
@@ -43,12 +41,11 @@
       </div>
 
    <div id="Mnet" class="tab-pane fade">
-   <h3>M.NET 차트</h3>
+   <h3 style="color: white;">M.NET 차트</h3>
       <div class="table-responsive">
          <table class="table">
             <thead>
                <tr>
-                  <th><input type="checkbox" name="chk_all" onclick="allChk()"></th>
                   <th>rank</th>
                   <th>album</th>
                   <th>title</th>
@@ -58,7 +55,6 @@
             <tbody>
                <c:forEach var="bugs" items="${mnet }" varStatus="status">
                   <tr>
-                     <td><input type="checkbox" name="chk"></td>
                      <td>${status.count }</td>
                      <td><img src="${bugs.img }" /></td>
                      <td>${bugs.title }</td>

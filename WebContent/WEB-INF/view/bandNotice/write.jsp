@@ -134,7 +134,7 @@ body {
 								<h4>
 									<b>제목</b>
 								</h4>
-								<input type="text" class="form-control" name="title" id="ti">
+								<input type="text" class="form-control" name="title" id="ti" maxlength="12"; placeholder="12글자 이하로 입력하세요">
 							</div>
 							<h4>
 								<b>소개글</b>
