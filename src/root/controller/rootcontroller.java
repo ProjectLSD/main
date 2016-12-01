@@ -52,7 +52,7 @@ public class rootcontroller {
 		if (map != null) {
 			mav.addObject("map", map);
 			mav.setViewName("t:main");
-		} else {
+		} else { 
 			mav.setViewName("file/error");  
 			
 		}
@@ -67,10 +67,13 @@ public class rootcontroller {
 			session.setAttribute("userId", id);	
 			session.setAttribute("login", "true");
 			session.setAttribute("check", check);
-			List li = mySrv.info(id);
+			List li = mySrv.infoMember(id);
+			List list = mySrv.infoBand(id);
 			String point = cashSrv.point(session.getAttribute("userId").toString());
 			mav.addObject("data",li);
+			mav.addObject("d",list);
 			session.setAttribute("data",li);
+			session.setAttribute("d",list);
 			session.setAttribute("point",point);
 		}
 

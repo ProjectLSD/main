@@ -16,9 +16,17 @@ public class myInfoService {
 	@Autowired
 	SqlSessionFactory fac;
 
-	public List info(String id) {
+	public List infoMember(String id) {
 		SqlSession sql = fac.openSession();
-		List li = sql.selectList("myInfo.info", id);
+		List li = sql.selectList("myInfo.infoMember", id);
+		sql.close();
+
+		return li;
+	}
+	
+	public List infoBand(String id) {
+		SqlSession sql = fac.openSession();
+		List li = sql.selectList("myInfo.infoBand", id);
 		sql.close();
 
 		return li;

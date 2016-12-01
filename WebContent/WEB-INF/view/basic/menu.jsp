@@ -150,6 +150,16 @@
 							</div>
 							<form class="modal-body" action="/cash/chargePoint" method="post">
 								<h2 style="color: red;">My Point</h2>
+								
+								<c:forEach var="ob" items="${d }">
+									<b style="color: silver;"> My ID : ${ob.ID }<br> Name
+										: ${ob.NAME }<br> E-mail : ${ob.EMAIL }<br> Phone
+										number : ${ob.PHONENUM1 } -${ob.PHONENUM2 } -${ob.PHONENUM3 }<br>
+										Point : ${ob.POINT }<br> Follow :${ob.LIKES }<br>
+									</b>
+									<hr />
+								</c:forEach>
+								
 								<c:forEach var="obj" items="${data }">
 									<b style="color: silver;"> My ID : ${obj.ID }<br> Name
 										: ${obj.NAME }<br> E-mail : ${obj.EMAIL }<br> Phone
@@ -158,6 +168,7 @@
 									</b>
 									<hr />
 								</c:forEach>
+								
 								<div class="modal-footer">
 									<button type="button" class="btn btn-default"
 										data-dismiss="modal">Close</button>
