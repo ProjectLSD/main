@@ -32,7 +32,6 @@
 </style>
 
 <h2 style="color: white;">Band AD</h2>
-<button class="btn btn btn-default" onclick="location.href='/baneNotice/write'"; style="background-color: red;">Register public relations</button>
 <hr />
 <c:forEach items="${data3}" var="b">
 	<div class="col-sm-2" style="margin: 1%; width:18%;height: 100%;" >

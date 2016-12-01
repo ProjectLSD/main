@@ -54,16 +54,16 @@
 		</c:when>
 		<c:otherwise>
 			<ul class="nav nav-pills nav-stacked" >
+			<c:if test="${sessionScope.check == 'band' }">
+					<li><a href="/file"><span class="glyphicon glyphicon-book"></span>Album Register</a></li>
+					<li><a href="/baneNotice/write"><span class="glyphicon glyphicon-cloud-upload"></span>Image registration</a></li>
+				</c:if>
 				<li><a href="/top/chart"><span
 						class="glyphicon glyphicon-thumbs-up"></span> Music Chart</a></li>
 				<li><a href="/band/topList"><span
 						class="glyphicon glyphicon-cd"></span> Band Chart</a></li>
 				<li><a href="/board/list"><span
 						class="glyphicon glyphicon-tags"></span> FreeTalk</a></li>
-				<c:if test="${sessionScope.check == 'band' }">
-					<li><a href="/file"><span class="glyphicon glyphicon-book"></span>
-							Album Register</a></li>
-				</c:if>
 				<li><a href="/bandNotice/notice"><span
 						class="glyphicon glyphicon-bullhorn"></span> Band AD</a></li>
 				<li><a href="/"><span class="glyphicon glyphicon-music"></span>
