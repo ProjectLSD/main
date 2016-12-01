@@ -92,21 +92,24 @@ body {
 	border-color: #2e6da4;
 }
 </style>
-<h2 style="color: white;">앨범 등록하기</h2>
+<div align="center">
+<h2 style="color: white;">Registration of the album</h2>
 <hr />
+<br/>
+<br/>
 <form action="/file/upload" method="post" enctype="multipart/form-data">
-	<div align="center">
+
 		<table>
 			<tr>
 				<th>
 					<div class="panel panel-default"
-						style="width: 550px; height: 480px;">
-						<div class="panel-heading">
+						style="width: 550px; height: 480px; background-color:#4c4949; border:2px;">
+						<div class="panel-heading" style="background-color:#4c4949">
 							<h4>
 								<b>앨범 장르</b>
 							</h4>
 							<div class="form-group" style="padding-bottom: 5px;">
-								<select name="genre" class="form-control">
+								<select name="genre" class="form-control" style="background-color:#d0c6c6; border:2px;">
 									<option value="">장르 선택</option>
 									<option value="pop">Pop</option>
 									<option value="rock">Rock</option>
@@ -121,14 +124,14 @@ body {
 							</h4>
 							<input type="text" class="form-control" id="album"
 								placeholder="일범명 입력 50자 이하" name="album" maxlength="50"
-								size="1px;"> <br /> <span id="albumtxt"
-								style="color: red;"></span>
+								size="1px;" style="background-color:#d0c6c6; border:2px;"> <br /> <span id="albumtxt"
+								style="color: red;" ></span>
 							<h4>
 								<b>등록할 앨범</b>
 							</h4>
-							<div align="right" class="filebox bs3-primary">
+							<div align="right" class="filebox bs3-primary" >
 								<input class="upload-name" value="등록할 앨범선택" disabled="disabled"
-									style="width: 370px;"><label for="ex_filename">업로드</label>
+									style="width: 370px; background-color:#d0c6c6; border:2px;"><label for="ex_filename" >업로드</label>
 								<input type="file" id="ex_filename" class="upload-hidden"
 									accept="audio/*" name="file">
 							</div>
@@ -139,7 +142,7 @@ body {
 								</h4>
 								<div align="right" class="filebox bs3-primary  preview-image">
 									<input class="upload-name" value="등록할 이미지 선택"
-										disabled="disabled" style="width: 370px;"> <label
+										disabled="disabled" style="width: 370px; background-color:#d0c6c6; border:2px;"> <label
 										for="input_file">업로드</label> <input type="file"
 										id="input_file" class="upload-hidden" accept="image/*"
 										name="image">
