@@ -12,7 +12,7 @@
     <span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li><a data-toggle="tab" href="#pop">pop</a></li>
-      <li><a data-toggle="tab" href="#Rock">Rock</a></li>
+      <li><a data-toggle="tab" href="#rock">rock</a></li>
       <li><a data-toggle="tab" href="#jazz">jazz</a></li>
       <li><a data-toggle="tab" href="#hiphop">hiphop</a></li>
       <li><a data-toggle="tab" href="#country">country</a></li>
@@ -74,7 +74,7 @@
             </table>
          </div>
   </div>
-  <div id="Rock" class="tab-pane fade">
+  <div id="rock" class="tab-pane fade">
     <div class="table-responsive">
             <table class="table">
                <thead>
@@ -87,7 +87,7 @@
                   </tr>
                </thead>
                <tbody>
-                  <c:forEach var="obj" items="${Rock }" varStatus="status">
+                  <c:forEach var="obj" items="${rock }" varStatus="status">
                      <tr>
                         <td>${status.count }</td>
                         <td><img src="/${obj.IMGUUID}" width="50" height="50" /></td>
