@@ -132,7 +132,8 @@ body {
 								<input type="file" id="ex_filename" class="upload-hidden"
 									accept="audio/*" name="file">
 							</div>
-							<div id="imgPick">
+							<div>
+								<div id="imgPick">
 								<h4>
 									<b>앨범 이미지</b>
 								</h4>
@@ -142,6 +143,7 @@ body {
 										for="input_file">업로드</label> <input type="file"
 										id="input_file" class="upload-hidden" accept="image/*"
 										name="image">
+								</div>
 								</div>
 								<br />
 								<hr />
@@ -158,8 +160,6 @@ body {
 								</button>
 								<input class="btn  btn-default pull-right" type="submit"
 									value="올리기" />
-
-
 							</div>
 				</th>
 			</tr>

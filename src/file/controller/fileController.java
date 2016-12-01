@@ -46,7 +46,7 @@ public class fileController {
 		System.out.println(rst);
 		if (rst) {
 
-			mav.setViewName("t:main");
+			mav.setViewName("login/success");
 		} else {
 
 			mav.setViewName("tm:file/error");
