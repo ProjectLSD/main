@@ -43,6 +43,7 @@ var i = 0;
    <!-- ¸®ºä ÀÔ·Â -->
 
    <br />
+   <c:if test="${sessionScope.userId != null }">
    <div class="panel panel-default" style="width: 700px; border:2px; ">
       <div class="panel-heading" style="border:2px; background-color: #282832;">
          <input size="4" type="text" required="required" class="form-control"
@@ -50,6 +51,7 @@ var i = 0;
             type="button" class="btn btn-success" id="bt" value="´ñ±Ûµî·Ï">
       </div>
    </div>
+   </c:if>
    <button type="button" class="btn btn-default" id="rbt"
       style="padding: 5px;">
       <h3 style="margin: 2px;">

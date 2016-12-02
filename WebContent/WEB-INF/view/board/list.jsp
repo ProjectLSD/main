@@ -44,9 +44,10 @@
    </table>
 
 </div>
-
+<c:if test="${sessionScope.userId != null }">
 <input type="button" class="btn btn-info btn-sm " value="글작성"
    onclick="location.href='/board/register'" />
+</c:if>
 <div class="container" align="center">
    <ul class="pagination">
       <li><a href="/board/list?p=1">≪</a></li>
